@@ -21,6 +21,7 @@ urxvtd &
 compton -b
 nitrogen --restore &
 tint2 &
+pytyle3 &
 synapse -s &
 dropboxd &
 qxkb &
