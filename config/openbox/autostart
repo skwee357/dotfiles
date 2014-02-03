@@ -20,10 +20,11 @@ thunar --daemon &
 urxvtd &
 compton -b
 nitrogen --restore &
-tint2 &
+#tint2 &
+xfce4-panel &
 pytyle3 &
 synapse -s &
 dropboxd &
-qxkb &
+#qxkb &
 volwheel &
 parcellite &
