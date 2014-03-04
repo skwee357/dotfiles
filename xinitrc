@@ -22,6 +22,8 @@ export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
 # exec startxfce4
 # ...or the Window Manager of your choice
 
+xset s 0 0
+xset dpms 1800 1800 1800
 numlockx &
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 exec openbox-session
