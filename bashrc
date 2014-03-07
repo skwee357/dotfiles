@@ -67,3 +67,5 @@ PROMPT_COMMAND=set_prompt
 complete -cf sudo
 
 export EDITOR="vim"
+
+PATH="${PATH}:/opt/android-sdk/tools:/opt/android-sdk/platform-tools"
