@@ -68,4 +68,4 @@ complete -cf sudo
 
 export EDITOR="vim"
 
-PATH="${PATH}:/opt/android-sdk/tools:/opt/android-sdk/platform-tools"
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
