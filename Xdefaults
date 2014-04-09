@@ -2,7 +2,9 @@
 
 URxvt.termName:rxvt-unicode
 URxvt*borderless: true
-URxvt*scrollBar: false
+URxvt*scrollBar: true
+URxvt*scrollBar_right: true
+URxvt*scrollstyle: plain
 URxvt*saveLines: 5000 
 URxvt.buffered:  true
 URxvt*cursorUnderline: true
