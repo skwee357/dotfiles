@@ -27,4 +27,4 @@ synapse -s &
 dropboxd &
 #qxkb &
 volwheel &
-parcellite &
+#parcellite &
