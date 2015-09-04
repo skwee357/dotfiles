@@ -26,4 +26,6 @@ xset s 0 0
 xset dpms 1800 1800 1800
 numlockx &
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-exec openbox-session
+#/usr/bin/start-pulseaudio-x11
+#exec openbox-session
+exec startxfce4
