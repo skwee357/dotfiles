@@ -22,9 +22,9 @@ compton -b
 nitrogen --restore &
 #tint2 &
 xfce4-panel &
-pytyle3 &
+#pytyle3 &
 synapse -s &
 dropboxd &
 #qxkb &
-volwheel &
-parcellite &
+#volwheel &
+#parcellite &
