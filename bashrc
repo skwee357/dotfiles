@@ -6,6 +6,7 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+alias ll='ls -l'
 
 source /usr/share/git/git-prompt.sh
 
@@ -69,3 +70,5 @@ complete -cf sudo
 export EDITOR="vim"
 
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+
+PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
