@@ -29,7 +29,7 @@ URxvt*background: 		#222222
 URxvt*urlLauncher: 		/usr/bin/chromium  
 URxvt*matcher.button:	1
 URxvt.font: 			xft:inconsolata:pixelsize=13
-URxvt.letterSpace: 		-1
+URxvt.letterSpace: 		0
 
 ! Base16 Default Dark
 ! Scheme: Chris Kempson (http://chriskempson.com)
@@ -51,26 +51,43 @@ URxvt.letterSpace: 		-1
 #define base0E #ba8baf
 #define base0F #a16946
 
-*.foreground:   base05
-*.background:   base00
-*.cursorColor:  base05
+!.foreground:   base05
+!.background:   base00
+!.cursorColor:  base05
 
-*.color0:       base00
-*.color1:       base08
-*.color2:       base0B
-*.color3:       base0A
-*.color4:       base0D
-*.color5:       base0E
-*.color6:       base0C
-*.color7:       base05
-*.color8:       base03
-*.color9:       base08
-*.color10:      base0B
-*.color11:      base0A
-*.color12:      base0D
-*.color13:      base0E
-*.color14:      base0C
-*.color15:      base07
+!.color0:       base00
+!.color1:       base08
+!.color2:       base0B
+!.color3:       base0A
+!.color4:       base0D
+!.color5:       base0E
+!.color6:       base0C
+!.color7:       base05
+!.color8:       base03
+!.color9:       base08
+!.color10:      base0B
+!*.color11:      base0A
+!*.color12:      base0D
+!*.color13:      base0E
+!*.color14:      base0C
+!*.color15:      base07
+
+*.color0            : #2E2E34343636
+*.color8            : #555557575353
+*.color1            : #CCCC00000000
+*.color9            : #EFEF29292929
+*.color2            : #4E4E9A9A0606
+*.color10           : #8A8AE2E23434
+*.color3            : #C4C4A0A00000
+*.color11           : #FCFCE9E94F4F
+*.color4            : #34346565A4A4
+*.color12           : #72729F9FCFCF
+*.color5            : #757550507B7B
+*.color13           : #ADAD7F7FA8A8
+*.color6            : #060698209A9A
+*.color14           : #3434E2E2E2E2
+*.color7            : #D3D3D7D7CFCF
+*.color15           : #EEEEEEEEECEC
 
 ! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
 ! use 'shell' template to set these if necessary
