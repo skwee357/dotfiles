@@ -13,7 +13,7 @@ Xft.rgba:		rgb
 !Xcursor.theme: Human
 
 URxvt.termName:			rxvt-unicode
-URxvt.geometry:			90x25
+URxvt.geometry:			80x25
 URxvt.depth:			32
 URxvt.transparent:		false
 URxvt*borderless:		false
@@ -29,6 +29,7 @@ URxvt*background: 		#222222
 URxvt*urlLauncher: 		/usr/bin/chromium  
 URxvt*matcher.button:		1
 URxvt.font: 			xft:inconsolata:pixelsize=13
+!URxvt.font:			xft:DejaVu Sans Mono:pixelsize=12
 URxvt.letterSpace: 		0
 
 ! Base16 Default Dark
