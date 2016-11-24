@@ -1,4 +1,4 @@
-7! vim: set filetype=xdefaults :
+! vim: set filetype=xdefaults :
 
 !------------------------
 ! Xft Settings
@@ -36,70 +36,111 @@ URxvt.boldFont:			xft:inconsolata:bold:pixelsize=13
 !Urxvt.boldFont:			xft:DejaVu Sans Mono:bold:pixelsize=12
 URxvt.letterSpace: 		0
 
-! Base16 Default Dark
+!*.color0            : #2E2E34343636
+!*.color8            : #555557575353
+!*.color1            : #CCCC00000000
+!*.color9            : #EFEF29292929
+!*.color2            : #4E4E9A9A0606
+!*.color10           : #8A8AE2E23434
+!*.color3            : #C4C4A0A00000
+!*.color11           : #FCFCE9E94F4F
+!*.color4            : #34346565A4A4
+!*.color12           : #72729F9FCFCF
+!*.color5            : #757550507B7B
+!*.color13           : #ADAD7F7FA8A8
+!*.color6            : #060698209A9A
+!*.color14           : #3434E2E2E2E2
+!*.color7            : #D3D3D7D7CFCF
+!*.color15           : #EEEEEEEEECEC
+
+! Base16 Bespin
+! Scheme: Jan T. Sott
+
+!#define base00 #28211c
+!#define base01 #36312e
+!#define base02 #5e5d5c
+!#define base03 #666666
+!#define base04 #797977
+!#define base05 #8a8986
+!#define base06 #9d9b97
+!#define base07 #baae9e
+!#define base08 #cf6a4c
+!#define base09 #cf7d34
+!#define base0A #f9ee98
+!#define base0B #54be0d
+!#define base0C #afc4db
+!#define base0D #5ea6ea
+!#define base0E #9b859d
+!#define base0F #937121
+
+! Base16 Hopscotch
+! Scheme: Jan T. Sott
+
+#define base00 #322931
+#define base01 #433b42
+#define base02 #5c545b
+#define base03 #797379
+#define base04 #989498
+#define base05 #b9b5b8
+#define base06 #d5d3d5
+#define base07 #ffffff
+#define base08 #dd464c
+#define base09 #fd8b19
+#define base0A #fdcc59
+#define base0B #8fc13e
+#define base0C #149b93
+#define base0D #1290bf
+#define base0E #c85e7c
+#define base0F #b33508
+
+! Base16 Mocha
 ! Scheme: Chris Kempson (http://chriskempson.com)
 
-#define base00 #181818
-#define base01 #282828
-#define base02 #383838
-#define base03 #585858
-#define base04 #b8b8b8
-#define base05 #d8d8d8
-#define base06 #e8e8e8
-#define base07 #f8f8f8
-#define base08 #ab4642
-#define base09 #dc9656
-#define base0A #f7ca88
-#define base0B #a1b56c
-#define base0C #86c1b9
-#define base0D #7cafc2
-#define base0E #ba8baf
-#define base0F #a16946
+!#define base00 #3B3228
+!#define base01 #534636
+!#define base02 #645240
+!#define base03 #7e705a
+!#define base04 #b8afad
+!#define base05 #d0c8c6
+!#define base06 #e9e1dd
+!#define base07 #f5eeeb
+!#define base08 #cb6077
+!#define base09 #d28b71
+!#define base0A #f4bc87
+!#define base0B #beb55b
+!#define base0C #7bbda4
+!#define base0D #8ab3b5
+!#define base0E #a89bb9
+!#define base0F #bb9584
 
-!.foreground:   base05
-!.background:   base00
-!.cursorColor:  base05
+*.foreground:   base05
+*.background:   base00
+*.cursorColor:  base05
 
-!.color0:       base00
-!.color1:       base08
-!.color2:       base0B
-!.color3:       base0A
-!.color4:       base0D
-!.color5:       base0E
-!.color6:       base0C
-!.color7:       base05
-!.color8:       base03
-!.color9:       base08
-!.color10:      base0B
-!*.color11:      base0A
-!*.color12:      base0D
-!*.color13:      base0E
-!*.color14:      base0C
-!*.color15:      base07
+*.color0:       base00
+*.color1:       base08
+*.color2:       base0B
+*.color3:       base0A
+*.color4:       base0D
+*.color5:       base0E
+*.color6:       base0C
+*.color7:       base05
 
-*.color0            : #2E2E34343636
-*.color8            : #555557575353
-*.color1            : #CCCC00000000
-*.color9            : #EFEF29292929
-*.color2            : #4E4E9A9A0606
-*.color10           : #8A8AE2E23434
-*.color3            : #C4C4A0A00000
-*.color11           : #FCFCE9E94F4F
-*.color4            : #34346565A4A4
-*.color12           : #72729F9FCFCF
-*.color5            : #757550507B7B
-*.color13           : #ADAD7F7FA8A8
-*.color6            : #060698209A9A
-*.color14           : #3434E2E2E2E2
-*.color7            : #D3D3D7D7CFCF
-*.color15           : #EEEEEEEEECEC
+*.color8:       base03
+*.color9:       base08
+*.color10:      base0B
+*.color11:      base0A
+*.color12:      base0D
+*.color13:      base0E
+*.color14:      base0C
+*.color15:      base07
 
 ! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
 ! use 'shell' template to set these if necessary
-!*.color16:      base09
-!*.color17:      base0F
-!*.color18:      base01
-!*.color19:      base02
-!*.color20:      base04
-!*.color21:      base06
+*.color16:      base09
+*.color17:      base0F
+*.color18:      base01
+*.color19:      base02
+*.color20:      base04
+*.color21:      base06
 
