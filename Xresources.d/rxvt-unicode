@@ -1,0 +1,24 @@
+URxvt.termName:		rxvt-unicode
+URxvt.geometry:		80x25
+URxvt.depth:			32
+URxvt.transparent:		false
+URxvt.borderless:		false
+URxvt.scrollBar:		true
+URxvt.scrollBar_right: true
+URxvt.scrollstyle:		plain
+URxvt.saveLines:		5000
+URxvt.buffered:		true
+URxvt.cursorUnderline:	true
+!URxvt.foreground:		#b0b0b0
+!URxvt.background:		[90]#222222
+!URxvt.background:		#222222
+URxvt.urlLauncher:		/usr/bin/chromium
+URxvt.matcher.button:	1
+URxvt.font:			xft:inconsolata:pixelsize=13
+URxvt.boldFont:		xft:inconsolata:bold:pixelsize=13
+!URxvt.font:			xft:Fira Sans:pixelsize=12
+!URxvt.boldFont:		xft:Fira Sans:bold:pixelsize=12
+!URxvt.font:			xft:DejaVu Sans Mono:pixelsize=12
+!Urxvt.boldFont:		xft:DejaVu Sans Mono:bold:pixelsize=12
+URxvt.letterSpace:		0
+
