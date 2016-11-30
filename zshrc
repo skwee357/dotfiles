@@ -91,3 +91,6 @@ export VISUAL="vim"
 setopt no_share_history
 
 zstyle ":completion:*:commands" rehash 1
+
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}" end-of-line
