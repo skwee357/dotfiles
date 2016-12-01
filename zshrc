@@ -92,5 +92,5 @@ setopt no_share_history
 
 zstyle ":completion:*:commands" rehash 1
 
-bindkey "${terminfo[khome]}" beginning-of-line
-bindkey "${terminfo[kend]}" end-of-line
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
