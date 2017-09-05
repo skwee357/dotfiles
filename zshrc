@@ -96,7 +96,9 @@ zstyle ":completion:*:commands" rehash 1
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 
-source /usr/share/nvm/init-nvm.sh
+if type nvm > /dev/null; then
+	source /usr/share/nvm/init-nvm.sh
+fi
 
 
 # PROMPT
