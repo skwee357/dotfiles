@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Default Bookmark Guid</key>
-	<string>D85D8B41-DA38-4E85-9A22-1D622C77663F</string>
+	<string>A7EF6961-3B67-4146-A8BD-1CAD4042D544</string>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
@@ -233,7 +233,7 @@
 				<real>0.73333334922790527</real>
 			</dict>
 			<key>Guid</key>
-			<string>D85D8B41-DA38-4E85-9A22-1D622C77663F</string>
+			<string>A7EF6961-3B67-4146-A8BD-1CAD4042D544</string>
 			<key>Horizontal Spacing</key>
 			<real>1</real>
 			<key>Idle Code</key>
@@ -742,7 +742,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.14990026595744679</real>
+			<real>0.15474567819148938</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -760,7 +760,7 @@
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
-			<string>/Users/dmitry</string>
+			<string>/Users/dmitry_kudryavtsev</string>
 		</dict>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
@@ -800,10 +800,10 @@
 	</dict>
 	<key>PromptOnQuit</key>
 	<false/>
-	<key>ShowFullScreenTabBar</key>
-	<false/>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>TabStyleWithAutomaticOption</key>
+	<integer>4</integer>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 </dict>
