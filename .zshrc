@@ -123,6 +123,6 @@ PATH="$HOME/.cargo/bin:$HOME/bin:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # if tmux exists on the system, we are in interactive shell and tmux doesn't try to run within itself, execute tmux and attach to session main
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ "$TERM" = alacritty ]] && [ -z "$TMUX" ]; then
 	exec tmux new-session -A -s main
 fi
