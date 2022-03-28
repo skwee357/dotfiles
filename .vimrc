@@ -11,7 +11,9 @@ set smartindent
 set scrolloff=8
 
 call plug#begin()
-Plug 'arcticicestudio/nord-vim'
+" Plug 'arcticicestudio/nord-vim'
+Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
-colorscheme nord
+colorscheme gruvbox
+set background=dark

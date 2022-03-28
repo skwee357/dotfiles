@@ -239,7 +239,7 @@ schemes:
       cyan: '#6d96a5'
       white: '#aeb3bb'
 
-colors: *nord
+# colors: *nord
 # Colors (Tomorrow Night)
 #colors:
   # Default colors
