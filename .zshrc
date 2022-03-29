@@ -120,6 +120,9 @@ export NVM_DIR="$HOME/.nvm"
 
 PATH="$HOME/.cargo/bin:$HOME/bin:$PATH"
 
+export FZF_DEFAULT_COMMAND="fd --type file --color=always --hidden"
+export FZF_DEFAULT_OPTS="--ansi"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # if tmux exists on the system, we are in interactive shell and tmux doesn't try to run within itself, execute tmux and attach to session main

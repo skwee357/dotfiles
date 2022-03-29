@@ -12,13 +12,15 @@ set scrolloff=8
 set laststatus=2
 set noshowmode
 
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-y> :Buffers<CR>
+
 call plug#begin()
-" Plug 'arcticicestudio/nord-vim'
 Plug 'gruvbox-community/gruvbox'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/lightline.vim'
-Plug 'bling/vim-bufferline'
+Plug '/opt/homebrew/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 colorscheme gruvbox

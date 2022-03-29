@@ -1,0 +1,6 @@
+Applications
+Library
+.*
+!.vimrc
+!.tmux.conf
+!.zshrc
