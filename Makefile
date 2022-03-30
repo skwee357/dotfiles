@@ -3,17 +3,13 @@ OS := $(shell uname)
 setup:
 	@mkdir -p ~/.vim/undodir
 	@chmod 0700 ~/.vim/undodir
+	brew tap homebrew/cask-fonts
 
 fonts:
-	brew tap homebrew/cask-fonts
 	brew install --cask font-dejavi-sans-mono-nerd-font
 
 install-packages:
-ifeq ($(OS),Darwin)
 	brew install fd fzf tmux 
-else
-	@echo "Unsupported OS"
-endif
 
 brew:
 	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
