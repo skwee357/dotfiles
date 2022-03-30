@@ -1,5 +1,9 @@
 OS := $(shell uname)
 
+setup:
+	@mkdir -p ~/.vim/undodir
+	@chmod 0700 ~/.vim/undodir
+
 install-packages:
 ifeq ($(OS),Darwin)
 	brew install fd fzf tmux yadm

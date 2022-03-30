@@ -11,6 +11,8 @@ set smartindent
 set scrolloff=8
 set laststatus=2
 set noshowmode
+set undodir=~/.vim/undodir
+set undofile
 
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-y> :Buffers<CR>
