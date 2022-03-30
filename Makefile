@@ -4,6 +4,10 @@ setup:
 	@mkdir -p ~/.vim/undodir
 	@chmod 0700 ~/.vim/undodir
 
+fonts:
+	brew tap homebrew/cask-fonts
+	brew install --cask font-dejavi-sans-mono-nerd-font
+
 install-packages:
 ifeq ($(OS),Darwin)
 	brew install fd fzf tmux 

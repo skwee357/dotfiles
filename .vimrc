@@ -1,6 +1,5 @@
-syntax on
-
 set nocompatible
+set encoding=UTF-8
 set number
 set relativenumber
 set incsearch
@@ -14,26 +13,39 @@ set noshowmode
 set undodir=~/.vim/undodir
 set undofile
 set signcolumn=yes
+set noswapfile
+
+syntax on
 
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-y> :Buffers<CR>
 nnoremap <silent> <F5> :UndotreeToggle<CR>
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 
 call plug#begin()
 Plug 'gruvbox-community/gruvbox'
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug '/opt/homebrew/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mbbill/undotree'
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 colorscheme gruvbox
-" set background=dark
+
+set background=dark
 highlight Normal guibg=NONE ctermbg=NONE
-let g:lightline = {
-	\ 'colorscheme': 'wombat',
-	\ }
+
+let g:airline_theme = 'base16_gruvbox_dark_hard'
+let g:airline_powerline_fonts = 1
+"let g:lightline = {
+"	\ 'colorscheme': 'wombat',
+"	\ }
 
 let g:undotree_SplitWidth = 30
 let g:undotree_SetFocusWhenToggle = 1
