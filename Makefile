@@ -1,17 +1,16 @@
 OS := $(shell uname)
 
-brew:
-	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-	sh install.sh
-	rm install.sh
-
 install-packages:
 ifeq ($(OS),Darwin)
-	@echo "MacOS Detected, running brew"
 	brew install fd fzf tmux yadm
 else
 	@echo "Unsupported OS"
 endif
+
+brew:
+	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+	sh install.sh
+	rm install.sh
 
 tpm:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
