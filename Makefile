@@ -6,7 +6,7 @@ setup:
 
 install-packages:
 ifeq ($(OS),Darwin)
-	brew install fd fzf tmux yadm
+	brew install fd fzf tmux 
 else
 	@echo "Unsupported OS"
 endif
