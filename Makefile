@@ -6,7 +6,7 @@ setup:
 	brew tap homebrew/cask-fonts
 
 fonts:
-	brew install --cask font-dejavi-sans-mono-nerd-font
+	brew install --cask font-dejavu-sans-mono-nerd-font
 
 install-packages:
 	brew install fd fzf tmux 
