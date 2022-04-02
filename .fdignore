@@ -1,7 +1,11 @@
 Applications
 Library
-.*
+.* 
+**/node_modules
 !.vimrc
 !.tmux.conf
 !.zshrc
 !.config
+!.tmux
+!.fdignore
+*.app

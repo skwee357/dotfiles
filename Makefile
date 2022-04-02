@@ -1,27 +1,27 @@
 OS := $(shell uname)
+VIM_UNDODIR		= ~/.vim/undodir
+NVIM_UNDODIR	= ~/.local/share/nvim/undodir
 
 setup:
-	@mkdir -p ~/.vim/undodir
-	@chmod 0700 ~/.vim/undodir
+	@mkdir -p $(VIM_UNDODIR)
+	@chmod 0700 $(VIM_UNDODIR)
+	@mkdir -p $(NVIM_UNDODIR)
+	@chmod 0700 $(NVIM_UNDODIR)
 	brew tap homebrew/cask-fonts
 
 fonts:
 	brew install --cask font-dejavu-sans-mono-nerd-font
 
 install-packages:
-	brew install fd fzf tmux 
-
-brew:
-	curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-	sh install.sh
-	rm install.sh
-
-tpm:
-	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	brew install fd fzf tmux exa
 
 vim-plug:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+nvim-plug:
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 oh-my-zsh:
 	curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
@@ -30,4 +30,4 @@ oh-my-zsh:
 
 all: install-packages
 
-.PHONY: brew install-packages oh-my-zsh all tpm vim-plug 
+.PHONY: all

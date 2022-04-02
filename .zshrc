@@ -71,7 +71,12 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(
+    colored-man-pages
+    sublime
+    zsh-autosuggestions 
+    zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,18 +106,39 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-bindkey '^[[1;3D'	backward-word
-bindkey '^[[1;3C'	forward-word
-bindkey '^[[1;9D'	beginning-of-line
-bindkey '^[[1;9C'	end-of-line
-bindkey '^[[3;3~'	kill-word
+export EDITOR=vim
 
-alias pritunl="~/bin/gotunl/build/gotunl-darwin-amd64/gotunl -c 1"
+bindkey '^[[1;3D'   backward-word
+bindkey '^[[1;3C'   forward-word
+bindkey '^[[1;9D'   beginning-of-line
+bindkey '^[[1;9C'   end-of-line
+bindkey '^[[3;3~'   kill-word
+
+# NeoVim
+if which nvim > /dev/null 2>&1; then
+    alias vim=nvim
+fi
+
+# change ls to exa if exists
+if which exa > /dev/null 2>&1; then
+    alias ls='exa --color=always --group-directories-first'
+fi
+
+# change cat to bat if exists
+if which bat > /dev/null 2>&1; then
+    alias cat='bat'
+fi
+
+# colorize grep
+alias grep='grep --color=auto'
 
 # Forter
-[ -f ~/.forterrc ] && source ~/.forterrc
-export FORTER_DEV_CLI_FEATURE_PR_SQUASH_COMMITS=0
-export FORTER_DEV_CLI_FEATURE_PR_SLACK=0
+if [ -f ~/.forterrc ]; then
+    source ~/.forterrc
+    export FORTER_DEV_CLI_FEATURE_PR_SQUASH_COMMITS=0
+    export FORTER_DEV_CLI_FEATURE_PR_SLACK=0
+    alias pritunl="~/bin/gotunl/build/gotunl-darwin-amd64/gotunl -c 1"
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -123,9 +149,10 @@ PATH="$HOME/.cargo/bin:$HOME/bin:$PATH"
 export FZF_DEFAULT_COMMAND="fd --color=always --hidden"
 export FZF_DEFAULT_OPTS="--ansi"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_TMUX_OPTS="-p"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # if tmux exists on the system, we are in interactive shell and tmux doesn't try to run within itself, execute tmux and attach to session main
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ "$TERM" = alacritty ]] && [ -z "$TMUX" ]; then
-	exec tmux new-session -A -s main
+    exec tmux new-session -A -s main
 fi

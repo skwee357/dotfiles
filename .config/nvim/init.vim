@@ -12,7 +12,7 @@ set noerrorbells
 set scrolloff=8
 set laststatus=2
 set noshowmode
-set undodir=~/.vim/undodir
+set undodir=~/.local/share/nvim/undodir
 set undofile
 set nobackup
 set nowritebackup
@@ -33,22 +33,32 @@ nnoremap <leader>f :NERDTree<CR>
 " Remove all trailing whitespaces
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
-call plug#begin('~/.vim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
+" Eyecanndy
 Plug 'ellisonleao/gruvbox.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'sheerun/vim-polyglot'
+Plug 'ryanoasis/vim-devicons'
+
+" Fuzzy Finding
 Plug '/opt/homebrew/opt/fzf'
 Plug 'junegunn/fzf.vim'
+
+" Navigation
 Plug 'christoomey/vim-tmux-navigator'
+
+" UI
 Plug 'mbbill/undotree'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
+
+" Syntax
+Plug 'sheerun/vim-polyglot'
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-" Plug 'neovim/nvim-lspconfig'
+" LSP
+Plug 'neovim/nvim-lspconfig'
 " Plug 'williamboman/nvim-lsp-installer'
 " Plug 'hrsh7th/cmp-nvim-lsp'
 " Plug 'hrsh7th/nvim-cmp'
@@ -82,3 +92,5 @@ let $FZF_DEFAULT_COMMAND = "fd --type file --color=always --hidden"
 
 autocmd FileType nerdtree setlocal signcolumn=no
 autocmd FileType undotree setlocal signcolumn=no
+
+lua require('config')
