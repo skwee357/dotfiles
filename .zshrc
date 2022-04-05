@@ -107,6 +107,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export EDITOR=vim
+export VIMRC=~/.config/nvim/init.vim
 
 bindkey '^[[1;3D'   backward-word
 bindkey '^[[1;3C'   forward-word
