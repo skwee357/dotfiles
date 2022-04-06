@@ -28,6 +28,7 @@ Plug 'lewis6991/gitsigns.nvim'
 " Syntax
 Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'p00f/nvim-ts-rainbow'
 
 " LSP
 " Plug 'neovim/nvim-lspconfig'
