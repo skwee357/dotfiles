@@ -13,7 +13,7 @@ fonts:
 	brew install --cask font-dejavu-sans-mono-nerd-font
 
 install-packages:
-	brew install fd fzf tmux exa bat
+	brew install fd fzf tmux exa bat ripgrep
 
 vim-plug:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
