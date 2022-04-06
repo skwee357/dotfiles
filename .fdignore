@@ -8,4 +8,5 @@ Library
 !.config
 !.tmux
 !.fdignore
+!.p10k.zsh
 *.app
