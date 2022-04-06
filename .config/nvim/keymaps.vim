@@ -1,7 +1,7 @@
 let mapleader = ';'
 
-nnoremap <C-p> :Files<CR>
-nnoremap <C-y> :Buffers<CR>
+nnoremap <leader>p :Files<CR>
+nnoremap <leader>y :Buffers<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>e :NERDTree<CR>
 nnoremap <leader>F :Rg<CR>
