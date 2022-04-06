@@ -1,8 +1,9 @@
 call plug#begin(stdpath('data') . '/plugged')
 " Eyecanndy
 Plug 'ellisonleao/gruvbox.nvim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'joshdick/onedark.vim'
 Plug 'edkolev/tmuxline.vim'
@@ -24,6 +25,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Helpers
 Plug 'windwp/nvim-autopairs'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'tpope/vim-fugitive'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
@@ -31,9 +33,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
 
 " LSP
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'williamboman/nvim-lsp-installer'
-" Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -49,11 +51,16 @@ colorscheme onedark
 
 set completeopt=menu,menuone,noselect
 
+autocmd FileType nerdtree setlocal signcolumn=no
+autocmd FileType undotree setlocal signcolumn=no
+
 let g:onedark_terminal_italics = 1
 
 " let g:airline_theme = 'base16_gruvbox_dark_hard'
 let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#nvimlsp#enabled = 1
 
 let g:undotree_WindowLayout = 2
 let g:undotree_SplitWidth = 30
