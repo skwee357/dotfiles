@@ -4,8 +4,9 @@ Plug 'ellisonleao/gruvbox.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
-Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'
 Plug 'edkolev/tmuxline.vim'
+Plug 'mhinz/vim-startify'
 
 " Fuzzy Finding
 Plug '/opt/homebrew/opt/fzf'
@@ -19,6 +20,10 @@ Plug 'mbbill/undotree'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" Helpers
+Plug 'windwp/nvim-autopairs'
+Plug 'lewis6991/gitsigns.nvim'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
@@ -39,21 +44,24 @@ Plug 'saadparwaiz1/cmp_luasnip'
 call plug#end()
 
 set background=dark
-colorscheme one
+colorscheme onedark
 
 set completeopt=menu,menuone,noselect
 
-let g:one_allow_italics = 1
+let g:onedark_terminal_italics = 1
 
 " let g:airline_theme = 'base16_gruvbox_dark_hard'
-let g:airline_theme = 'one'
+let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
 
 let g:undotree_WindowLayout = 2
 let g:undotree_SplitWidth = 30
 let g:undotree_SetFocusWhenToggle = 1
 
-let NERDTreeShowLineNumbers = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+
+let NERDTreeShowLineNumbers = 0
+let NERDTreeHijackNetrw = 1
 let g:NERDTreeWinSize = 40
 
 " change cursor to line in insert mode

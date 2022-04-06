@@ -3,7 +3,7 @@ let mapleader = ';'
 nnoremap <leader>p :Files<CR>
 nnoremap <leader>y :Buffers<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
-nnoremap <leader>e :NERDTree<CR>
+nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <leader>F :Rg<CR>
 
 " Remove all trailing whitespaces

@@ -3,10 +3,10 @@ Library
 .* 
 **/node_modules
 !.vimrc
-!.tmux.conf
 !.zshrc
 !.config
 !.tmux
 !.fdignore
 !.p10k.zsh
+.tmux/plugins
 *.app
