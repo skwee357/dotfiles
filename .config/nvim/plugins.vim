@@ -4,7 +4,7 @@ Plug 'ellisonleao/gruvbox.nvim'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'joshdick/onedark.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'mhinz/vim-startify'
@@ -18,9 +18,10 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " UI
 Plug 'mbbill/undotree'
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'preservim/nerdtree'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'kyazdani42/nvim-tree.lua'
 
 " Helpers
 Plug 'windwp/nvim-autopairs'
@@ -51,26 +52,29 @@ colorscheme onedark
 
 set completeopt=menu,menuone,noselect
 
-autocmd FileType nerdtree setlocal signcolumn=no
+" autocmd FileType nerdtree setlocal signcolumn=no
 autocmd FileType undotree setlocal signcolumn=no
+
+" Automatically close nvim-tree if its the last window
+autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 
 let g:onedark_terminal_italics = 1
 
 " let g:airline_theme = 'base16_gruvbox_dark_hard'
-let g:airline_theme = 'onedark'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#nvimlsp#enabled = 1
+" let g:airline_theme = 'onedark'
+" let g:airline_powerline_fonts = 1
+" let g:airline#extensions#branch#enabled = 1
+" let g:airline#extensions#nvimlsp#enabled = 1
 
 let g:undotree_WindowLayout = 2
 let g:undotree_SplitWidth = 30
 let g:undotree_SetFocusWhenToggle = 1
 
-let g:webdevicons_conceal_nerdtree_brackets = 1
+" let g:webdevicons_conceal_nerdtree_brackets = 1
 
-let NERDTreeShowLineNumbers = 0
-let NERDTreeHijackNetrw = 1
-let g:NERDTreeWinSize = 40
+" let NERDTreeShowLineNumbers = 0
+" let NERDTreeHijackNetrw = 1
+" let g:NERDTreeWinSize = 40
 
 " change cursor to line in insert mode
 let &t_SI = "\e[6 q"

@@ -23,7 +23,7 @@ require'lualine'.setup {
     theme = 'onedark',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
-    disabled_filetypes = {},
+    disabled_filetypes = {'vim-plug'},
     always_divide_middle = true,
     globalstatus = false,
   },
@@ -44,5 +44,5 @@ require'lualine'.setup {
     lualine_z = {}
   },
   tabline = {},
-  extensions = {'fzf', 'nerdtree'}
+  extensions = {'fzf', 'nvim-tree'}
 }
