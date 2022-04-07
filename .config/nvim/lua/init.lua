@@ -5,3 +5,7 @@ require'plugins/cmp'
 require'plugins/gitsigns'
 require'plugins/statusline'
 require'plugins/filetree'
+
+require'Comment'.setup {}
+
+-- require'which-key'.setup {}

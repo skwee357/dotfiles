@@ -19,7 +19,6 @@ Plug 'christoomey/vim-tmux-navigator'
 " UI
 Plug 'mbbill/undotree'
 " Plug 'preservim/nerdtree'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'kyazdani42/nvim-tree.lua'
 
@@ -27,6 +26,8 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'windwp/nvim-autopairs'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
+Plug 'numToStr/Comment.nvim'
+" Plug 'folke/which-key.nvim'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
@@ -70,11 +71,38 @@ let g:undotree_WindowLayout = 2
 let g:undotree_SplitWidth = 30
 let g:undotree_SetFocusWhenToggle = 1
 
+let s:startify_ascii_header = [
+\ ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+\ ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+\ ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+\ ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+\ ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+\ ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+\ '',
+\]
+let g:startify_custom_header = map(s:startify_ascii_header + startify#fortune#quote(), '"   ".v:val')
+
+let g:startify_bookmarks = ['.config/nvim']
+let g:startify_lists = [
+      \ { 'type': 'sessions',  'header': ['   Sessions']       },
+      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+      \ { 'type': 'files',     'header': ['   MRU']            },
+      \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+      \ { 'type': 'commands',  'header': ['   Commands']       },
+      \ ]
+
+let g:nvim_tree_highlight_opened_files = 1
+
+" let g:webdevicons_enable = 1
 " let g:webdevicons_conceal_nerdtree_brackets = 1
+" let g:webdevicons_enable_nerdtree = 1
 
 " let NERDTreeShowLineNumbers = 0
 " let NERDTreeHijackNetrw = 1
-" let g:NERDTreeWinSize = 40
+" let NERDTreeHighlightCursorline = 1
+" let NERDTreeWinSize = 40
+" let NERDTreeQuitOnOpen = 1
+" let NERDTreeShowHidden = 0
 
 " change cursor to line in insert mode
 let &t_SI = "\e[6 q"
