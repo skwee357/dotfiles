@@ -1,7 +1,8 @@
 Applications
 Library
-.* 
+.*
 **/node_modules
+!.gitignore
 !.vimrc
 !.zshrc
 !.config
