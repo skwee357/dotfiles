@@ -35,10 +35,10 @@ nnoremap R      <cmd>lua vim.lsp.buf.rename()<CR>
 inoremap <C-h>  <cmd>lua vim.lsp.buf.signature_help()<CR>
 
 " Trouble
-nnoremap xx     :TroubleToggle<CR>
-nnoremap xd     :TroubleToggle document_diagnostics<CR>
-nnoremap xw     :TroubleToggle workspace_diagnostics<CR>
-nnoremap xq     :TroubleToggle quickfix<CR>
+nnoremap <leader>xx     :TroubleToggle<CR>
+nnoremap <leader>xd     :TroubleToggle document_diagnostics<CR>
+nnoremap <leader>xw     :TroubleToggle workspace_diagnostics<CR>
+nnoremap <leader>xq     :TroubleToggle quickfix<CR>
 
 " Remove all trailing whitespaces
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
