@@ -23,6 +23,11 @@ set cmdheight=2
 set hidden
 set clipboard=unnamedplus
 
+" code folding
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set foldlevel=50
+
 syntax on
 
 highlight Normal guibg=NONE ctermbg=NONE

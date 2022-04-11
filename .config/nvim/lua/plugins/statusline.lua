@@ -1,3 +1,5 @@
+local treesitter = require'nvim-treesitter'
+
 local lsp = {
   function()
     local msg = 'No Active Lsp'
@@ -6,12 +8,17 @@ local lsp = {
     if next(clients) == nil then
       return msg
     end
+    local active_clients = {}
     for _, client in ipairs(clients) do
       local filetypes = client.config.filetypes
       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        return client.name
+        if vim.lsp.buf_is_attached(0, client.id) then
+          -- return client.name
+          table.insert(active_clients, client.name)
+        end
       end
     end
+    return table.concat(active_clients, ",")
   end,
   icon = ' ',
   color = {fg = '#e5c07b'}
@@ -23,14 +30,14 @@ require'lualine'.setup {
     theme = 'onedark',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
-    disabled_filetypes = {'vim-plug'},
+    disabled_filetypes = {'vim-plug', 'Outline'},
     always_divide_middle = true,
     globalstatus = false,
   },
   sections = {
     lualine_a = {'mode'},
     lualine_b = {{'branch', icon = ''}, 'diff'},
-    lualine_c = {{'filename', path = 1}},
+    lualine_c = {{'filename', path = 1}, {treesitter.statusline}},
     lualine_x = {lsp, 'diagnostics', {'filetype', colored = true, icon_only = false}, 'encoding', {'fileformat', icons_enabled = false}},
     lualine_y = {'progress'},
     lualine_z = {'location'}
