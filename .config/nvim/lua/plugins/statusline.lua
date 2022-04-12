@@ -1,4 +1,5 @@
-local treesitter = require'nvim-treesitter'
+local gps = require'nvim-gps'
+local c = require'onedark.colors'
 
 local lsp = {
   function()
@@ -21,7 +22,7 @@ local lsp = {
     return table.concat(active_clients, ",")
   end,
   icon = ' ',
-  color = {fg = '#e5c07b'}
+  color = {fg = c.yellow}
 }
 
 require'lualine'.setup {
@@ -36,8 +37,8 @@ require'lualine'.setup {
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {{'branch', icon = ''}, 'diff'},
-    lualine_c = {{'filename', path = 1}, {treesitter.statusline}},
+    lualine_b = {{'branch', icon = '', color = { fg = c.purple }}, 'diff'},
+    lualine_c = {{'filename', path = 1}, {gps.get_location, cond = gps.is_available}},
     lualine_x = {lsp, 'diagnostics', {'filetype', colored = true, icon_only = false}, 'encoding', {'fileformat', icons_enabled = false}},
     lualine_y = {'progress'},
     lualine_z = {'location'}
@@ -51,5 +52,5 @@ require'lualine'.setup {
     lualine_z = {}
   },
   tabline = {},
-  extensions = {'fzf', 'nvim-tree'}
+  extensions = {'fzf', 'nvim-tree', 'fugitive', 'symbols-outline'}
 }

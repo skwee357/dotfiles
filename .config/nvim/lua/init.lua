@@ -11,5 +11,6 @@ require'plugins/indentline'
 require'Comment'.setup {}
 require'trouble'.setup {}
 require'colorizer'.setup {}
+require'nvim-gps'.setup {}
 
 -- require'which-key'.setup {}

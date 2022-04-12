@@ -2,12 +2,14 @@ call plug#begin(stdpath('data') . '/plugged')
 " Eyecanndy
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'joshdick/onedark.vim'
+" Plug 'joshdick/onedark.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'mhinz/vim-startify'
+Plug 'navarasu/onedark.nvim'
 
 " Fuzzy Finding
-Plug '/opt/homebrew/opt/fzf'
+" Plug '/opt/homebrew/opt/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Navigation
@@ -20,12 +22,14 @@ Plug 'simrat39/symbols-outline.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'romgrk/barbar.nvim'
+Plug 'SmiteshP/nvim-gps'
 
 " Helpers
 Plug 'windwp/nvim-autopairs'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'numToStr/Comment.nvim'
+Plug 'tpope/vim-surround'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
