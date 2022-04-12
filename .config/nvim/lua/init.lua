@@ -12,5 +12,6 @@ require'Comment'.setup {}
 require'trouble'.setup {}
 require'colorizer'.setup {}
 require'nvim-gps'.setup {}
+require'fidget'.setup {}
 
--- require'which-key'.setup {}
+require'rust-tools'.setup {}

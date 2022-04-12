@@ -29,6 +29,15 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 end
 
 local function on_attach(client, bufnr)
+    require'lsp_signature'.on_attach({
+        bind = true,
+        handler_opts = {
+            border = "rounded"
+        },
+        hint_prefix = ""
+    }, bufnr)
+
+    require'illuminate'.on_attach(client)
 end
 
 local enhance_server_opts = {

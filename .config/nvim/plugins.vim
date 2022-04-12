@@ -23,6 +23,9 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'romgrk/barbar.nvim'
 Plug 'SmiteshP/nvim-gps'
+Plug 'j-hui/fidget.nvim'
+Plug 'ray-x/lsp_signature.nvim'
+Plug 'RRethy/vim-illuminate'
 
 " Helpers
 Plug 'windwp/nvim-autopairs'
@@ -31,6 +34,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'numToStr/Comment.nvim'
 Plug 'tpope/vim-surround'
 Plug 'b0o/schemastore.nvim'
+
+" Language Tools
+Plug 'simrat39/rust-tools.nvim'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'

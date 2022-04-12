@@ -25,21 +25,21 @@ nnoremap <silent>    <A-c> :BufferClose<CR>
 nnoremap <silent>    <C-s> :BufferPick<CR>
 
 " LSP
-nnoremap gD         :lua vim.lsp.buf.declaration()<CR>
-nnoremap gd         :lua vim.lsp.buf.definition()<CR>
-nnoremap K          :lua vim.lsp.buf.hover()<CR>
-nnoremap gi         :lua vim.lsp.buf.implementation()<CR>
-nnoremap gr         :lua vim.lsp.buf.references()<CR>
-nnoremap ca         :lua vim.lsp.buf.code_action()<CR>
-nnoremap R          :lua vim.lsp.buf.rename()<CR>
-nnoremap <leader>f  :lua vim.lsp.buf.formatting()<CR>
-inoremap <C-h>      :lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> gD         :lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gd         :lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K          :lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gi         :lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> gr         :lua vim.lsp.buf.references()<CR>
+nnoremap <silent> ca         :lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> R          :lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> <leader>f  :lua vim.lsp.buf.formatting()<CR>
+inoremap <silent> <C-h>      :lua vim.lsp.buf.signature_help()<CR>
 
 " Trouble
-nnoremap <leader>xx     :TroubleToggle<CR>
-nnoremap <leader>xd     :TroubleToggle document_diagnostics<CR>
-nnoremap <leader>xw     :TroubleToggle workspace_diagnostics<CR>
-nnoremap <leader>xq     :TroubleToggle quickfix<CR>
+nnoremap <silent> <leader>xx     :TroubleToggle<CR>
+nnoremap <silent> <leader>xd     :TroubleToggle document_diagnostics<CR>
+nnoremap <silent> <leader>xw     :TroubleToggle workspace_diagnostics<CR>
+nnoremap <silent> <leader>xq     :TroubleToggle quickfix<CR>
 
 " Remove all trailing whitespaces
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
