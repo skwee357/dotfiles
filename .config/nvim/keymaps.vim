@@ -27,8 +27,11 @@ nnoremap <silent>    <C-s> :BufferPick<CR>
 " LSP
 nnoremap <silent> gD         :lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> gd         :lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gpd        :lua require('goto-preview').goto_preview_definition()<CR>
 nnoremap <silent> K          :lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> gi         :lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> gpi        :lua require('goto-preview').goto_preview_implementation()<CR>
+nnoremap <silent> gpx        :lua require('goto-preview').close_all_win()<CR>
 nnoremap <silent> gr         :lua vim.lsp.buf.references()<CR>
 nnoremap <silent> ca         :lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent> R          :lua vim.lsp.buf.rename()<CR>

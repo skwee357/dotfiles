@@ -19,7 +19,7 @@ set nowritebackup
 set noswapfile
 set signcolumn=yes
 set termguicolors
-set cmdheight=2
+set cmdheight=1
 set hidden
 set clipboard=unnamedplus
 

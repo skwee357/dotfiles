@@ -1,13 +1,19 @@
 local lsp_installer = require'nvim-lsp-installer'
 
 local servers = {
+    'bashls',
     'cssls',
     'dockerls',
     'eslint',
+    'gopls',
     'html',
     'jsonls',
+    'pyright',
     'rust_analyzer',
+    'sqls',
     'sumneko_lua',
+    'taplo',
+    'tailwindcss',
     'tsserver',
     'vimls',
     'yamlls'
@@ -41,6 +47,20 @@ local function on_attach(client, bufnr)
 end
 
 local enhance_server_opts = {
+    ['cssls'] = function(opts)
+        opts.settings = {
+            css = {validate = true},
+            less = {validate = true},
+            scss = {validate = true},
+        }
+    end,
+    ['eslint'] = function(opts)
+        opts.settings = {
+            format = true,
+            quiet = false,
+            validate = "on"
+        }
+    end,
     ['jsonls'] = function(opts)
         opts.settings = {
             json = {
@@ -52,6 +72,34 @@ local enhance_server_opts = {
                         'tslint.json'
                     }
                 }
+            }
+        }
+    end,
+    ['pyright'] = function(opts)
+        opts.settings = {
+            python = {
+                analysis = {
+                    autoSearchPaths = true,
+                    diagnosticMode = "workspace",
+                    useLibraryCodeForTypes = true
+                }
+            }
+        }
+    end,
+    ['tailwindcss'] = function(opts)
+        opts.settings = {
+            tailwindCSS = {
+                classAttributes = { "class", "className", "classList", "ngClass" },
+                lint = {
+                    cssConflict = "warning",
+                    invalidApply = "error",
+                    invalidConfigPath = "error",
+                    invalidScreen = "error",
+                    invalidTailwindDirective = "error",
+                    invalidVariant = "error",
+                    recommendedVariantOrder = "warning"
+                },
+                validate = true
             }
         }
     end,

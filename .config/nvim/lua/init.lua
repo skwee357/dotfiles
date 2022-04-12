@@ -13,5 +13,6 @@ require'trouble'.setup {}
 require'colorizer'.setup {}
 require'nvim-gps'.setup {}
 require'fidget'.setup {}
+require'goto-preview'.setup {}
 
 require'rust-tools'.setup {}
