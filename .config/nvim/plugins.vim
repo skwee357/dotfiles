@@ -35,6 +35,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'numToStr/Comment.nvim'
 Plug 'tpope/vim-surround'
 Plug 'b0o/schemastore.nvim'
+Plug 'windwp/nvim-ts-autotag'
 
 " Language Tools
 Plug 'simrat39/rust-tools.nvim'

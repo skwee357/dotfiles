@@ -61,6 +61,9 @@ require'nvim-treesitter.configs'.setup {
     enable = false,
     -- disable = { "jsx" }
     extended_mode = true
+  },
+  autotag = {
+    enable = true
   }
 }
 
