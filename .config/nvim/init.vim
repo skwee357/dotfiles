@@ -4,4 +4,5 @@ source ~/.config/nvim/keymaps.vim
 
 lua require('init')
 
-autocmd BufWritePre * :%s/\s\+$//e
+" autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 100)

@@ -25,14 +25,15 @@ nnoremap <silent>    <A-c> :BufferClose<CR>
 nnoremap <silent>    <C-s> :BufferPick<CR>
 
 " LSP
-nnoremap gD     <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap gd     <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap K      <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap gi     <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap gr     <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap ca     <cmd>lua vim.lsp.buf.code_action()<CR>
-nnoremap R      <cmd>lua vim.lsp.buf.rename()<CR>
-inoremap <C-h>  <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap gD         :lua vim.lsp.buf.declaration()<CR>
+nnoremap gd         :lua vim.lsp.buf.definition()<CR>
+nnoremap K          :lua vim.lsp.buf.hover()<CR>
+nnoremap gi         :lua vim.lsp.buf.implementation()<CR>
+nnoremap gr         :lua vim.lsp.buf.references()<CR>
+nnoremap ca         :lua vim.lsp.buf.code_action()<CR>
+nnoremap R          :lua vim.lsp.buf.rename()<CR>
+nnoremap <leader>f  :lua vim.lsp.buf.formatting()<CR>
+inoremap <C-h>      :lua vim.lsp.buf.signature_help()<CR>
 
 " Trouble
 nnoremap <leader>xx     :TroubleToggle<CR>

@@ -30,11 +30,11 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'numToStr/Comment.nvim'
 Plug 'tpope/vim-surround'
+Plug 'b0o/schemastore.nvim'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'p00f/nvim-ts-rainbow'
 Plug 'norcalli/nvim-colorizer.lua'
 
 " LSP

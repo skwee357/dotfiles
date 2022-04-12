@@ -13,6 +13,21 @@ local servers = {
     'yamlls'
 }
 
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+local border = 'rounded'
+
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or border
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
+
 local function on_attach(client, bufnr)
 end
 
@@ -20,22 +35,12 @@ local enhance_server_opts = {
     ['jsonls'] = function(opts)
         opts.settings = {
             json = {
-                schemas = {
-                    {
-                        fileMatch = {'.eslintrc'},
-                        url = 'https://json.schemastore.org/eslintrc.json'
-                    },
-                    {
-                        fileMatch = {'package.json'},
-                        url = 'https://json.schemastore.org/package.json'
-                    },
-                    {
-                        fileMatch = {'tsconfig.json'},
-                        url = 'https://json.schemastore.org/tsconfig.json'
-                    },
-                    {
-                        fileMatch = {'tslint.json'},
-                        url = 'https://json.schemastore.org/tslint.json'
+                schemas = require'schemastore'.json.schemas {
+                    select = {
+                        '.eslintrc',
+                        'package.json',
+                        'tsconfig.json',
+                        'tslint.json'
                     }
                 }
             }
@@ -45,7 +50,14 @@ local enhance_server_opts = {
         opts.settings = {
             Lua = {
                 diagnostics = {
-                    globals = { "vim", "use" }
+                    enable = true,
+                    globals = { "vim" }
+                },
+                workspace = {
+                    library = {
+                        [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                        [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
+                    }
                 }
             }
         }
