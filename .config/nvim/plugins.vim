@@ -62,7 +62,7 @@ call plug#end()
 set background=dark
 colorscheme onedark
 
-set completeopt=menu,menuone,noselect
+set completeopt=menu,menuone,noinsert,noselect
 
 " autocmd FileType nerdtree setlocal signcolumn=no
 autocmd FileType undotree setlocal signcolumn=no
