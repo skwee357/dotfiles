@@ -37,7 +37,7 @@ require'lualine'.setup {
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {{'branch', icon = '', color = { fg = c.purple }}, 'diff'},
+    lualine_b = {{'branch', icon = '', color = { fg = c.cyan }}, 'diff'},
     lualine_c = {{'filename', path = 0, symbols = {modified = ' ', readonly = ' ', unnamed = '[No Name]'}}, {gps.get_location, cond = gps.is_available}},
     lualine_x = {lsp, 'diagnostics', {'filetype', colored = true, icon_only = false}, 'encoding', {'fileformat', icons_enabled = true}},
     lualine_y = {'progress'},
