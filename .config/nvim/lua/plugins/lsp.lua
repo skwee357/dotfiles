@@ -1,4 +1,5 @@
 local lsp_installer = require'nvim-lsp-installer'
+local root_pattern = require'lspconfig'.util.root_pattern
 
 local servers = {
     'bashls',
@@ -87,6 +88,7 @@ local enhance_server_opts = {
         }
     end,
     ['tailwindcss'] = function(opts)
+        opts.root_dir = root_pattern('tailwind.config.js', 'tailwind.config.ts')
         opts.settings = {
             tailwindCSS = {
                 classAttributes = { "class", "className", "classList", "ngClass" },

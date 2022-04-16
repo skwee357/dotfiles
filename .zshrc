@@ -122,6 +122,7 @@ fi
 # change ls to exa if exists
 if which exa > /dev/null 2>&1; then
     alias ls='exa --color=always --group-directories-first'
+    alias la='ls -a'
 fi
 
 # change cat to bat if exists

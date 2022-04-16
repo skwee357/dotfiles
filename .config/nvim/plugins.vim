@@ -76,6 +76,8 @@ let g:undotree_WindowLayout = 4
 let g:undotree_SplitWidth = 40
 let g:undotree_SetFocusWhenToggle = 1
 
+let g:Illuminate_ftblacklist = ['undotree', 'nvimtree']
+
 let s:startify_ascii_header = [
 \ ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
 \ ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
