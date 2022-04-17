@@ -23,6 +23,9 @@ set cmdheight=1
 set hidden
 set clipboard=unnamedplus
 set spelllang=en
+set list
+set listchars=space:⋅,tab:▸·
+" set listchars=space:⋅,tab:▸·,eol:↴
 
 " code folding
 set foldmethod=expr
