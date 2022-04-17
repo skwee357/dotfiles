@@ -26,7 +26,8 @@ Plug 'SmiteshP/nvim-gps'
 Plug 'j-hui/fidget.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'RRethy/vim-illuminate'
-Plug 'rmagatti/goto-preview'
+" Plug 'rmagatti/goto-preview'
+Plug 'kevinhwang91/nvim-bqf'
 
 " Helpers
 Plug 'windwp/nvim-autopairs'
