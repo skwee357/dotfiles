@@ -21,7 +21,7 @@ set signcolumn=yes
 set termguicolors
 set cmdheight=1
 set hidden
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set spelllang=en
 set showbreak=↪\
 set list
