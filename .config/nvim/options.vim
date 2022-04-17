@@ -28,6 +28,15 @@ set list
 set listchars=trail:⋅,tab:▸·,nbsp:␣,extends:›,precedes:‹
 " set listchars=space:⋅,tab:▸·,eol:↲
 
+" Ignore files
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=**/coverage/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/android/*
+set wildignore+=**/ios/*
+set wildignore+=**/.git/*
+
 " code folding
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()

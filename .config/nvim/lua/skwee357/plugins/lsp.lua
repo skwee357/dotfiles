@@ -1,5 +1,6 @@
 local lsp_installer = require'nvim-lsp-installer'
 local root_pattern = require'lspconfig'.util.root_pattern
+-- local null_ls = require'null-ls'
 
 local servers = {
     'bashls',
@@ -34,6 +35,14 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts.border = opts.border or border
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
+
+-- null_ls.setup {
+--     sources = {
+--         null_ls.builtins.formatting.gofmt,
+--         null_ls.builtins.formatting.jq,
+--         null_ls.builtins.formatting.rustfmt
+--     }
+-- }
 
 local function on_attach(client, bufnr)
     require'lsp_signature'.on_attach({

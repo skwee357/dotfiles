@@ -39,7 +39,10 @@ Plug 'b0o/schemastore.nvim'
 Plug 'windwp/nvim-ts-autotag'
 
 " Language Tools
+Plug 'nvim-lua/plenary.nvim'
+Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
+" Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
