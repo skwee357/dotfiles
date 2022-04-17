@@ -69,7 +69,7 @@ set completeopt=menu,menuone,noinsert,noselect
 autocmd FileType undotree setlocal signcolumn=no
 
 " Automatically close nvim-tree if its the last window
-autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+" autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 
 let g:onedark_terminal_italics = 1
 
