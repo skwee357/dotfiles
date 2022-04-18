@@ -105,8 +105,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export EDITOR=vim
-export VIMRC=~/.config/nvim/init.vim
+# export EDITOR=vim
+# export VIMRC=~/.config/nvim/init.vim
 
 bindkey '^[[1;3D'   backward-word
 bindkey '^[[1;3C'   forward-word
@@ -117,6 +117,11 @@ bindkey '^[[3;3~'   kill-word
 # NeoVim
 if which nvim > /dev/null 2>&1; then
     alias vim=nvim
+    export EDITOR=nvim
+    export VIMRC=~/.config/nvim/init.vim
+else
+    export EDITOR=vim
+    export VIMRC=~/.vimrc
 fi
 
 # change ls to exa if exists
