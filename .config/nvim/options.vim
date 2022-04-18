@@ -12,6 +12,8 @@ set noerrorbells
 set scrolloff=8
 set laststatus=2
 set noshowmode
+set textwidth=120
+set colorcolumn=0
 set undodir=~/.local/share/nvim/undodir
 set undofile
 set nobackup
