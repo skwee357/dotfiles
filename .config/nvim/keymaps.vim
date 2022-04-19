@@ -1,11 +1,18 @@
 let mapleader = ' '
 
-nnoremap <C-p>      :Files<CR>
+" FZF
+silent! !git rev-parse --is-inside-work-tree
+if v:shell_error == 0
+  nnoremap <C-p>      :GFiles<CR>
+else
+  nnoremap <C-p>      :Files<CR>
+endif
 
-nnoremap <leader>y  :Buffers<CR>
+nnoremap <leader>b  :Buffers<CR>
+nnoremap <leader>F  :RG<CR>
+
 nnoremap <leader>u  :UndotreeToggle<CR>
 nnoremap <leader>e  :NvimTreeToggle<CR>
-nnoremap <leader>F  :RG<CR>
 nnoremap <leader>so :SymbolsOutline<CR>
 
 " Buffers
