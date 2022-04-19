@@ -39,9 +39,6 @@ Plug 'machakann/vim-sandwich'
 Plug 'b0o/schemastore.nvim'
 Plug 'windwp/nvim-ts-autotag'
 
-" Session management
-Plug 'rmagatti/auto-session'
-
 " Language Tools
 Plug 'nvim-lua/plenary.nvim'
 Plug 'rust-lang/rust.vim'

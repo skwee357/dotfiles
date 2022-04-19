@@ -7,7 +7,6 @@ require'skwee357.plugins.statusline'
 require'skwee357.plugins.filetree'
 require'skwee357.plugins.bufferline'
 require'skwee357.plugins.indentline'
-require'skwee357.plugins.session'
 
 require'Comment'.setup {}
 require'trouble'.setup {}
