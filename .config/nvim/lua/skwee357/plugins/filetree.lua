@@ -9,5 +9,8 @@ require'nvim-tree'.setup {
       quit_on_open = true,
       resize_window = true
     }
+  },
+  update_focused_file = {
+    enable = true
   }
 }

@@ -21,6 +21,7 @@ set nowritebackup
 set noswapfile
 set signcolumn=yes
 set termguicolors
+set cursorline
 set cmdheight=1
 set hidden
 set clipboard+=unnamedplus

@@ -1,7 +1,7 @@
 " autocmd BufWritePre * :%s/\s\+$//e
 
 " Format on save
-autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 100)
+" autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 100)
 
 " Smarter RipGrep
 function! RipgrepFzf(query, fullscreen)
