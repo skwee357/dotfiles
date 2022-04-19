@@ -4,7 +4,7 @@ let mapleader = ' '
 silent! !git rev-parse --is-inside-work-tree
 if v:shell_error == 0
   nnoremap <C-p>      :GFiles<CR>
-  nnoremap <leader>p  :GFiles?<CR>
+  nnoremap <leader>ch :GFiles?<CR>
 else
   nnoremap <C-p>      :Files<CR>
 endif
