@@ -9,7 +9,7 @@ else
 endif
 
 nnoremap <leader>b  :Buffers<CR>
-nnoremap <leader>F  :RG<CR>
+nnoremap <leader>g  :RG<CR>
 
 nnoremap <leader>u  :UndotreeToggle<CR>
 nnoremap <leader>e  :NvimTreeToggle<CR>

@@ -75,6 +75,8 @@ set completeopt=menu,menuone,noinsert,noselect
 " autocmd FileType nerdtree setlocal signcolumn=no
 autocmd FileType undotree setlocal signcolumn=no
 
+let g:auto_session_root_dir = stdpath('data') . '/sessions/'
+
 " Automatically close nvim-tree if its the last window
 " autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 
