@@ -4,13 +4,15 @@ let mapleader = ' '
 silent! !git rev-parse --is-inside-work-tree
 if v:shell_error == 0
   nnoremap <C-p>      :GFiles<CR>
-  nnoremap <leader>ch :GFiles?<CR>
+  nnoremap <leader>ff :GFiles<CR>
+  nnoremap <leader>fh :GFiles?<CR>
 else
   nnoremap <C-p>      :Files<CR>
+  nnoremap <leader>ff :Files<CR>
 endif
 
-nnoremap <leader>b  :Buffers<CR>
-nnoremap <leader>g  :RG<CR>
+nnoremap <leader>fb :Buffers<CR>
+nnoremap <leader>fg :RG<CR>
 
 nnoremap <leader>u  :UndotreeToggle<CR>
 nnoremap <leader>e  :NvimTreeToggle<CR>
@@ -37,13 +39,16 @@ nnoremap <silent> gD          :lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> gd          :lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gi          :lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> gr          :lua vim.lsp.buf.references()<CR>
+
 nnoremap <silent> K           :lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> R           :lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> ca          :lua vim.lsp.buf.code_action()<CR>
-nnoremap <silent> <leader>f   :lua vim.lsp.buf.formatting()<CR>
-nnoremap <silent> <leader>d   :lua vim.diagnostic.open_float()<CR>
+
+nnoremap <silent> <leader>ca  :lua vim.lsp.buf.code_action()<CR>
+
+nnoremap <silent> <leader>D   :lua vim.diagnostic.open_float()<CR>
 nnoremap <silent> [d          :lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <silent> ]d          :lua vim.lsp.diagnostic.goto_prev()<CR>
+
 inoremap <silent> <C-h>       <cmd>lua vim.lsp.buf.signature_help()<CR>
 
 " nnoremap <silent> gpi         :lua require('goto-preview').goto_preview_implementation()<CR>
