@@ -75,6 +75,7 @@ plugins=(
     sublime
     zsh-autosuggestions 
     zsh-syntax-highlighting
+    git
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -114,6 +115,14 @@ bindkey '^[[1;9D'   beginning-of-line
 bindkey '^[[1;9C'   end-of-line
 bindkey '^[[3;3~'   kill-word
 
+# Forter
+if [ -f ~/.forterrc ]; then
+    source ~/.forterrc
+    export FORTER_DEV_CLI_FEATURE_PR_SQUASH_COMMITS=0
+    export FORTER_DEV_CLI_FEATURE_PR_SLACK=0
+    alias pritunl="~/bin/gotunl/build/gotunl-darwin-amd64/gotunl -c 1"
+fi
+
 # NeoVim
 if which nvim > /dev/null 2>&1; then
     alias vim=nvim
@@ -137,14 +146,6 @@ fi
 
 # colorize grep
 alias grep='grep --color=auto'
-
-# Forter
-if [ -f ~/.forterrc ]; then
-    source ~/.forterrc
-    export FORTER_DEV_CLI_FEATURE_PR_SQUASH_COMMITS=0
-    export FORTER_DEV_CLI_FEATURE_PR_SLACK=0
-    alias pritunl="~/bin/gotunl/build/gotunl-darwin-amd64/gotunl -c 1"
-fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
