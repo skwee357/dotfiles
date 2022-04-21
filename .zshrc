@@ -160,7 +160,7 @@ export FZF_TMUX_OPTS="-p"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # tmux session cd
-alias twcd='tmux-session-cd $(pwd -P)/$(fd --color=always --type directory | fzf)'
+alias tcd='tmux-session-cd $(pwd -P)/$(fd --color=always --type directory | fzf)'
 
 source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.p10k.zsh
