@@ -25,3 +25,5 @@ augroup highlight_yank
   autocmd!
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 150})
 augroup END
+
+au BufRead,BufNewFile *.html  setfiletype html

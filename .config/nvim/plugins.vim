@@ -43,6 +43,7 @@ Plug 'windwp/nvim-ts-autotag'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " Syntax
