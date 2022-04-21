@@ -9,5 +9,8 @@ Library
 !.tmux
 !.fdignore
 !.p10k.zsh
+!.local
+go
 .tmux/plugins
+.config/tmux/plugins
 *.app
