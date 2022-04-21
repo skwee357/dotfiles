@@ -1,0 +1,16 @@
+#!/bin/bash
+
+IS_RUNNING=$(pgrep tmux)
+
+if [[ -z $TMUX ]] && [[ -z $IS_RUNNING ]]; then
+    exit 0
+fi
+
+SESSION_TO_KILL="$(tmux list-sessions | sed -n '/(attached)/s/:.*//p')"
+SESSION_TO_SWITCH="$(tmux list-sessions | sed -n '/(attached)/!s/:.*//p' | head -n 1)"
+
+if [[ ! -z $SESSION_TO_SWITCH ]]; then
+    tmux switch-client -t $SESSION_TO_SWITCH
+fi
+
+tmux kill-session -t $SESSION_TO_KILL
