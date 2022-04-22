@@ -71,6 +71,9 @@ local enhance_server_opts = {
             validate = "on"
         }
     end,
+    ['html'] = function(opts)
+        opts.filetypes = {"html", "gohtmltmpl"}
+    end,
     ['jsonls'] = function(opts)
         opts.settings = {
             json = {

@@ -26,4 +26,12 @@ augroup highlight_yank
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 150})
 augroup END
 
-au BufRead,BufNewFile *.html  setfiletype html
+function DetectGoHtmlTmpl()
+    if expand('%:e') == "html" && search("{{") != 0
+        set filetype=gohtmltmpl
+    endif
+endfunction
+
+augroup filetypedetect
+    au! BufRead,BufNewFile *.html call DetectGoHtmlTmpl()
+augroup END

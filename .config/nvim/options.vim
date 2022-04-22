@@ -31,6 +31,7 @@ set list
 set listchars=trail:⋅,tab:▸·,nbsp:␣,extends:›,precedes:‹
 " set listchars=space:⋅,tab:▸·,eol:↲
 set sessionoptions+=winpos,terminal,folds
+set formatoptions-=t
 
 " Ignore files
 set wildignore+=*.pyc
@@ -55,3 +56,5 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
 let $FZF_DEFAULT_COMMAND = "fd --type file --color=always --hidden"
+
+let g:markdown_fenced_languages = ['toml', 'html', 'python', 'javascript', 'typescript']
