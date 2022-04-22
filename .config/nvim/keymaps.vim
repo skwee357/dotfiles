@@ -1,6 +1,5 @@
 let mapleader = ' '
 
-" FZF
 silent! !git rev-parse --is-inside-work-tree
 if v:shell_error == 0
   nnoremap <C-p>      :GFiles<CR>
