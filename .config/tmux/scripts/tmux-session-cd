@@ -1,0 +1,17 @@
+#!/bin/bash
+
+SELECTED_PATH=$(fd --color=always --type directory | fzf)
+if [ -z "$SELECTED_PATH" ]; then
+    exit 0;
+fi
+
+SELECTED_PATH=$(cd "$SELECTED_PATH"; printf %s "$PWD")
+CLEAN_NAME=$(basename $SELECTED_PATH)
+
+# replace invalid session name strings with _
+SESSION_NAME=$(echo $CLEAN_NAME | tr "./ " "_")
+
+if ! tmux has-session -t $SESSION_NAME 2>/dev/null; then
+    tmux new-session -ds $SESSION_NAME -c $SELECTED_PATH
+fi
+tmux switch-client -t $SESSION_NAME

@@ -10,6 +10,7 @@ Library
 !.fdignore
 !.p10k.zsh
 !.local
+.local/share/nvim
 go
 .tmux/plugins
 .config/tmux/plugins
