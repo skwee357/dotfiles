@@ -80,7 +80,7 @@ export ZSH="$HOME/.oh-my-zsh"
 plugins=(
     colored-man-pages
     sublime
-    zsh-autosuggestions 
+    zsh-autosuggestions
     zsh-syntax-highlighting
     git
 )
