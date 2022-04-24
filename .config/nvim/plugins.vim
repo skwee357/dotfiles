@@ -34,16 +34,15 @@ Plug 'windwp/nvim-autopairs'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'numToStr/Comment.nvim'
-" Plug 'tpope/vim-surround'
-Plug 'machakann/vim-sandwich'
+Plug 'tpope/vim-surround'
 Plug 'b0o/schemastore.nvim'
-Plug 'windwp/nvim-ts-autotag'
 
 " Language Tools
 Plug 'nvim-lua/plenary.nvim'
 Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'windwp/nvim-ts-autotag'
 " Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " Syntax
