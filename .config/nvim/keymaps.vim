@@ -12,6 +12,7 @@ endif
 
 nnoremap <leader>fb :Buffers<CR>
 nnoremap <leader>fg :RG<CR>
+nnoremap <leader>fu :RG <C-r><C-w><CR>
 
 nnoremap <leader>u  :UndotreeToggle<CR>
 nnoremap <leader>e  :NvimTreeToggle<CR>
