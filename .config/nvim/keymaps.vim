@@ -3,11 +3,10 @@ let mapleader = ' '
 silent! !git rev-parse --is-inside-work-tree
 if v:shell_error == 0
   nnoremap <C-p>      :GFiles<CR>
-  nnoremap <leader>ff :GFiles<CR>
+  nnoremap <leader>ff :Files<CR>
   nnoremap <leader>fh :GFiles?<CR>
 else
   nnoremap <C-p>      :Files<CR>
-  nnoremap <leader>ff :Files<CR>
 endif
 
 nnoremap <leader>fb :Buffers<CR>
