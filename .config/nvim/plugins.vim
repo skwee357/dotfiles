@@ -11,6 +11,7 @@ Plug 'navarasu/onedark.nvim'
 " Plug '/opt/homebrew/opt/fzf'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
 
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
@@ -26,16 +27,17 @@ Plug 'SmiteshP/nvim-gps'
 Plug 'j-hui/fidget.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'RRethy/vim-illuminate'
-" Plug 'rmagatti/goto-preview'
 Plug 'kevinhwang91/nvim-bqf'
 
 " Helpers
 Plug 'windwp/nvim-autopairs'
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'tpope/vim-fugitive'
 Plug 'numToStr/Comment.nvim'
 Plug 'tpope/vim-surround'
 Plug 'b0o/schemastore.nvim'
+
+" Git
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'tpope/vim-fugitive'
 
 " Language Tools
 Plug 'nvim-lua/plenary.nvim'

@@ -49,7 +49,7 @@ nnoremap <silent> <leader>D   :lua vim.diagnostic.open_float()<CR>
 nnoremap <silent> [d          :lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <silent> ]d          :lua vim.lsp.diagnostic.goto_prev()<CR>
 
-inoremap <silent> <C-h>       <cmd>lua vim.lsp.buf.signature_help()<CR>
+inoremap <silent> <C-h>       :lua vim.lsp.buf.signature_help()<CR>
 
 " nnoremap <silent> gpi         :lua require('goto-preview').goto_preview_implementation()<CR>
 " nnoremap <silent> gpd         :lua require('goto-preview').goto_preview_definition()<CR>
