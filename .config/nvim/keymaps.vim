@@ -2,20 +2,20 @@ let mapleader = ' '
 
 silent! !git rev-parse --is-inside-work-tree
 if v:shell_error == 0
-  nnoremap <C-p>      :FzfLua git_files<CR>
-  nnoremap <leader>F  :FzfLua files<CR>
-  nnoremap <leader>M  :FzfLua git_status<CR>
+  nnoremap <silent> <C-p>      :FzfLua git_files<CR>
+  nnoremap <silent> <leader>F  :FzfLua files<CR>
+  nnoremap <silent> <leader>M  :FzfLua git_status<CR>
 else
-  nnoremap <C-p>      :FzfLua files<CR>
+  nnoremap <silent> <C-p>      :FzfLua files<CR>
 endif
 
-nnoremap <leader>b :FzfLua buffers<CR>
+nnoremap <silent> <leader>b :FzfLua buffers<CR>
 " nnoremap <leader>/  :RG<CR>
-nnoremap <leader>f  :FzfLua live_grep_native<CR>
+nnoremap <silent> <leader>f  :FzfLua live_grep_native<CR>
 
-nnoremap <leader>u  :UndotreeToggle<CR>
-nnoremap <leader>e  :NvimTreeToggle<CR>
-nnoremap <leader>so :SymbolsOutline<CR>
+nnoremap <silent> <leader>u  :UndotreeToggle<CR>
+nnoremap <silent> <leader>e  :NvimTreeToggle<CR>
+nnoremap <silent> <leader>so :SymbolsOutline<CR>
 
 " Buffers
 nnoremap <silent>    <A-,> :BufferPrevious<CR>
@@ -54,10 +54,6 @@ nnoremap <silent> [d          :lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <silent> ]d          :lua vim.lsp.diagnostic.goto_prev()<CR>
 
 inoremap <silent> <C-h>       <cmd>lua vim.lsp.buf.signature_help()<CR>
-
-" nnoremap <silent> gpi         :lua require('goto-preview').goto_preview_implementation()<CR>
-" nnoremap <silent> gpd         :lua require('goto-preview').goto_preview_definition()<CR>
-" nnoremap <silent> gpx         :lua require('goto-preview').close_all_win()<CR>
 
 " Trouble
 nnoremap <silent> <leader>xx     :TroubleToggle<CR>

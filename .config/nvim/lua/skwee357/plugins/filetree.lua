@@ -2,7 +2,8 @@ require'nvim-tree'.setup {
   disable_netrw = true,
   hijack_netrw = true,
   view = {
-    side = "left"
+    side = "left",
+    width = 30
   },
   actions = {
     open_file = {
@@ -14,3 +15,14 @@ require'nvim-tree'.setup {
     enable = true
   }
 }
+
+local events = require'nvim-tree.events'
+local buf_line_state = require'bufferline.state'
+
+events.on_tree_open(function()
+  buf_line_state.set_offset(31, 'FileTree')
+end)
+
+events.on_tree_close(function()
+  buf_line_state.set_offset(0)
+end)
