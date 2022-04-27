@@ -33,6 +33,9 @@ nnoremap <silent>    <A-p> :BufferPin<CR>
 nnoremap <silent>    <A-c> :BufferClose<CR>
 nnoremap <silent>    <A-s> :BufferPick<CR>
 
+" Git
+nnoremap <silent> <leader>gg  :LazyGit<CR>
+
 " LSP
 nnoremap <silent> gD          :lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> gd          :lua vim.lsp.buf.definition()<CR>

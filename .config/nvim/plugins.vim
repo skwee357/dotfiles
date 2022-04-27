@@ -38,6 +38,7 @@ Plug 'b0o/schemastore.nvim'
 " Git
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
+Plug 'kdheepak/lazygit.nvim'
 
 " Language Tools
 Plug 'nvim-lua/plenary.nvim'
