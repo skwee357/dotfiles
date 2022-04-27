@@ -127,9 +127,6 @@ if [ -f ~/.forterrc ]; then
     source ~/.forterrc
     export FORTER_DEV_CLI_FEATURE_PR_SQUASH_COMMITS=0
     export FORTER_DEV_CLI_FEATURE_PR_SLACK=0
-    alias vpnc="~/bin/gotunl/build/gotunl-darwin-amd64/gotunl -c 1"
-    alias vpnd="~/bin/gotunl/build/gotunl-darwin-amd64/gotunl -d 1"
-    alias vpns="~/bin/gotunl/build/gotunl-darwin-amd64/gotunl -l"
 fi
 
 # NeoVim
