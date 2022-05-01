@@ -16,6 +16,5 @@ require'fidget'.setup {}
 -- require'goto-preview'.setup {}
 
 require'rust-tools'.setup {}
-require'todo-comments'.setup {}
 require'crates'.setup {}
 require'package-info'.setup {}
