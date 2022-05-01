@@ -28,6 +28,7 @@ Plug 'j-hui/fidget.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'RRethy/vim-illuminate'
 Plug 'kevinhwang91/nvim-bqf'
+Plug 'MunifTanjim/nui.nvim' " dependecy for package-info.nvim
 
 " Helpers
 Plug 'windwp/nvim-autopairs'
@@ -46,6 +47,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'windwp/nvim-ts-autotag'
+Plug 'saecki/crates.nvim', { 'tag': 'v0.2.1' }
+Plug 'vuki656/package-info.nvim'
 " Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " Syntax

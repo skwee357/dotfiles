@@ -60,6 +60,7 @@ nnoremap <silent> <leader>xx     :TroubleToggle<CR>
 nnoremap <silent> <leader>xd     :TroubleToggle document_diagnostics<CR>
 nnoremap <silent> <leader>xw     :TroubleToggle workspace_diagnostics<CR>
 nnoremap <silent> <leader>xq     :TroubleToggle quickfix<CR>
+nnoremap <silent> <leader>xt     :TodoTrouble<CR>
 
 " Remove all trailing whitespaces
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
