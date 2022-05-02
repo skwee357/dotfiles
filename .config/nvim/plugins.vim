@@ -33,7 +33,7 @@ Plug 'MunifTanjim/nui.nvim' " dependecy for package-info.nvim
 " Helpers
 Plug 'windwp/nvim-autopairs'
 Plug 'numToStr/Comment.nvim'
-Plug 'tpope/vim-surround'
+Plug 'machakann/vim-sandwich'
 Plug 'b0o/schemastore.nvim'
 
 " Git
@@ -49,7 +49,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'windwp/nvim-ts-autotag'
 Plug 'saecki/crates.nvim', { 'tag': 'v0.2.1' }
 Plug 'vuki656/package-info.nvim'
-" Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
