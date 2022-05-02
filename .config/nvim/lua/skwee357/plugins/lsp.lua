@@ -1,5 +1,5 @@
-local lsp_installer = require'nvim-lsp-installer'
-local root_pattern = require'lspconfig'.util.root_pattern
+local lsp_installer = require 'nvim-lsp-installer'
+local root_pattern = require 'lspconfig'.util.root_pattern
 -- local null_ls = require'null-ls'
 
 -- local servers = {
@@ -23,17 +23,17 @@ local root_pattern = require'lspconfig'.util.root_pattern
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
 local border = 'rounded'
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-  opts = opts or {}
-  opts.border = opts.border or border
-  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+    opts = opts or {}
+    opts.border = opts.border or border
+    return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
 -- null_ls.setup {
@@ -46,7 +46,7 @@ end
 -- }
 
 local function on_attach(client, bufnr)
-    require'lsp_signature'.on_attach({
+    require 'lsp_signature'.on_attach({
         bind = true,
         handler_opts = {
             border = "rounded"
@@ -54,31 +54,53 @@ local function on_attach(client, bufnr)
         hint_prefix = ""
     }, bufnr)
 
-    require'illuminate'.on_attach(client)
+    require 'illuminate'.on_attach(client)
 end
 
 local enhance_server_opts = {
     ['cssls'] = function(opts)
         opts.settings = {
-            css = {validate = true},
-            less = {validate = true},
-            scss = {validate = true},
+            css = { validate = true },
+            less = { validate = true },
+            scss = { validate = true },
         }
     end,
     ['eslint'] = function(opts)
         opts.settings = {
+            codeAction = {
+                disableRuleComment = {
+                    enable = true,
+                    location = "separateLine"
+                },
+                showDocumentation = {
+                    enable = true
+                }
+            },
+            codeActionOnSave = {
+                enable = false,
+                mode = "all"
+            },
             format = true,
+            nodePath = "",
+            onIgnoredFiles = "off",
+            packageManager = "npm",
             quiet = false,
-            validate = "on"
+            rulesCustomizations = {},
+            run = "onType",
+            useESLintClass = false,
+            validate = "on",
+            workingDirectory = {
+                mode = "location"
+            }
         }
     end,
     ['html'] = function(opts)
-        opts.filetypes = {"html", "gohtmltmpl"}
+        opts.filetypes = { "html", "gohtmltmpl" }
     end,
     ['jsonls'] = function(opts)
         opts.settings = {
             json = {
-                schemas = require'schemastore'.json.schemas {
+                schemas = require 'schemastore'.json.schemas {
                     select = {
                         '.eslintrc',
                         'package.json',
