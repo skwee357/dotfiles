@@ -24,6 +24,7 @@ set termguicolors
 set cursorline
 set cmdheight=1
 set hidden
+set spell
 set clipboard+=unnamedplus
 set spelllang=en
 set showbreak=↪\
