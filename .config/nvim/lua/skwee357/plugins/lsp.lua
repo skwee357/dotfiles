@@ -2,24 +2,24 @@ local lsp_installer = require'nvim-lsp-installer'
 local root_pattern = require'lspconfig'.util.root_pattern
 -- local null_ls = require'null-ls'
 
-local servers = {
-    'bashls',
-    'cssls',
-    'dockerls',
-    'eslint',
-    'gopls',
-    'html',
-    'jsonls',
-    'pyright',
-    'rust_analyzer',
-    'sqls',
-    'sumneko_lua',
-    'taplo',
-    'tailwindcss',
-    'tsserver',
-    'vimls',
-    'yamlls'
-}
+-- local servers = {
+--     'bashls',
+--     'cssls',
+--     'dockerls',
+--     'eslint',
+--     'gopls',
+--     'html',
+--     'jsonls',
+--     'pyright',
+--     'rust_analyzer',
+--     'sqls',
+--     'sumneko_lua',
+--     'taplo',
+--     'tailwindcss',
+--     'tsserver',
+--     'vimls',
+--     'yamlls'
+-- }
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
@@ -38,9 +38,10 @@ end
 
 -- null_ls.setup {
 --     sources = {
---         null_ls.builtins.formatting.gofmt,
---         null_ls.builtins.formatting.jq,
---         null_ls.builtins.formatting.rustfmt
+--         -- null_ls.builtins.formatting.gofmt,
+--         -- null_ls.builtins.formatting.jq,
+--         -- null_ls.builtins.formatting.rustfmt,
+--         -- null_ls.builtins.formatting.prettier
 --     }
 -- }
 
@@ -159,10 +160,10 @@ lsp_installer.on_server_ready(function(server)
 end)
 
 -- Install servers
-for _, name in pairs(servers) do
-    local found, server = lsp_installer.get_server(name)
-    if found and not server:is_installed() then
-        print("Installing LSP Server " .. name)
-        server:install()
-    end
-end
+-- for _, name in pairs(servers) do
+--     local found, server = lsp_installer.get_server(name)
+--     if found and not server:is_installed() then
+--         print("Installing LSP Server " .. name)
+--         server:install()
+--     end
+-- end
