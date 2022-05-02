@@ -55,6 +55,11 @@ local function on_attach(client, bufnr)
     }, bufnr)
 
     require 'illuminate'.on_attach(client)
+
+    if client.name == 'eslint' then
+        client.resolved_capabilities.document_formatting = true
+        client.resolved_capabilities.document_range_formatting = true
+    end
 end
 
 local enhance_server_opts = {
