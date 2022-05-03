@@ -59,6 +59,9 @@ local function on_attach(client, bufnr)
     if client.name == 'eslint' then
         client.resolved_capabilities.document_formatting = true
         client.resolved_capabilities.document_range_formatting = true
+    elseif client.name == 'tsserver' then
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
     end
 end
 

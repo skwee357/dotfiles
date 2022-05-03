@@ -47,8 +47,7 @@ nnoremap <silent> R           :lua vim.lsp.buf.rename()<CR>
 
 nnoremap <silent> <leader>ca  :lua vim.lsp.buf.code_action()<CR>
 
-" nnoremap <silent> <leader>lf  :lua vim.lsp.buf.formatting_sync()<CR>
-nnoremap <silent> <leader>lf  :lua vim.lsp.buf.formatting_seq_sync()<CR>
+nnoremap <silent> <leader>bf  :lua vim.lsp.buf.formatting_sync()<CR>
 
 nnoremap <silent> <leader>D   :lua vim.diagnostic.open_float()<CR>
 nnoremap <silent> [d          :lua vim.lsp.diagnostic.goto_next()<CR>
