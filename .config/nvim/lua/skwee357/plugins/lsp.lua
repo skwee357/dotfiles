@@ -45,15 +45,15 @@ end
 --     }
 -- }
 
-local function on_attach(client, bufnr)
-    require 'lsp_signature'.on_attach({
-        bind = true,
-        handler_opts = {
-            border = "rounded"
-        },
-        hint_prefix = ""
-    }, bufnr)
+-- require 'lsp_signature'.setup({
+--     bind = true,
+--     handler_opts = {
+--         border = "single"
+--     },
+--     hint_prefix = ""
+-- })
 
+local function on_attach(client, bufnr)
     require 'illuminate'.on_attach(client)
 
     if client.name == 'eslint' then

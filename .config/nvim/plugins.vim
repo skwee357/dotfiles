@@ -3,7 +3,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'joshdick/onedark.vim'
-Plug 'edkolev/tmuxline.vim'
+" Plug 'edkolev/tmuxline.vim'
 Plug 'mhinz/vim-startify'
 Plug 'navarasu/onedark.nvim'
 
@@ -25,11 +25,9 @@ Plug 'folke/trouble.nvim'
 Plug 'romgrk/barbar.nvim'
 Plug 'SmiteshP/nvim-gps'
 Plug 'j-hui/fidget.nvim'
-Plug 'ray-x/lsp_signature.nvim'
 Plug 'RRethy/vim-illuminate'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'MunifTanjim/nui.nvim' " dependecy for package-info.nvim
-Plug 'lewis6991/spellsitter.nvim'
 
 " Helpers
 Plug 'windwp/nvim-autopairs'
@@ -57,6 +55,7 @@ Plug 'vim-test/vim-test'
 Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'lewis6991/spellsitter.nvim'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
