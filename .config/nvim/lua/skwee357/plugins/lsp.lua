@@ -45,15 +45,15 @@ end
 --     }
 -- }
 
-require 'lsp_signature'.setup({
-    bind = true,
-    handler_opts = {
-        border = "single"
-    },
-    floating_window = true,
-    hint_enable = false,
-    hint_prefix = ""
-})
+-- require 'lsp_signature'.setup({
+--     bind = true,
+--     handler_opts = {
+--         border = "single"
+--     },
+--     floating_window = true,
+--     hint_enable = false,
+    -- hint_prefix = ""
+-- })
 
 local function on_attach(client, bufnr)
     require 'illuminate'.on_attach(client)
