@@ -9,7 +9,7 @@ set tabstop=4
 set shiftwidth=4
 set smarttab
 set noerrorbells
-set scrolloff=8
+set scrolloff=18
 set laststatus=2
 set noshowmode
 set textwidth=120

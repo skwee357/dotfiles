@@ -51,6 +51,7 @@ Plug 'windwp/nvim-ts-autotag'
 Plug 'saecki/crates.nvim', { 'tag': 'v0.2.1' }
 Plug 'vuki656/package-info.nvim'
 " Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'vim-test/vim-test'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
