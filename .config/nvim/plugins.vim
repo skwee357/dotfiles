@@ -28,6 +28,7 @@ Plug 'j-hui/fidget.nvim'
 Plug 'RRethy/vim-illuminate'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'MunifTanjim/nui.nvim' " dependecy for package-info.nvim
+Plug 'ray-x/lsp_signature.nvim'
 
 " Helpers
 Plug 'windwp/nvim-autopairs'
