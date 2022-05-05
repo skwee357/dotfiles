@@ -1,14 +1,11 @@
 call plug#begin(stdpath('data') . '/plugged')
-" Eyecanndy
+" Eye candy
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
-" Plug 'joshdick/onedark.vim'
-" Plug 'edkolev/tmuxline.vim'
 Plug 'mhinz/vim-startify'
 Plug 'navarasu/onedark.nvim'
 
 " Fuzzy Finding
-" Plug '/opt/homebrew/opt/fzf'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
@@ -48,7 +45,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'windwp/nvim-ts-autotag'
 Plug 'saecki/crates.nvim', { 'tag': 'v0.2.1' }
 Plug 'vuki656/package-info.nvim'
-" Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'vim-test/vim-test'
 
 " Syntax
