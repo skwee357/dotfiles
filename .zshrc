@@ -150,6 +150,11 @@ if which bat > /dev/null 2>&1; then
     alias cat='bat'
 fi
 
+# LazyGit
+if which lazygit > /dev/null 2>&1; then
+    alias lg='lazygit'
+fi
+
 # colorize grep
 alias grep='grep --color=auto'
 
