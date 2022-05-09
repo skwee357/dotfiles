@@ -67,8 +67,8 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 call plug#end()
 
-set background=dark
-colorscheme onedark
+" set background=dark
+" colorscheme onedark
 
 set completeopt=menu,menuone,noinsert,noselect
 

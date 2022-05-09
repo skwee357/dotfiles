@@ -1,3 +1,4 @@
+require'skwee357.plugins.colorscheme'
 require'skwee357.plugins.autopairs'
 require'skwee357.plugins.treesitter'
 require'skwee357.plugins.lsp'
