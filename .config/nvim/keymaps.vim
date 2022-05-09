@@ -36,6 +36,12 @@ nnoremap <silent>    <A-s> :BufferPick<CR>
 " Git
 nnoremap <silent> <leader>gg  :LazyGit<CR>
 
+" Gitsigns
+nnoremap <silent> <leader>hs  :Gitsigns stage_hunk<CR>
+nnoremap <silent> <leader>hr  :Gitsigns reset_hunk<CR>
+nnoremap <silent> <leader>hu  :Gitsigns undo_stage_hunk<CR>
+nnoremap <silent> <leader>tb  :Gitsigns toggle_current_line_blame<CR>
+
 " LSP
 nnoremap <silent> gD          :lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> gd          :lua vim.lsp.buf.definition()<CR>

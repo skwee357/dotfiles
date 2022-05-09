@@ -36,7 +36,7 @@ require'gitsigns'.setup {
     col = 1
   },
   yadm = {
-    enable = false
+    enable = true
   },
 }
 
