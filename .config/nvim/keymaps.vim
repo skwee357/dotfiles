@@ -62,8 +62,10 @@ nnoremap <silent> ]d          :lua vim.lsp.diagnostic.goto_prev()<CR>
 inoremap <silent> <C-h>       <cmd>lua vim.lsp.buf.signature_help()<CR>
 
 " Test Runner
-nmap <silent>     <leader>t    :TestNearest<CR>
-nmap <silent>     <leader>T    :TestFile<CR>
+nmap      <silent>  <leader>t     :UltestNearest<CR>
+nmap      <silent>  <leader>T     :Ultest<CR>
+nnoremap  <silent>  <leader>ts    :UltestSummary!<CR>
+nnoremap  <silent>  <leader>to    :UltestOutput<CR>
 
 " Trouble
 nnoremap <silent> <leader>xx     :TroubleToggle<CR>

@@ -46,6 +46,7 @@ Plug 'windwp/nvim-ts-autotag'
 Plug 'saecki/crates.nvim', { 'tag': 'v0.2.1' }
 Plug 'vuki656/package-info.nvim'
 Plug 'vim-test/vim-test'
+Plug 'rcarriga/vim-ultest', { 'do': ':UpdateRemotePlugins' }
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
@@ -74,6 +75,11 @@ set completeopt=menu,menuone,noinsert,noselect
 
 " autocmd FileType nerdtree setlocal signcolumn=no
 autocmd FileType undotree setlocal signcolumn=no
+
+let g:ultest_summary_width = 70
+let g:ultest_use_pty = 1
+let g:ultest_output_on_run = 0
+let g:ultest_output_on_line = 0
 
 let g:auto_session_root_dir = stdpath('data') . '/sessions/'
 

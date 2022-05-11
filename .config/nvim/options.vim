@@ -59,3 +59,6 @@ let &t_EI = "\e[2 q"
 let $FZF_DEFAULT_COMMAND = "fd --type file --color=always --hidden"
 
 let g:markdown_fenced_languages = ['toml', 'html', 'python', 'javascript', 'typescript']
+
+let g:loaded_perl_provider = 0
+let g:loaded_ruby_provider = 0
