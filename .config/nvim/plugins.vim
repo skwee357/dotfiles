@@ -81,6 +81,7 @@ let g:ultest_use_pty = 1
 let g:ultest_output_on_run = 0
 let g:ultest_output_on_line = 0
 let g:ultest_summary_open = "botright split | resize " . g:ultest_summary_width
+let g:ultest_running_sign = 'ﳺ'
 
 let g:auto_session_root_dir = stdpath('data') . '/sessions/'
 
