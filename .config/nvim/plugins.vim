@@ -31,6 +31,7 @@ Plug 'windwp/nvim-autopairs'
 Plug 'numToStr/Comment.nvim'
 Plug 'machakann/vim-sandwich'
 Plug 'b0o/schemastore.nvim'
+Plug 'neomake/neomake'
 
 " Git
 Plug 'lewis6991/gitsigns.nvim'
@@ -76,6 +77,8 @@ set completeopt=menu,menuone,noinsert,noselect
 autocmd FileType undotree setlocal signcolumn=no
 
 let g:auto_session_root_dir = stdpath('data') . '/sessions/'
+
+let test#strategy = 'neomake'
 
 " Automatically close nvim-tree if its the last window
 " autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
