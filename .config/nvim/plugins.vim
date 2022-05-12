@@ -47,6 +47,7 @@ Plug 'saecki/crates.nvim', { 'tag': 'v0.2.1' }
 Plug 'vuki656/package-info.nvim'
 Plug 'vim-test/vim-test'
 Plug 'rcarriga/vim-ultest', { 'do': ':UpdateRemotePlugins' }
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
