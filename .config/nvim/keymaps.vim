@@ -9,7 +9,7 @@ else
   nnoremap <silent> <C-p>      :FzfLua files<CR>
 endif
 
-nnoremap <silent> <leader>b :FzfLua buffers<CR>
+nnoremap <silent> <leader>bb :FzfLua buffers<CR>
 " nnoremap <leader>/  :RG<CR>
 nnoremap <silent> <leader>f  :FzfLua live_grep_native<CR>
 
