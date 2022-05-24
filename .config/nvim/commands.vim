@@ -35,4 +35,5 @@ endfunction
 
 augroup filetypedetect
     au! BufRead,BufNewFile *.html call DetectGoHtmlTmpl()
+    au! BufRead,BufNewFile *.wgsl set filetype=wgsl
 augroup END
