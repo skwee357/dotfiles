@@ -1,3 +1,10 @@
+local parser_config = require 'nvim-treesitter.parsers'.get_parser_configs()
+parser_config.wgsl = {
+  install_info = {
+    url = "https://github.com/szebniok/tree-sitter-wgsl",
+    files = { "src/parser.c" }
+  }
+}
 require 'nvim-treesitter.configs'.setup {
   -- One of "all", "maintained" (parsers with maintainers), or a list of languages
   ensure_installed = {
@@ -34,7 +41,8 @@ require 'nvim-treesitter.configs'.setup {
     "toml",
     "typescript",
     "vim",
-    "yaml"
+    "yaml",
+    "wgsl"
   },
 
   -- Install languages synchronously (only applied to `ensure_installed`)
