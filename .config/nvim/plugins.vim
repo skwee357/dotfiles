@@ -57,7 +57,7 @@ Plug 'lewis6991/spellsitter.nvim'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
+Plug 'skwee357/nvim-lsp-installer', { 'branch': 'wgsl' }
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'

@@ -1,6 +1,6 @@
 local lsp_installer = require 'nvim-lsp-installer'
 local root_pattern = require 'lspconfig'.util.root_pattern
-local null_ls = require'null-ls'
+local null_ls = require 'null-ls'
 
 -- local servers = {
 --     'bashls',
@@ -52,7 +52,7 @@ null_ls.setup {
 --     },
 --     floating_window = true,
 --     hint_enable = false,
-    -- hint_prefix = ""
+-- hint_prefix = ""
 -- })
 
 local function on_attach(client, bufnr)
