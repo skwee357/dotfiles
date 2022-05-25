@@ -18,8 +18,8 @@ nnoremap <silent> <leader>e  :NvimTreeToggle<CR>
 nnoremap <silent> <leader>so :SymbolsOutline<CR>
 
 " Buffers
-nnoremap <silent>    <A-,> :BufferPrevious<CR>
-nnoremap <silent>    <A-.> :BufferNext<CR>
+nnoremap <silent>    <A-h> :BufferPrevious<CR>
+nnoremap <silent>    <A-l> :BufferNext<CR>
 nnoremap <silent>    <A-1> :BufferGoto 1<CR>
 nnoremap <silent>    <A-2> :BufferGoto 2<CR>
 nnoremap <silent>    <A-3> :BufferGoto 3<CR>
@@ -49,11 +49,12 @@ nnoremap <silent> gi          :lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> gr          :lua vim.lsp.buf.references()<CR>
 
 nnoremap <silent> K           :lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> R           :lua vim.lsp.buf.rename()<CR>
+" nnoremap <silent> R           :lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> R           :lua require('renamer').rename()<CR>
 
 nnoremap <silent> <leader>ca  :lua vim.lsp.buf.code_action()<CR>
 
-nnoremap <silent> <leader>bf  :lua vim.lsp.buf.formatting_sync()<CR>
+nnoremap <silent> <leader>lf  :lua vim.lsp.buf.formatting_sync()<CR>
 
 nnoremap <silent> <leader>D   :lua vim.diagnostic.open_float()<CR>
 nnoremap <silent> [d          :lua vim.lsp.diagnostic.goto_next()<CR>
