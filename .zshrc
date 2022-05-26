@@ -83,7 +83,6 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     git
-    pyenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -135,7 +134,7 @@ if which nvim > /dev/null 2>&1; then
     alias vim=nvim
     export EDITOR=nvim
     export VIMRC=~/.config/nvim/init.vim
-    alias vimdiff=nvim -d
+    alias vimdiff=nvim -f -c "Gvdiffsplit!" "$MERGED"
 else
     export EDITOR=vim
     export VIMRC=~/.vimrc
@@ -179,3 +178,4 @@ source ~/.p10k.zsh
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ "$TERM" = alacritty ]] && [ -z "$TMUX" ]; then
     exec tmux new-session -A -s main
 fi
+
