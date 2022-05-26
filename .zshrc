@@ -83,6 +83,7 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     git
+    pyenv
 )
 
 source $ZSH/oh-my-zsh.sh
