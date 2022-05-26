@@ -135,6 +135,7 @@ if which nvim > /dev/null 2>&1; then
     alias vim=nvim
     export EDITOR=nvim
     export VIMRC=~/.config/nvim/init.vim
+    alias vimdiff=nvim -d
 else
     export EDITOR=vim
     export VIMRC=~/.vimrc
