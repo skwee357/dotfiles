@@ -15,7 +15,7 @@ require 'colorizer'.setup {}
 require 'nvim-gps'.setup {}
 require 'fidget'.setup {}
 require 'spellsitter'.setup {}
--- require 'renamer'.setup {}
+require 'renamer'.setup {}
 
 require 'rust-tools'.setup {}
 require 'crates'.setup {}
