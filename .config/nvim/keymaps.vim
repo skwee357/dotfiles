@@ -49,8 +49,8 @@ nnoremap <silent> gi          :lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> gr          :lua vim.lsp.buf.references()<CR>
 
 nnoremap <silent> K           :lua vim.lsp.buf.hover()<CR>
-" nnoremap <silent> R           :lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> R           :lua require('renamer').rename()<CR>
+nnoremap <silent> R           :lua vim.lsp.buf.rename()<CR>
+" nnoremap <silent> R           :lua require('renamer').rename()<CR>
 
 nnoremap <silent> <leader>ca  :lua vim.lsp.buf.code_action()<CR>
 

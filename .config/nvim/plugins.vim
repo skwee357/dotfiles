@@ -25,7 +25,7 @@ Plug 'j-hui/fidget.nvim'
 Plug 'RRethy/vim-illuminate'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'MunifTanjim/nui.nvim' " dependecy for package-info.nvim
-Plug 'filipdutescu/renamer.nvim', { 'branch': 'master' }
+" Plug 'filipdutescu/renamer.nvim', { 'branch': 'master' }
 
 " Helpers
 Plug 'windwp/nvim-autopairs'
