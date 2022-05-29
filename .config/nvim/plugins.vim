@@ -53,6 +53,7 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 " Syntax
 Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'lewis6991/spellsitter.nvim'
 
