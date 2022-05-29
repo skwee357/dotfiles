@@ -1,4 +1,4 @@
-require'nvim-tree'.setup {
+require 'nvim-tree'.setup {
   disable_netrw = true,
   hijack_netrw = true,
   view = {
@@ -13,11 +13,14 @@ require'nvim-tree'.setup {
   },
   update_focused_file = {
     enable = true
+  },
+  renderer = {
+    highlight_opened_files = 3
   }
 }
 
-local events = require'nvim-tree.events'
-local buf_line_state = require'bufferline.state'
+local events = require 'nvim-tree.events'
+local buf_line_state = require 'bufferline.state'
 
 events.on_tree_open(function()
   buf_line_state.set_offset(31, 'FileTree')

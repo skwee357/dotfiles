@@ -117,5 +117,3 @@ let g:startify_lists = [
       \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
       \ { 'type': 'commands',  'header': ['   Commands']       },
       \ ]
-
-let g:nvim_tree_highlight_opened_files = 1
