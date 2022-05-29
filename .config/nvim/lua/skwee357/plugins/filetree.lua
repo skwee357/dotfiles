@@ -15,7 +15,7 @@ require 'nvim-tree'.setup {
     enable = true
   },
   renderer = {
-    highlight_opened_files = 3
+    highlight_opened_files = "3"
   }
 }
 
