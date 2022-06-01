@@ -12,6 +12,7 @@ endif
 nnoremap <silent> <leader>bb :FzfLua buffers<CR>
 " nnoremap <leader>/  :RG<CR>
 nnoremap <silent> <leader>f  :FzfLua live_grep_native<CR>
+nnoremap <silent> <leader>F  :FzfLua grep_cword<CR>
 
 nnoremap <silent> <leader>u  :UndotreeToggle<CR>
 nnoremap <silent> <leader>e  :NvimTreeToggle<CR>
