@@ -16,11 +16,11 @@
                 },
                 "rules": [
                     {
-                        "description": "Like my DZ60 with QMK",
+                        "description": "Change Fn + i/j/k/l to Arrows",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "h",
+                                    "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
                                             "fn"
@@ -39,7 +39,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "j",
+                                    "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
                                             "fn"
@@ -58,7 +58,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "k",
+                                    "key_code": "i",
                                     "modifiers": {
                                         "mandatory": [
                                             "fn"
@@ -93,101 +93,6 @@
                                     }
                                 ],
                                 "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "u",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "page_up"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "d",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "page_down"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "o",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "home"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "n",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "end"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "escape",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "grave_accent_and_tilde"
-                                    }
-                                ],
-                                "type": "basic"
                             }
                         ]
                     }
@@ -216,59 +121,9 @@
                         "product_id": 835,
                         "vendor_id": 1452
                     },
-                    "ignore": false,
-                    "manipulate_caps_lock_led": true,
-                    "simple_modifications": []
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 8800,
-                        "vendor_id": 17498
-                    },
                     "ignore": true,
                     "manipulate_caps_lock_led": true,
                     "simple_modifications": []
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 50475,
-                        "vendor_id": 1133
-                    },
-                    "ignore": true,
-                    "manipulate_caps_lock_led": true,
-                    "simple_modifications": []
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 591,
-                        "vendor_id": 1452
-                    },
-                    "ignore": false,
-                    "manipulate_caps_lock_led": true,
-                    "simple_modifications": [
-                        {
-                            "from": {
-                                "key_code": "caps_lock"
-                            },
-                            "to": [
-                                {
-                                    "apple_vendor_top_case_key_code": "keyboard_fn"
-                                }
-                            ]
-                        }
-                    ]
                 }
             ],
             "fn_function_keys": [
@@ -318,7 +173,7 @@
                     },
                     "to": [
                         {
-                            "apple_vendor_keyboard_key_code": "brightness_down"
+                            "consumer_key_code": "dictation"
                         }
                     ]
                 },
@@ -328,7 +183,7 @@
                     },
                     "to": [
                         {
-                            "apple_vendor_keyboard_key_code": "brightness_up"
+                            "key_code": "f6"
                         }
                     ]
                 },
