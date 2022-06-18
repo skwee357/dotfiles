@@ -20,3 +20,4 @@ require 'renamer'.setup {}
 require 'rust-tools'.setup {}
 require 'crates'.setup {}
 require 'package-info'.setup {}
+require 'flutter-tools'.setup {}

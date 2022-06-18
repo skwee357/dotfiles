@@ -49,6 +49,8 @@ Plug 'vuki656/package-info.nvim'
 Plug 'vim-test/vim-test'
 Plug 'rcarriga/vim-ultest', { 'do': ':UpdateRemotePlugins' }
 Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'akinsho/flutter-tools.nvim'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
