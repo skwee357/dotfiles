@@ -3,6 +3,7 @@
 " Format on save
 autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync()
+autocmd BufWritePre *.dart lua vim.lsp.buf.formatting_sync()
 
 " Smarter RipGrep
 function! RipgrepFzf(query, fullscreen)
