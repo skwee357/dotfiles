@@ -55,6 +55,7 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'nvim-neotest/neotest'
 Plug 'vim-test/vim-test'
 Plug 'nvim-neotest/neotest-vim-test'
+Plug 'haydenmeade/neotest-jest'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'

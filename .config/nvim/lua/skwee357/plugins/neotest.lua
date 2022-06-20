@@ -1,6 +1,9 @@
 require 'neotest'.setup {
   adapter = {
-    require 'neotest-vim-test' {}
+    require 'neotest-jest',
+    require 'neotest-vim-test' {
+      ignore_file_types = {"ts", "js"}
+    }
   },
   diagnostic = {
     enabled = true
