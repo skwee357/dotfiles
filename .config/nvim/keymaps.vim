@@ -3,7 +3,7 @@ let mapleader = ' '
 silent! !git rev-parse --is-inside-work-tree
 if v:shell_error == 0
   nnoremap <silent> <C-p>      :FzfLua git_files<CR>
-  nnoremap <silent> <C-h>      :FzfLua git_status<CR>
+  nnoremap <silent> <leader>gh :FzfLua git_status<CR>
 else
   nnoremap <silent> <C-p>      :FzfLua files<CR>
 endif
