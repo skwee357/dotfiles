@@ -3,15 +3,14 @@ let mapleader = ' '
 silent! !git rev-parse --is-inside-work-tree
 if v:shell_error == 0
   nnoremap <silent> <C-p>      :FzfLua git_files<CR>
-  nnoremap <silent> <leader>F  :FzfLua files<CR>
-  nnoremap <silent> <leader>M  :FzfLua git_status<CR>
+  nnoremap <silent> <C-h>      :FzfLua git_status<CR>
 else
   nnoremap <silent> <C-p>      :FzfLua files<CR>
 endif
 
 nnoremap <silent> <leader>bb :FzfLua buffers<CR>
 " nnoremap <leader>/  :RG<CR>
-nnoremap <silent> <leader>f  :FzfLua live_grep_native<CR>
+nnoremap <silent> <leader>f  :FzfLua live_grep_resume<CR>
 nnoremap <silent> <leader>F  :FzfLua grep_cword<CR>
 
 nnoremap <silent> <leader>u  :UndotreeToggle<CR>
