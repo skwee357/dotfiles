@@ -8,10 +8,11 @@ else
   nnoremap <silent> <C-p>      :FzfLua files<CR>
 endif
 
-nnoremap <silent> <leader>b :FzfLua buffers<CR>
+nnoremap <silent> <leader>bl :FzfLua buffers<CR>
 " nnoremap <leader>/  :RG<CR>
 nnoremap <silent> <leader>f  :FzfLua live_grep_resume<CR>
 nnoremap <silent> <leader>F  :FzfLua grep_cword<CR>
+nnoremap <silent> <leader>bf :FzfLua lgrep_curbuf<CR>
 
 nnoremap <silent> <leader>u  :UndotreeToggle<CR>
 nnoremap <silent> <leader>e  :NvimTreeToggle<CR>
