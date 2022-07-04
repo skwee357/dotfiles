@@ -2,7 +2,9 @@
 
 " Format on save
 autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync()
 autocmd BufWritePre *.dart lua vim.lsp.buf.formatting_sync()
 
