@@ -127,6 +127,7 @@ if [ -f ~/.forterrc ]; then
     source ~/.forterrc
     export FORTER_DEV_CLI_FEATURE_PR_SQUASH_COMMITS=0
     export FORTER_DEV_CLI_FEATURE_PR_SLACK=0
+    export FORTER_DEV_CLI_ADD_TASK_HIERARCHY_TO_TITLE=1
 fi
 
 # NeoVim
