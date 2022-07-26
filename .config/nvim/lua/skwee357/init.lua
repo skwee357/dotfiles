@@ -10,6 +10,7 @@ require 'skwee357.plugins.bufferline'
 require 'skwee357.plugins.indentline'
 require 'skwee357.plugins.flutter'
 require 'skwee357.plugins.neotest'
+require 'skwee357.plugins.dap'
 
 require 'Comment'.setup {}
 require 'trouble'.setup {}
