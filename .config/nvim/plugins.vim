@@ -73,6 +73,7 @@ Plug 'hrsh7th/cmp-cmdline'
 " Debugger
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
+Plug 'theHamsta/nvim-dap-virtual-text'
 
 " Snippets
 Plug 'L3MON4D3/LuaSnip'
