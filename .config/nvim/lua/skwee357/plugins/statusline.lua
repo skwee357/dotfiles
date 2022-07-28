@@ -1,5 +1,5 @@
-local gps = require'nvim-gps'
-local c = require'onedark.colors'
+local navic = require 'nvim-navic'
+local c = require 'onedark.colors'
 
 local lsp = {
   function()
@@ -22,10 +22,10 @@ local lsp = {
     return table.concat(active_clients, ",")
   end,
   icon = ' ',
-  color = {fg = c.yellow}
+  color = { fg = c.yellow }
 }
 
-require'lualine'.setup {
+require 'lualine'.setup {
   options = {
     icons_enabled = true,
     theme = 'onedark',
@@ -33,26 +33,28 @@ require'lualine'.setup {
     -- section_separators = { left = '', right = ''},
     component_separators = '',
     section_separators = '',
-    disabled_filetypes = {'vim-plug', 'Outline'},
+    disabled_filetypes = { 'vim-plug', 'Outline', 'lspsagaoutline' },
     always_divide_middle = true,
     globalstatus = true,
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {{'branch', icon = '', color = { fg = c.cyan }}, 'diff'},
-    lualine_c = {{'filename', path = 0, symbols = {modified = ' ', readonly = ' ', unnamed = '[No Name]'}}, {gps.get_location, cond = gps.is_available}},
-    lualine_x = {lsp, 'diagnostics', {'filetype', colored = true, icon_only = false}, 'encoding', {'fileformat', icons_enabled = false}},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_a = { 'mode' },
+    lualine_b = { { 'branch', icon = '', color = { fg = c.cyan } }, 'diff' },
+    lualine_c = { { 'filename', path = 0, symbols = { modified = ' ', readonly = ' ', unnamed = '[No Name]' } },
+      { navic.get_location, cond = navic.is_available } },
+    lualine_x = { lsp, 'diagnostics', { 'filetype', colored = true, icon_only = false }, 'encoding',
+      { 'fileformat', icons_enabled = false } },
+    lualine_y = { 'progress' },
+    lualine_z = { 'location' }
   },
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
+    lualine_c = { 'filename' },
+    lualine_x = { 'location' },
     lualine_y = {},
     lualine_z = {}
   },
   tabline = {},
-  extensions = {'fzf', 'nvim-tree', 'fugitive', 'symbols-outline'}
+  extensions = {'fzf', 'nvim-tree', 'nvim-dap-ui'}
 }

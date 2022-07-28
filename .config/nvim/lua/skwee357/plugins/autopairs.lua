@@ -6,4 +6,3 @@ require'nvim-autopairs'.setup {
     javascript = { "string", "template_string" }
   }
 }
-

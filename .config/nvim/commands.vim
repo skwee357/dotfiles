@@ -8,6 +8,9 @@ autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync()
 autocmd BufWritePre *.dart lua vim.lsp.buf.formatting_sync()
 
+" autocmd FileType nerdtree setlocal signcolumn=no
+autocmd FileType undotree setlocal signcolumn=no
+
 " Smarter RipGrep
 function! RipgrepFzf(query, fullscreen)
   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'

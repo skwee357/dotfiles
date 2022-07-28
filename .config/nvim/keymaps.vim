@@ -16,7 +16,8 @@ nnoremap <silent> <leader>bf :FzfLua lgrep_curbuf<CR>
 
 nnoremap <silent> <leader>u  :UndotreeToggle<CR>
 nnoremap <silent> <leader>e  :NvimTreeToggle<CR>
-nnoremap <silent> <leader>so :SymbolsOutline<CR>
+" nnoremap <silent> <leader>so :SymbolsOutline<CR>
+nnoremap <silent> <leader>so :LSoutlineToggle<CR>
 
 " Buffers
 nnoremap <silent>    <A-h> :BufferPrevious<CR>
@@ -45,23 +46,31 @@ nnoremap <silent> <leader>tb  :Gitsigns toggle_current_line_blame<CR>
 
 " LSP
 nnoremap <silent> gD          :lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> gd          :lua vim.lsp.buf.definition()<CR>
+" nnoremap <silent> gd          :lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gd          :Lspsaga preview_definition<CR>
 nnoremap <silent> gi          :lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> gr          :lua vim.lsp.buf.references()<CR>
+nnoremap <silent> gh          :Lspsaga lsp_finder<CR>
 
-nnoremap <silent> K           :lua vim.lsp.buf.hover()<CR>
+" nnoremap <silent> K           :lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> K           :Lspsaga hover_doc<CR>
 " nnoremap <silent> R           :lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> R           :lua require('renamer').rename()<CR>
+" nnoremap <silent> R           :lua require('renamer').rename()<CR>
+nnoremap <silent> R           :Lspsaga rename<CR>
 
-nnoremap <silent> <leader>ca  :lua vim.lsp.buf.code_action()<CR>
+" nnoremap <silent> <leader>ca  :lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> <leader>ca  :Lspsaga code_action<CR>
 
 nnoremap <silent> <leader>lf  :lua vim.lsp.buf.formatting_sync()<CR>
 
 nnoremap <silent> <leader>D   :lua vim.diagnostic.open_float()<CR>
-nnoremap <silent> [d          :lua vim.diagnostic.goto_next()<CR>
-nnoremap <silent> ]d          :lua vim.diagnostic.goto_prev()<CR>
+" nnoremap <silent> [d          :lua vim.diagnostic.goto_next()<CR>
+nnoremap <silent> [d          :Lspsaga diagnostic_jump_next<CR>
+" nnoremap <silent> ]d          :lua vim.diagnostic.goto_prev()<CR>
+nnoremap <silent> ]d          :Lspsaga diagnostic_jump_prev<CR>
 
-inoremap <silent> <C-h>       <cmd>lua vim.lsp.buf.signature_help()<CR>
+" inoremap <silent> <C-h>       <cmd>lua vim.lsp.buf.signature_help()<CR>
+inoremap <silent> <C-h>       <cmd>Lspsaga signature_help<CR>
 
 " Test Runner
 nmap      <silent>  <leader>t     :lua require('neotest').run.run()<CR>

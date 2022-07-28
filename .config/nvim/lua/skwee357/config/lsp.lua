@@ -1,6 +1,7 @@
 local lsp_installer = require 'nvim-lsp-installer'
 local root_pattern = require 'lspconfig'.util.root_pattern
 local null_ls = require 'null-ls'
+local navic = require 'nvim-navic'
 
 -- local servers = {
 --     'bashls',
@@ -41,22 +42,14 @@ null_ls.setup {
         -- null_ls.builtins.formatting.gofmt,
         -- null_ls.builtins.formatting.jq,
         -- null_ls.builtins.formatting.rustfmt,
-        null_ls.builtins.formatting.black
+        null_ls.builtins.formatting.black,
+        null_ls.builtins.formatting.prettier
     }
 }
 
--- require 'lsp_signature'.setup({
---     bind = true,
---     handler_opts = {
---         border = "single"
---     },
---     floating_window = true,
---     hint_enable = false,
--- hint_prefix = ""
--- })
-
 local function on_attach(client, bufnr)
     require 'illuminate'.on_attach(client)
+    navic.attach(client, bufnr)
 
     if client.name == 'eslint' then
         client.resolved_capabilities.document_formatting = true
@@ -190,12 +183,3 @@ lsp_installer.on_server_ready(function(server)
     -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     server:setup(opts)
 end)
-
--- Install servers
--- for _, name in pairs(servers) do
---     local found, server = lsp_installer.get_server(name)
---     if found and not server:is_installed() then
---         print("Installing LSP Server " .. name)
---         server:install()
---     end
--- end

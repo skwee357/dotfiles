@@ -16,16 +16,15 @@ Plug 'christoomey/vim-tmux-navigator'
 " UI
 Plug 'mbbill/undotree'
 Plug 'kyazdani42/nvim-tree.lua', { 'branch': 'master' }
-Plug 'simrat39/symbols-outline.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'romgrk/barbar.nvim'
-Plug 'SmiteshP/nvim-gps'
+Plug 'SmiteshP/nvim-navic'
 Plug 'j-hui/fidget.nvim'
 Plug 'RRethy/vim-illuminate'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'MunifTanjim/nui.nvim' " dependecy for package-info.nvim
-Plug 'filipdutescu/renamer.nvim', { 'branch': 'master' }
+Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 
 " Helpers
 Plug 'windwp/nvim-autopairs'
@@ -35,7 +34,6 @@ Plug 'b0o/schemastore.nvim'
 
 " Git
 Plug 'lewis6991/gitsigns.nvim'
-Plug 'tpope/vim-fugitive'
 Plug 'kdheepak/lazygit.nvim'
 
 " Language Tools
@@ -84,15 +82,7 @@ call plug#end()
 " set background=dark
 " colorscheme onedark
 
-set completeopt=menu,menuone,noinsert,noselect
-
-" autocmd FileType nerdtree setlocal signcolumn=no
-autocmd FileType undotree setlocal signcolumn=no
-
 let g:auto_session_root_dir = stdpath('data') . '/sessions/'
-
-" Automatically close nvim-tree if its the last window
-" autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 
 let g:onedark_terminal_italics = 1
 

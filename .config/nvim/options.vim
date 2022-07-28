@@ -48,6 +48,8 @@ set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set foldlevel=50
 
+set completeopt=menu,menuone,noinsert,noselect
+
 syntax on
 
 highlight Normal guibg=NONE ctermbg=NONE
