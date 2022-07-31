@@ -14,7 +14,9 @@ require 'skwee357.plugins.dap'
 
 require 'Comment'.setup {}
 require 'trouble'.setup {}
-require 'colorizer'.setup {}
+require 'colorizer'.setup {
+    'css';
+}
 require 'fidget'.setup {}
 require 'spellsitter'.setup {}
 

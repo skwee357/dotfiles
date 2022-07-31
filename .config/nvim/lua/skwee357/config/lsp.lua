@@ -49,7 +49,10 @@ null_ls.setup {
 
 local function on_attach(client, bufnr)
     require 'illuminate'.on_attach(client)
-    navic.attach(client, bufnr)
+
+    if client.server_capabilities.documentSymbolProvider then
+        navic.attach(client, bufnr)
+    end
 
     if client.name == 'eslint' then
         client.resolved_capabilities.document_formatting = true
