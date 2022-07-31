@@ -32,6 +32,9 @@ Plug 'numToStr/Comment.nvim'
 Plug 'machakann/vim-sandwich'
 Plug 'b0o/schemastore.nvim'
 
+" Session
+Plug 'tpope/vim-obsession'
+
 " Git
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'kdheepak/lazygit.nvim'
