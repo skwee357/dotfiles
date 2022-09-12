@@ -19,6 +19,8 @@ nnoremap <silent> <leader>e  :NvimTreeToggle<CR>
 " nnoremap <silent> <leader>so :SymbolsOutline<CR>
 nnoremap <silent> <leader>so :LSoutlineToggle<CR>
 
+xnoremap <silent> <leader>p  "_dP
+
 " Buffers
 nnoremap <silent>    <A-h> :BufferPrevious<CR>
 nnoremap <silent>    <A-l> :BufferNext<CR>
