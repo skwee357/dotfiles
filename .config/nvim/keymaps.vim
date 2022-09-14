@@ -19,7 +19,11 @@ nnoremap <silent> <leader>e  :NvimTreeToggle<CR>
 " nnoremap <silent> <leader>so :SymbolsOutline<CR>
 nnoremap <silent> <leader>so :LSoutlineToggle<CR>
 
+" Paste without replacing buffer
 xnoremap <silent> <leader>p  "_dP
+
+" Toggle highlight word
+nnoremap <silent> <leader>hw :set hlsearch!<CR>
 
 " Buffers
 nnoremap <silent>    <A-h> :BufferPrevious<CR>
