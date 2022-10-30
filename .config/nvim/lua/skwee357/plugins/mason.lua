@@ -6,7 +6,6 @@ require('mason-lspconfig').setup({
         "eslint",
         "gopls",
         "graphql",
-        "groovyls",
         "html",
         "jsonls",
         "tsserver",
