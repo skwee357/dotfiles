@@ -24,7 +24,7 @@ require('mason-lspconfig').setup({
 
 local navic = require 'nvim-navic'
 local root_pattern = require 'lspconfig'.util.root_pattern
-local cmp = require 'cpm_nvim_lsp'
+local cmp = require 'cmp_nvim_lsp'
 
 local function on_attach(client, bufnr)
     require 'illuminate'.on_attach(client)
