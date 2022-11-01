@@ -25,6 +25,7 @@ Plug 'RRethy/vim-illuminate'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'MunifTanjim/nui.nvim' " dependecy for package-info.nvim
 Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
+Plug 'Pocco81/true-zen.nvim'
 
 " Helpers
 Plug 'windwp/nvim-autopairs'
@@ -51,6 +52,10 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'akinsho/flutter-tools.nvim'
 Plug 'pantharshit00/vim-prisma'
+
+" Markdown
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
 
 " Tests
 Plug 'antoinemadec/FixCursorHold.nvim'

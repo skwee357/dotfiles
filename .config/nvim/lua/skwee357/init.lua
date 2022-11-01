@@ -31,3 +31,9 @@ require 'lspsaga'.init_lsp_saga({
         sign = false,
     }
 });
+
+require 'true-zen'.setup {
+    integrations = {
+        lualine = true
+    }
+}

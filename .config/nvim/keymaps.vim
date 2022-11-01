@@ -22,6 +22,8 @@ nnoremap <silent> <leader>so :LSoutlineToggle<CR>
 " Paste without replacing buffer
 xnoremap <silent> <leader>p  "_dP
 
+nnoremap <silent> <leader>zn :TZAtaraxis<CR>
+
 " Buffers
 nnoremap <silent>    <A-h> :BufferPrevious<CR>
 nnoremap <silent>    <A-l> :BufferNext<CR>
