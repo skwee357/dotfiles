@@ -175,9 +175,9 @@ source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.p10k.zsh
 
 # if tmux exists on the system, we are in interactive shell and tmux doesn't try to run within itself, execute tmux and attach to session main
-if command -v tmux &> /dev/null && [ -n "$PS3" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ "$TERM" = alacritty ]] && [ -z "$TMUX" ]; then
-    exec tmux new-session -A -s main
-fi
+# if command -v tmux &> /dev/null && [ -n "$PS4" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [[ "$TERM" = alacritty ]] && [ -z "$TMUX" ]; then
+    # exec tmux new-session -A -s main
+# fi
 
 
 # bun completions

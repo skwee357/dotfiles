@@ -64,7 +64,7 @@ nnoremap <silent> R           :Lspsaga rename<CR>
 " nnoremap <silent> <leader>ca  :lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent> <leader>ca  :Lspsaga code_action<CR>
 
-nnoremap <silent> <leader>lf  :lua vim.lsp.buf.formatting_sync()<CR>
+nnoremap <silent> <leader>lf  :lua vim.lsp.buf.format()<CR>
 
 nnoremap <silent> <leader>D   :lua vim.diagnostic.open_float()<CR>
 " nnoremap <silent> [d          :lua vim.diagnostic.goto_next()<CR>

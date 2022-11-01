@@ -1,12 +1,12 @@
 " autocmd BufWritePre * :%s/\s\+$//e
 
 " Format on save
-autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync()
-autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync()
-autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync()
-autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync()
-autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync()
-autocmd BufWritePre *.dart lua vim.lsp.buf.formatting_sync()
+" autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync()
+" autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync()
+" autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync()
+" autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync()
+autocmd BufWritePre *.rs lua vim.lsp.buf.format()
+autocmd BufWritePre *.dart lua vim.lsp.buf.format()
 
 " autocmd FileType nerdtree setlocal signcolumn=no
 autocmd FileType undotree setlocal signcolumn=no
