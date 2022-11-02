@@ -43,7 +43,7 @@ local function on_attach(client, bufnr)
 end
 
 require('mason-lspconfig').setup_handlers {
-    function (server_name)
+    function(server_name)
         require('lspconfig')[server_name].setup {
             on_attach = on_attach,
             capabilities = cmp.default_capabilities()
@@ -173,6 +173,17 @@ require('mason-lspconfig').setup_handlers {
                             [vim.fn.expand('$VIMRUNTIME/lua')] = true,
                             [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
                         }
+                    }
+                }
+            }
+        }
+    end,
+    ['ltex'] = function()
+        require 'lspconfig'.ltex.setup {
+            settings = {
+                ltex = {
+                    additionalRules = {
+                        languageModel = '~/.ngrams/',
                     }
                 }
             }
