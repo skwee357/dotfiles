@@ -33,6 +33,7 @@ set listchars=trail:⋅,tab:▸·,nbsp:␣,extends:›,precedes:‹
 " set listchars=space:⋅,tab:▸·,eol:↲
 set sessionoptions+=winpos,terminal,folds
 set formatoptions-=t
+set mouse=
 
 " Ignore files
 set wildignore+=*.pyc
