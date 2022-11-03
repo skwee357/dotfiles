@@ -1,3 +1,6 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 require 'skwee357.plugins.colorscheme'
 require 'skwee357.plugins.autopairs'
 require 'skwee357.config.treesitter'

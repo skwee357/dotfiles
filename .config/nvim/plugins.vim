@@ -15,7 +15,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " UI
 Plug 'mbbill/undotree'
-Plug 'kyazdani42/nvim-tree.lua', { 'branch': 'master' }
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'romgrk/barbar.nvim'

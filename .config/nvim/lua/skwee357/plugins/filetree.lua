@@ -1,21 +1,14 @@
 require 'nvim-tree'.setup {
-  disable_netrw = true,
-  hijack_netrw = true,
-  view = {
-    side = "left",
-    width = 30
-  },
   actions = {
     open_file = {
-      quit_on_open = true,
-      resize_window = true
+      quit_on_open = true
     }
   },
   update_focused_file = {
     enable = true
   },
   renderer = {
-    highlight_opened_files = "3"
+    highlight_opened_files = "all"
   }
 }
 
