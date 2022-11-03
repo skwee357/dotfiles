@@ -5,7 +5,7 @@ require('mason-lspconfig').setup({
         "dockerls",
         "eslint",
         "gopls",
-        "graphql",
+        -- "graphql",
         "html",
         "jsonls",
         "tsserver",
