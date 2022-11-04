@@ -3,7 +3,7 @@ require('mason-lspconfig').setup({
     ensure_installed = {
         "cssls",
         "dockerls",
-        -- "eslint",
+        "eslint",
         "gopls",
         -- "graphql",
         "html",
@@ -32,14 +32,6 @@ local function on_attach(client, bufnr)
     if client.server_capabilities.documentSymbolProvider then
         navic.attach(client, bufnr)
     end
-
-    if client.name == 'eslint' then
-        client.server_capabilities.document_formatting = true
-        client.server_capabilities.document_range_formatting = true
-    elseif client.name == 'tsserver' then
-        client.server_capabilities.document_formatting = false
-        client.server_capabilities.document_range_formatting = false
-    end
 end
 
 require('mason-lspconfig').setup_handlers {
@@ -65,7 +57,10 @@ require('mason-lspconfig').setup_handlers {
     end,
     ['eslint'] = function()
         require 'lspconfig'.eslint.setup {
-            on_attach = on_attach,
+            on_attach = function(client, bufnr)
+                -- client.server_capabilities.documentSymbolProvider = true
+                on_attach(client, bufnr)
+            end,
             capabilities = cmp.default_capabilities(),
             settings = {
                 codeAction = {
@@ -173,17 +168,6 @@ require('mason-lspconfig').setup_handlers {
                             [vim.fn.expand('$VIMRUNTIME/lua')] = true,
                             [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
                         }
-                    }
-                }
-            }
-        }
-    end,
-    ['ltex'] = function()
-        require 'lspconfig'.ltex.setup {
-            settings = {
-                ltex = {
-                    additionalRules = {
-                        languageModel = '~/.ngrams/',
                     }
                 }
             }
