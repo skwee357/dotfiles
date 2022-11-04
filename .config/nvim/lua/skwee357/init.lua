@@ -40,3 +40,7 @@ require 'true-zen'.setup {
         lualine = true
     }
 }
+
+require 'fzf-lua'.setup {
+    file_ignore_patterns = { "^node_modules/" }
+}
