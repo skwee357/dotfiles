@@ -3,7 +3,7 @@ require('mason-lspconfig').setup({
     ensure_installed = {
         "cssls",
         "dockerls",
-        "eslint",
+        -- "eslint",
         "gopls",
         -- "graphql",
         "html",
