@@ -57,7 +57,8 @@ nnoremap <silent> gi          :lua vim.lsp.buf.implementation()<CR>
 " nnoremap <silent> gr          :lua vim.lsp.buf.references()<CR>
 nnoremap <silent> gr          :FzfLua lsp_references<CR>
 nnoremap <silent> gh          :Lspsaga lsp_finder<CR>
-nnoremap <silent> gl          :FzfLua lsp_live_workspace_symbols<CR>
+
+nnoremap <silent> <leader>sf  :FzfLua lsp_live_workspace_symbols<CR>
 
 " nnoremap <silent> K           :lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> K           :Lspsaga hover_doc<CR>
