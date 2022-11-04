@@ -54,13 +54,14 @@ nnoremap <silent> gD          :lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> gd          :lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gp          :Lspsaga peek_definition<CR>
 nnoremap <silent> gi          :lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> gr          :lua vim.lsp.buf.references()<CR>
+" nnoremap <silent> gr          :lua vim.lsp.buf.references()<CR>
+nnoremap <silent> gr          :FzfLua lsp_references<CR>
 nnoremap <silent> gh          :Lspsaga lsp_finder<CR>
+nnoremap <silent> gl          :FzfLua lsp_live_workspace_symbols<CR>
 
 " nnoremap <silent> K           :lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> K           :Lspsaga hover_doc<CR>
 " nnoremap <silent> R           :lua vim.lsp.buf.rename()<CR>
-" nnoremap <silent> R           :lua require('renamer').rename()<CR>
 nnoremap <silent> R           :Lspsaga rename<CR>
 
 " nnoremap <silent> <leader>ca  :lua vim.lsp.buf.code_action()<CR>
@@ -69,6 +70,8 @@ nnoremap <silent> <leader>ca  :Lspsaga code_action<CR>
 nnoremap <silent> <leader>lf  :lua vim.lsp.buf.format()<CR>
 
 nnoremap <silent> <leader>D   :lua vim.diagnostic.open_float()<CR>
+nnoremap <silent> <leader>dw  :FzfLua lsp_workspace_diagnostics<CR>
+nnoremap <silent> <leader>dd  :FzfLua lsp_document_diagnostics<CR>
 " nnoremap <silent> [d          :lua vim.diagnostic.goto_next()<CR>
 nnoremap <silent> [d          :Lspsaga diagnostic_jump_next<CR>
 " nnoremap <silent> ]d          :lua vim.diagnostic.goto_prev()<CR>
