@@ -31,7 +31,8 @@ set showbreak=↪\
 set list
 set listchars=trail:⋅,tab:▸·,nbsp:␣,extends:›,precedes:‹
 " set listchars=space:⋅,tab:▸·,eol:↲
-set sessionoptions+=winpos,terminal,folds
+" set sessionoptions+=winpos,terminal,folds
+set sessionoptions-=blank
 set formatoptions-=t
 set mouse=
 
