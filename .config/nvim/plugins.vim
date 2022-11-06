@@ -7,7 +7,6 @@ Plug 'navarasu/onedark.nvim'
 
 " Fuzzy Finding
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
 
 " Navigation
@@ -39,6 +38,7 @@ Plug 'tpope/vim-obsession'
 " Git
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'kdheepak/lazygit.nvim'
+Plug 'sindrets/diffview.nvim'
 
 " Language Tools
 Plug 'nvim-lua/plenary.nvim'
