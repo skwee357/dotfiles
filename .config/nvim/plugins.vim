@@ -72,7 +72,6 @@ Plug 'lewis6991/spellsitter.nvim'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-" Plug 'williamboman/nvim-lsp-installer'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -94,7 +93,7 @@ call plug#end()
 " set background=dark
 " colorscheme onedark
 
-let g:auto_session_root_dir = stdpath('data') . '/sessions/'
+" let g:auto_session_root_dir = stdpath('data') . '/sessions/'
 
 let g:onedark_terminal_italics = 1
 
@@ -102,7 +101,7 @@ let g:undotree_WindowLayout = 4
 let g:undotree_SplitWidth = 40
 let g:undotree_SetFocusWhenToggle = 1
 
-let g:Illuminate_ftblacklist = ['undotree', 'nvimtree']
+" let g:Illuminate_ftblacklist = ['undotree', 'nvimtree']
 
 let s:startify_ascii_header = [
 \ ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',

@@ -9,7 +9,6 @@ else
 endif
 
 nnoremap <silent> <leader>bl :FzfLua buffers<CR>
-" nnoremap <leader>/  :RG<CR>
 nnoremap <silent> <leader>f  :FzfLua live_grep_resume<CR>
 nnoremap <silent> <leader>F  :FzfLua grep_cword<CR>
 nnoremap <silent> <leader>bf :FzfLua lgrep_curbuf<CR>
