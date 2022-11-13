@@ -108,8 +108,7 @@ require('mason-lspconfig').setup_handlers {
                         select = {
                             '.eslintrc',
                             'package.json',
-                            'tsconfig.json',
-                            'tslint.json'
+                            'tsconfig.json'
                         }
                     }
                 }
@@ -124,7 +123,7 @@ require('mason-lspconfig').setup_handlers {
                 python = {
                     analysis = {
                         autoSearchPaths = true,
-                        diagnosticMode = "workspace",
+                        diagnosticMode = "openFilesOnly",
                         useLibraryCodeForTypes = true
                     }
                 }
