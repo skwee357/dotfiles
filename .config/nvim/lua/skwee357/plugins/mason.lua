@@ -11,7 +11,7 @@ require('mason-lspconfig').setup({
         "tsserver",
         "sumneko_lua",
         "prismals",
-        "pyright",
+        -- "pyright",
         "solargraph",
         "rust_analyzer",
         "sqls",
