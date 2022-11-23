@@ -134,7 +134,7 @@ require('mason-lspconfig').setup_handlers {
         require 'lspconfig'.tailwindcss.setup {
             on_attach = on_attach,
             capabilities = cmp.default_capabilities(),
-            root_dir = root_pattern('tailwind.config.js', 'tailwind.config.ts'),
+            root_dir = root_pattern('tailwind.config.js', 'tailwind.config.ts', 'tailwind.config.cjs'),
             settings = {
                 tailwindCSS = {
                     classAttributes = { "class", "className", "classList", "ngClass" },
