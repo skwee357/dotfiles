@@ -8,6 +8,14 @@ else
   nnoremap <silent> <C-p>      :FzfLua files<CR>
 endif
 
+" Remap up and down to also center the screen
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+" When searching next or previous, also center the screen
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
 nnoremap <silent> <leader>bl :FzfLua buffers<CR>
 nnoremap <silent> <leader>f  :FzfLua live_grep_resume<CR>
 nnoremap <silent> <leader>F  :FzfLua grep_cword<CR>
