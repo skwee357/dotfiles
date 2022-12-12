@@ -79,6 +79,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
+Plug 'onsails/lspkind.nvim'
 
 " Debugger
 Plug 'mfussenegger/nvim-dap'
@@ -88,6 +89,7 @@ Plug 'theHamsta/nvim-dap-virtual-text'
 " Snippets
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
+
 call plug#end()
 
 " set background=dark
