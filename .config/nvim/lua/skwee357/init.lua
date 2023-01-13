@@ -28,12 +28,15 @@ require 'spellsitter'.setup {}
 require 'rust-tools'.setup {}
 require 'crates'.setup {}
 require 'package-info'.setup {}
-require 'lspsaga'.setup({
-    lightbulb = {
-        enable = false,
-        sign = false,
-    }
-});
+-- require 'lspsaga'.setup({
+--     lightbulb = {
+--         enable = false,
+--         sign = false,
+--     },
+--     symbol_in_winbar = {
+--         enable = false
+--     }
+-- });
 
 require 'true-zen'.setup {
     integrations = {

@@ -32,7 +32,7 @@ require 'lualine'.setup {
     -- section_separators = { left = '', right = ''},
     component_separators = '',
     section_separators = '',
-    disabled_filetypes = { 'vim-plug', 'Outline', 'lspsagaoutline' },
+    disabled_filetypes = { 'vim-plug', 'Outline' },
     always_divide_middle = true,
     globalstatus = true,
   },
