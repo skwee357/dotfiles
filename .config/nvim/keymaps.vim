@@ -17,7 +17,7 @@ nnoremap <C-u> <C-u>zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-nnoremap <silent> <leader>bl :FzfLua buffers<CR>
+nnoremap <silent> <leader>bb :FzfLua buffers<CR>
 nnoremap <silent> <leader>f  :FzfLua live_grep_resume<CR>
 nnoremap <silent> <leader>F  :FzfLua grep_cword<CR>
 nnoremap <silent> <leader>bf :FzfLua lgrep_curbuf<CR>
