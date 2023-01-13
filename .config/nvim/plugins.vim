@@ -43,7 +43,8 @@ Plug 'sindrets/diffview.nvim'
 " Language Tools
 Plug 'nvim-lua/plenary.nvim'
 Plug 'rust-lang/rust.vim'
-Plug 'simrat39/rust-tools.nvim'
+" Plug 'simrat39/rust-tools.nvim'
+Plug 'kdarkhan/rust-tools.nvim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'windwp/nvim-ts-autotag'
 Plug 'saecki/crates.nvim', { 'tag': 'v0.2.1' }

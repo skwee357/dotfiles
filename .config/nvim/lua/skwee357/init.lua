@@ -28,8 +28,8 @@ require 'spellsitter'.setup {}
 require 'rust-tools'.setup {}
 require 'crates'.setup {}
 require 'package-info'.setup {}
-require 'lspsaga'.init_lsp_saga({
-    code_action_lightbulb = {
+require 'lspsaga'.setup({
+    lightbulb = {
         enable = false,
         sign = false,
     }
