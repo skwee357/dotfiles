@@ -36,6 +36,7 @@ nnoremap <silent> <leader>so :SymbolsOutline<CR>
 xnoremap <silent> <leader>p  "_dP
 
 " Buffers
+nnoremap <silent>    <C-c> :bp\|bd #<CR>
 nnoremap <silent>    <A-h> :bprevious<CR>
 nnoremap <silent>    <A-l> :bnext<CR>
 nnoremap <silent>    <A-p> :BufferLineTogglePin<CR>
