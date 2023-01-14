@@ -19,7 +19,6 @@ autocmd('FileType', {
 
 local cursor_line_group = augroup('CursorLine', {})
 local yank_group = augroup('HighlightYank', {})
-local ft_detect_group = augroup('FileTypeDetect', {})
 
 autocmd({ "VimEnter", "WinEnter", "BufWinEnter" }, {
     group = cursor_line_group,
@@ -48,29 +47,7 @@ autocmd('TextYankPost', {
     end
 })
 
-autocmd({ "BufRead", "BufNewFile" }, {
-    group = ft_detect_group,
-    pattern = "*.wgsl",
-    callback = function()
-        vim.opt.filetype = "wgsl"
-    end
-})
-
-require 'skwee357.plugins.colorscheme'
-require 'skwee357.plugins.autopairs'
-require 'skwee357.config.treesitter'
-require 'skwee357.config.lsp'
-require 'skwee357.config.cmp'
-require 'skwee357.plugins.mason'
-require 'skwee357.plugins.nullls'
-require 'skwee357.plugins.gitsigns'
-require 'skwee357.plugins.statusline'
-require 'skwee357.plugins.filetree'
 -- require 'skwee357.plugins.bufferline'
-require 'skwee357.plugins.indentline'
-require 'skwee357.plugins.flutter'
-require 'skwee357.plugins.neotest'
-require 'skwee357.plugins.dap'
 
 require 'Comment'.setup {}
 require 'trouble'.setup {}
@@ -92,19 +69,6 @@ require 'package-info'.setup {}
 --         enable = false
 --     }
 -- });
-
-require 'telescope'.setup {
-    extensions = {
-        fzf = {
-            fuzzy = true,
-            override_generic_sorter = true,
-            override_file_sorter = true,
-            case_mode = "smart_case"
-        }
-    }
-}
-
-require 'telescope'.load_extension('fzf')
 
 -- require 'fzf-lua'.setup {
 --     file_ignore_patterns = { "^node_modules/" }
