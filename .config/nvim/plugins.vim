@@ -20,7 +20,7 @@ Plug 'mbbill/undotree'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'folke/trouble.nvim'
-" Plug 'romgrk/barbar.nvim'
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 Plug 'SmiteshP/nvim-navic'
 Plug 'j-hui/fidget.nvim'
 Plug 'RRethy/vim-illuminate'

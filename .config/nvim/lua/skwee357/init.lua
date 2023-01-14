@@ -47,8 +47,6 @@ autocmd('TextYankPost', {
     end
 })
 
--- require 'skwee357.plugins.bufferline'
-
 require 'Comment'.setup {}
 require 'trouble'.setup {}
 require 'colorizer'.setup {
