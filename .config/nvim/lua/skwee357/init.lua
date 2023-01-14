@@ -93,12 +93,6 @@ require 'package-info'.setup {}
 --     }
 -- });
 
-require 'true-zen'.setup {
-    integrations = {
-        lualine = true
-    }
-}
-
 require 'telescope'.setup {
     extensions = {
         fzf = {
