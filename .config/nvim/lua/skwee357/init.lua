@@ -1,5 +1,60 @@
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+require('skwee357.set')
+
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+
+autocmd("BufWritePre", {
+    pattern = { "*.rs", "*.dart" },
+    callback = function()
+        vim.lsp.buf.format()
+    end
+})
+
+autocmd('FileType', {
+    pattern = "undotree",
+    callback = function()
+        vim.opt_local.signcolumn = "no"
+    end
+})
+
+local cursor_line_group = augroup('CursorLine', {})
+local yank_group = augroup('HighlightYank', {})
+local ft_detect_group = augroup('FileTypeDetect', {})
+
+autocmd({ "VimEnter", "WinEnter", "BufWinEnter" }, {
+    group = cursor_line_group,
+    pattern = "*",
+    callback = function()
+        vim.opt_local.cursorline = true
+    end
+})
+
+autocmd({ "WinLeave" }, {
+    group = cursor_line_group,
+    pattern = "*",
+    callback = function()
+        vim.opt_local.cursorline = false
+    end
+})
+
+autocmd('TextYankPost', {
+    group = yank_group,
+    pattern = "*",
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = 'IncSearch',
+            timeout = 100
+        })
+    end
+})
+
+autocmd({ "BufRead", "BufNewFile" }, {
+    group = ft_detect_group,
+    pattern = "*.wgsl",
+    callback = function()
+        vim.opt.filetype = "wgsl"
+    end
+})
 
 require 'skwee357.plugins.colorscheme'
 require 'skwee357.plugins.autopairs'
@@ -44,6 +99,19 @@ require 'true-zen'.setup {
     }
 }
 
-require 'fzf-lua'.setup {
-    file_ignore_patterns = { "^node_modules/" }
+require 'telescope'.setup {
+    extensions = {
+        fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case"
+        }
+    }
 }
+
+require 'telescope'.load_extension('fzf')
+
+-- require 'fzf-lua'.setup {
+--     file_ignore_patterns = { "^node_modules/" }
+-- }

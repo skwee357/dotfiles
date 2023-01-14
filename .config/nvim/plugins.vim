@@ -6,8 +6,11 @@ Plug 'mhinz/vim-startify'
 Plug 'navarasu/onedark.nvim'
 
 " Fuzzy Finding
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'BurntSushi/ripgrep'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
@@ -25,7 +28,6 @@ Plug 'kevinhwang91/nvim-bqf'
 Plug 'MunifTanjim/nui.nvim' " dependecy for package-info.nvim
 " Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 Plug 'simrat39/symbols-outline.nvim'
-Plug 'Pocco81/true-zen.nvim'
 
 " Helpers
 Plug 'windwp/nvim-autopairs'
