@@ -50,7 +50,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'kdarkhan/rust-tools.nvim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'windwp/nvim-ts-autotag'
-Plug 'saecki/crates.nvim', { 'tag': 'v0.2.1' }
+Plug 'saecki/crates.nvim', { 'tag': 'v0.3.0' }
 Plug 'vuki656/package-info.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'dart-lang/dart-vim-plugin'
