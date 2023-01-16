@@ -88,7 +88,7 @@ nnoremap <silent> [d          :lua vim.diagnostic.goto_next()<CR>
 nnoremap <silent> ]d          :lua vim.diagnostic.goto_prev()<CR>
 " nnoremap <silent> ]d          :Lspsaga diagnostic_jump_prev<CR>
 
-inoremap <silent> <C-h>       :lua vim.lsp.buf.signature_help()<CR>
+inoremap <silent> <C-h>       <cmd>lua vim.lsp.buf.signature_help()<CR>
 
 " Test Runner
 nmap      <silent>  <leader>t     :lua require('neotest').run.run()<CR>
