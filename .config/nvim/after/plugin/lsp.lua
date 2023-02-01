@@ -1,6 +1,7 @@
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 local lspkind = require 'lspkind'
+local compare = cmp.config.compare
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
@@ -35,6 +36,20 @@ cmp.setup({
                 return vim_item
             end
         })
+    },
+    sorting = {
+        priority_weight = 2,
+        comparators = {
+            require('cmp_tabnine.compare'),
+            compare.offset,
+            compare.exact,
+            compare.score,
+            compare.recently_used,
+            compare.kind,
+            compare.sort_text,
+            compare.length,
+            compare.order,
+        }
     },
     snippet = {
         -- REQUIRED - you must specify a snippet engine
@@ -79,6 +94,7 @@ cmp.setup({
         end, { 'i', 's' }),
     },
     sources = cmp.config.sources({
+        { name = 'cmp_tabnine' },
         { name = 'nvim_lsp' },
         -- { name = 'vsnip' }, -- For vsnip users.
         { name = 'luasnip' }, -- For luasnip users.
