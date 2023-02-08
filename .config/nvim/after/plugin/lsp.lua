@@ -40,7 +40,6 @@ cmp.setup({
     sorting = {
         priority_weight = 2,
         comparators = {
-            require('cmp_tabnine.compare'),
             compare.offset,
             compare.exact,
             compare.score,
@@ -94,7 +93,6 @@ cmp.setup({
         end, { 'i', 's' }),
     },
     sources = cmp.config.sources({
-        { name = 'cmp_tabnine' },
         { name = 'nvim_lsp' },
         -- { name = 'vsnip' }, -- For vsnip users.
         { name = 'luasnip' }, -- For luasnip users.
