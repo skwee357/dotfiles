@@ -9,7 +9,7 @@ require('mason-lspconfig').setup({
         "html",
         "jsonls",
         "tsserver",
-        "sumneko_lua",
+        "lua_ls",
         "prismals",
         "pyright",
         "solargraph",
