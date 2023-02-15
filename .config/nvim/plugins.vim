@@ -42,6 +42,7 @@ Plug 'rmagatti/auto-session'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'kdheepak/lazygit.nvim'
 Plug 'sindrets/diffview.nvim'
+Plug 'tpope/vim-fugitive'
 
 " Language Tools
 Plug 'nvim-lua/plenary.nvim'
