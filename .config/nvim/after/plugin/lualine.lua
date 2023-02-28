@@ -1,4 +1,3 @@
-local navic = require 'nvim-navic'
 local c = require 'onedark.colors'
 
 local lsp = {

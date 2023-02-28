@@ -58,6 +58,11 @@ require 'spellsitter'.setup {}
 require 'rust-tools'.setup {}
 require 'crates'.setup {}
 require 'package-info'.setup {}
+
+require 'nvim-navic'.setup {
+    highlight  = true
+}
+
 -- require 'lspsaga'.setup({
 --     lightbulb = {
 --         enable = false,
@@ -68,6 +73,6 @@ require 'package-info'.setup {}
 --     }
 -- });
 
--- require 'fzf-lua'.setup {
---     file_ignore_patterns = { "^node_modules/" }
--- }
+require 'fzf-lua'.setup {
+    file_ignore_patterns = { "^node_modules/" }
+}
