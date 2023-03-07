@@ -77,6 +77,7 @@ nnoremap <silent> R           :lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <leader>ca  :FzfLua lsp_code_actions<CR>
 
 nnoremap <silent> <leader>lf  :lua vim.lsp.buf.format()<CR>
+nnoremap <silent> <leader>ll  :EslintFixAll<CR>
 
 nnoremap <silent> <leader>D   :lua vim.diagnostic.open_float()<CR>
 nnoremap <silent> <leader>dw  :FzfLua lsp_workspace_diagnostics<CR>
