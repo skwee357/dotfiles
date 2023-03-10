@@ -47,3 +47,5 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 50
 
 vim.opt.completeopt = "menu,menuone,noinsert,noselect"
+
+vim.g.goyo_width = 120

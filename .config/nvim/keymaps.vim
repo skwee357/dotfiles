@@ -106,6 +106,8 @@ nnoremap <silent> <leader>xw     :TroubleToggle workspace_diagnostics<CR>
 nnoremap <silent> <leader>xq     :TroubleToggle quickfix<CR>
 nnoremap <silent> <leader>xt     :TodoTrouble<CR>
 
+nnoremap <silent> <leader>zen    :Goyo<CR>
+
 " Remove all trailing whitespaces
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 

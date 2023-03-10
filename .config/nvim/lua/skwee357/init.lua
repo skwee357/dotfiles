@@ -47,10 +47,37 @@ autocmd('TextYankPost', {
     end
 })
 
+local goyo_group = augroup('GoyoGroup', {})
+
+autocmd('User', {
+    pattern = 'GoyoEnter',
+    callback = function()
+        require('lualine').hide();
+        vim.api.nvim_set_option('showtabline', 0)
+        vim.cmd("Limelight")
+    end,
+    group = goyo_group
+})
+
+autocmd('User', {
+    pattern = 'GoyoLeave',
+    callback = function()
+        require('lualine').hide({ unhide = true })
+        vim.api.nvim_set_option('showtabline', 2)
+        vim.cmd('Limelight!')
+    end,
+    group = goyo_group
+})
+
+autocmd('FileType', {
+    pattern = "markdown",
+    command = "call pencil#init({'wrap': 'soft'})"
+})
+
 require 'Comment'.setup {}
 require 'trouble'.setup {}
 require 'colorizer'.setup {
-    'css';
+    'css',
 }
 require 'fidget'.setup {}
 require 'spellsitter'.setup {}
@@ -60,7 +87,7 @@ require 'crates'.setup {}
 require 'package-info'.setup {}
 
 require 'nvim-navic'.setup {
-    highlight  = true
+    highlight = true
 }
 
 -- require 'lspsaga'.setup({

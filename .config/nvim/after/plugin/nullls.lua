@@ -9,7 +9,7 @@ null_ls.setup {
         null_ls.builtins.formatting.fixjson,
         -- null_ls.builtins.formatting.eslint_d,
         -- null_ls.builtins.formatting.cbfmt,
-        -- null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.prettier,
         -- null_ls.builtins.diagnostics.write_good,
         -- null_ls.builtins.diagnostics.alex,
         -- null_ls.builtins.diagnostics.proselint,

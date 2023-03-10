@@ -60,6 +60,9 @@ Plug 'pantharshit00/vim-prisma'
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'preservim/vim-pencil'
 
 " Tests
 Plug 'antoinemadec/FixCursorHold.nvim'
