@@ -14,7 +14,7 @@ require('mason-lspconfig').setup({
         "pyright",
         -- "solargraph",
         "rust_analyzer",
-        "sqls",
+        "sqlls",
         "taplo",
         "tailwindcss",
         "vimls",
