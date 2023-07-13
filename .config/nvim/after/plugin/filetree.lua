@@ -11,11 +11,3 @@ require 'nvim-tree'.setup {
         highlight_opened_files = "all"
     }
 }
-
-local events = require 'nvim-tree.events'
-
-events.on_tree_open(function()
-end)
-
-events.on_tree_close(function()
-end)

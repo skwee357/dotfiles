@@ -22,7 +22,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 Plug 'SmiteshP/nvim-navic'
-Plug 'j-hui/fidget.nvim'
+Plug 'j-hui/fidget.nvim', { 'tag': 'legacy' }
 Plug 'RRethy/vim-illuminate'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'MunifTanjim/nui.nvim' " dependecy for package-info.nvim
@@ -48,14 +48,15 @@ Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'windwp/nvim-ts-autotag'
 Plug 'saecki/crates.nvim', { 'tag': 'v0.3.0' }
 Plug 'vuki656/package-info.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'akinsho/flutter-tools.nvim'
+" Plug 'dart-lang/dart-vim-plugin'
+" Plug 'akinsho/flutter-tools.nvim'
 Plug 'pantharshit00/vim-prisma'
+Plug 'wuelnerdotexe/vim-astro'
 
 " Markdown
 Plug 'godlygeek/tabular'
@@ -75,7 +76,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'lewis6991/spellsitter.nvim'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'

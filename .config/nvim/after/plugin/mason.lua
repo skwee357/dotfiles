@@ -171,5 +171,21 @@ require('mason-lspconfig').setup_handlers {
                 }
             }
         }
+    end,
+    ['ltex'] = function()
+        require 'lspconfig'.ltex.setup {
+            on_attach = on_attach,
+            capabilities = cmp.default_capabilities(),
+            cmd = { "ltex-ls" },
+            filetypes = { "markdown", "text" },
+            flag = { debounce_text_changes = 300 },
+            settings = {
+                ltex = {
+                    additionalRules = {
+                        motherTongue = "ru-RU"
+                    }
+                }
+            }
+        }
     end
 }
