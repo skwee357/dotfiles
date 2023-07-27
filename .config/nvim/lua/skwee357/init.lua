@@ -80,7 +80,6 @@ require 'colorizer'.setup {
     'css',
 }
 require 'fidget'.setup {}
--- require 'spellsitter'.setup {}
 
 require 'rust-tools'.setup {}
 require 'crates'.setup {}

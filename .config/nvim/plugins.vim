@@ -57,6 +57,7 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 " Plug 'akinsho/flutter-tools.nvim'
 Plug 'pantharshit00/vim-prisma'
 Plug 'wuelnerdotexe/vim-astro'
+Plug 'dhruvasagar/vim-table-mode'
 
 " Markdown
 Plug 'godlygeek/tabular'
