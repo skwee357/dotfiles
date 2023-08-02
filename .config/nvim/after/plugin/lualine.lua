@@ -34,7 +34,7 @@ local function readingtime()
 end
 
 local function is_markdown()
-    return vim.bo.filetype == "markdown"
+    return vim.bo.filetype == "markdown" or vim.bo.filetype == "asciidoc"
 end
 
 require 'lualine'.setup {
