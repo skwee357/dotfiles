@@ -36,7 +36,7 @@ Plug 'machakann/vim-sandwich'
 Plug 'b0o/schemastore.nvim'
 
 " Session
-Plug 'rmagatti/auto-session'
+" Plug 'rmagatti/auto-session'
 
 " Git
 Plug 'lewis6991/gitsigns.nvim'
