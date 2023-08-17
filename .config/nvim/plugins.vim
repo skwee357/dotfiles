@@ -52,6 +52,7 @@ Plug 'simrat39/rust-tools.nvim'
 Plug 'windwp/nvim-ts-autotag'
 Plug 'saecki/crates.nvim', { 'tag': 'v0.3.0' }
 Plug 'vuki656/package-info.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 " Plug 'dart-lang/dart-vim-plugin'
 " Plug 'akinsho/flutter-tools.nvim'
 Plug 'pantharshit00/vim-prisma'

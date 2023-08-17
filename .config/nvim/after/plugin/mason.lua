@@ -177,7 +177,7 @@ require('mason-lspconfig').setup_handlers {
             on_attach = on_attach,
             capabilities = cmp.default_capabilities(),
             cmd = { "ltex-ls" },
-            filetypes = { "markdown", "text", "asciidoc", "json", "yaml" },
+            filetypes = { "markdown", "text", "asciidoc" },
             flag = { debounce_text_changes = 300 },
             settings = {
                 ltex = {
