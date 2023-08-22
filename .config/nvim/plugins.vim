@@ -9,7 +9,7 @@ Plug 'navarasu/onedark.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'ibhagwan/fzf-lua', {'branch': 'main'}
 " Plug 'nvim-telescope/telescope.nvim'
-" Plug 'BurntSushi/ripgrep'
+" Plug 'BurntSushi/ripgrep' " dependency of todo-comments
 " Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " Navigation
@@ -28,6 +28,7 @@ Plug 'kevinhwang91/nvim-bqf'
 Plug 'MunifTanjim/nui.nvim' " dependecy for package-info.nvim
 " Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 Plug 'simrat39/symbols-outline.nvim'
+" Plug 'folke/todo-comments.nvim'
 
 " Helpers
 Plug 'windwp/nvim-autopairs'
