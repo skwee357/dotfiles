@@ -106,6 +106,10 @@ nnoremap <silent> <leader>xw     :TroubleToggle workspace_diagnostics<CR>
 nnoremap <silent> <leader>xq     :TroubleToggle quickfix<CR>
 nnoremap <silent> <leader>xt     :TodoTrouble<CR>
 
+" Obsidian
+nnoremap <silent> <leader>op     :ObsidianQuickSwitch<CR>
+nnoremap <silent> <leader>of     :ObsidianSearch<CR>
+
 nnoremap <silent> <leader>zen    :Goyo<CR>
 
 " Remove all trailing whitespaces

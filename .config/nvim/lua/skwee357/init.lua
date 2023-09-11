@@ -81,7 +81,6 @@ require 'colorizer'.setup {
 }
 require 'fidget'.setup {}
 
-require 'rust-tools'.setup {}
 require 'crates'.setup {}
 require 'package-info'.setup {}
 

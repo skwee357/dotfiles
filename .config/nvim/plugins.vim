@@ -36,6 +36,9 @@ Plug 'numToStr/Comment.nvim'
 Plug 'machakann/vim-sandwich'
 Plug 'b0o/schemastore.nvim'
 
+" Obsidian
+Plug 'epwalsh/obsidian.nvim'
+
 " Session
 " Plug 'rmagatti/auto-session'
 
