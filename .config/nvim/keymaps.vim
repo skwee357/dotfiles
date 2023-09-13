@@ -22,11 +22,13 @@ nnoremap N Nzzzv
 
 nnoremap <silent> <leader>bb :FzfLua buffers<CR>
 " nnoremap <silent> <leader>bb :Telescope buffers<CR>
+nnoremap <silent> <leader>bf :FzfLua lgrep_curbuf<CR>
+
 nnoremap <silent> <leader>f  :FzfLua live_grep_resume<CR>
 " nnoremap <silent> <leader>f  :Telescope live_grep<CR>
+
 nnoremap <silent> <leader>F  :FzfLua grep_cword<CR>
 " nnoremap <silent> <leader>F  :Telescope grep_string<CR>
-nnoremap <silent> <leader>bf :FzfLua lgrep_curbuf<CR>
 
 nnoremap <silent> <leader>u  :UndotreeToggle<CR>
 nnoremap <silent> <leader>e  :NvimTreeToggle<CR>
@@ -55,14 +57,11 @@ nnoremap <silent> <leader>tb  :Gitsigns toggle_current_line_blame<CR>
 " LSP
 nnoremap <silent> gD          :lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> gd          :lua vim.lsp.buf.definition()<CR>
-" nnoremap <silent> gp          :Lspsaga peek_definition<CR>
-nnoremap <silent> gi          :lua vim.lsp.buf.implementation()<CR>
+" nnoremap <silent> gi          :lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> gi          :FzfLua lsp_implementations<CR>
 " nnoremap <silent> gr          :lua vim.lsp.buf.references()<CR>
 nnoremap <silent> gr          :FzfLua lsp_references<CR>
 " nnoremap <silent> gr          :Telescope lsp_references<CR>
-" nnoremap <silent> gh          :Lspsaga lsp_finder<CR>
-" nnoremap <silent> gh          :FzfLua lsp_definitions<CR>
-" nnoremap <silent> gh          :Telescope lsp_definitions<CR>
 
 nnoremap <silent> <leader>sf  :FzfLua lsp_live_workspace_symbols<CR>
 " nnoremap <silent> <leader>sf  :Telescope lsp_dynamic_workspace_symbols<CR>
