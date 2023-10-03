@@ -64,7 +64,7 @@ Plug 'wuelnerdotexe/vim-astro'
 Plug 'dhruvasagar/vim-table-mode'
 " Plug 'lervag/vimtex'
 Plug 'amadeus/vim-mjml'
-Plug 'pmizio/typescript-tools.nvim'
+" Plug 'pmizio/typescript-tools.nvim'
 
 " Markdown
 Plug 'godlygeek/tabular'

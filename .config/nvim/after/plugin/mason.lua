@@ -95,7 +95,15 @@ require('mason-lspconfig').setup_handlers {
         require 'lspconfig'.html.setup {
             on_attach = on_attach,
             capabilities = cmp.default_capabilities(),
-            filetypes = { "html", "gohtmltmpl" }
+            filetypes = { "html", "gohtmltmpl" },
+            init_options = {
+                configurationSection = { "html", "css", "javascript" },
+                embeddedLanguages = {
+                    css = true,
+                    javascript = true
+                },
+                provideFormatter = true
+            }
         }
     end,
     ['jsonls'] = function()
