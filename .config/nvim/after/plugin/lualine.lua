@@ -1,5 +1,6 @@
 local c = require 'onedark.colors'
 local navic = require 'nvim-navic'
+local prose = require 'nvim-prose'
 
 local lsp = {
     function()
@@ -25,18 +26,6 @@ local lsp = {
     color = { fg = c.yellow }
 }
 
-local function wordcount()
-    return tostring(vim.fn.wordcount().words) .. ' words'
-end
-
-local function readingtime()
-    return tostring(math.ceil(vim.fn.wordcount().words / 200.0)) .. ' min'
-end
-
-local function is_markdown()
-    return vim.bo.filetype == "markdown" or vim.bo.filetype == "asciidoc"
-end
-
 require 'lualine'.setup {
     options = {
         icons_enabled = true,
@@ -59,8 +48,8 @@ require 'lualine'.setup {
                 symbols = { modified = ' ', readonly = ' ', unnamed = '[No Name]', newfile = '[New]' }
             } },
         lualine_x = { lsp, 'diagnostics', { 'filetype', colored = true, icon_only = false },
-            { wordcount,   cond = is_markdown },
-            { readingtime, cond = is_markdown },
+            { prose.word_count,   cond = prose.is_available },
+            { prose.reading_time, cond = prose.is_available },
             'encoding',
             { 'fileformat', icons_enabled = false } },
         lualine_y = { 'progress' },

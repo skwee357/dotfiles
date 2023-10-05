@@ -29,6 +29,7 @@ Plug 'MunifTanjim/nui.nvim' " dependecy for package-info.nvim
 " Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 Plug 'simrat39/symbols-outline.nvim'
 " Plug 'folke/todo-comments.nvim'
+Plug 'skwee357/nvim-prose'
 
 " Helpers
 Plug 'windwp/nvim-autopairs'
