@@ -22,27 +22,20 @@ require('mason-lspconfig').setup({
     }
 })
 
-local navic = require 'nvim-navic'
 local root_pattern = require 'lspconfig'.util.root_pattern
-local cmp = require 'cmp_nvim_lsp'
-
-local function on_attach(client, bufnr)
-    require 'illuminate'.on_attach(client)
-
-    if client.server_capabilities.documentSymbolProvider then
-        navic.attach(client, bufnr)
-    end
-end
+local lsp = require('skwee357.lsp')
+local on_attach = lsp.common_on_attach
+local make_capabilities = lsp.common_capabilities
 
 require('mason-lspconfig').setup_handlers {
     function(server_name)
         require('lspconfig')[server_name].setup {
             on_attach = on_attach,
-            capabilities = cmp.default_capabilities()
+            capabilities = make_capabilities()
         }
     end,
     ['cssls'] = function()
-        local capabilities = cmp.default_capabilities()
+        local capabilities = make_capabilities()
         capabilities.textDocument.completion.completionItem.snippetSupport = true
 
         require 'lspconfig'.cssls.setup {
@@ -61,7 +54,7 @@ require('mason-lspconfig').setup_handlers {
                 -- client.server_capabilities.documentSymbolProvider = true
                 on_attach(client, bufnr)
             end,
-            capabilities = cmp.default_capabilities(),
+            capabilities = make_capabilities(),
             settings = {
                 codeAction = {
                     disableRuleComment = {
@@ -94,8 +87,8 @@ require('mason-lspconfig').setup_handlers {
     ['html'] = function()
         require 'lspconfig'.html.setup {
             on_attach = on_attach,
-            capabilities = cmp.default_capabilities(),
-            filetypes = { "html", "gohtmltmpl" },
+            capabilities = make_capabilities(),
+            filetypes = { "html", "gohtmltmpl", "htmldjango" },
             init_options = {
                 configurationSection = { "html", "css", "javascript" },
                 embeddedLanguages = {
@@ -109,7 +102,7 @@ require('mason-lspconfig').setup_handlers {
     ['jsonls'] = function()
         require 'lspconfig'.jsonls.setup {
             on_attach = on_attach,
-            capabilities = cmp.default_capabilities(),
+            capabilities = make_capabilities(),
             settings = {
                 json = {
                     schemas = require 'schemastore'.json.schemas {
@@ -126,7 +119,7 @@ require('mason-lspconfig').setup_handlers {
     ['pyright'] = function()
         require 'lspconfig'.pyright.setup {
             on_attach = on_attach,
-            capabilities = cmp.default_capabilities(),
+            capabilities = make_capabilities(),
             settings = {
                 python = {
                     analysis = {
@@ -141,7 +134,7 @@ require('mason-lspconfig').setup_handlers {
     ['tailwindcss'] = function()
         require 'lspconfig'.tailwindcss.setup {
             on_attach = on_attach,
-            capabilities = cmp.default_capabilities(),
+            capabilities = make_capabilities(),
             root_dir = root_pattern('tailwind.config.js', 'tailwind.config.ts', 'tailwind.config.cjs'),
             settings = {
                 tailwindCSS = {
@@ -163,7 +156,7 @@ require('mason-lspconfig').setup_handlers {
     ['lua_ls'] = function()
         require 'lspconfig'.lua_ls.setup {
             on_attach = on_attach,
-            capabilities = cmp.default_capabilities(),
+            capabilities = make_capabilities(),
             settings = {
                 Lua = {
                     diagnostics = {
@@ -183,7 +176,7 @@ require('mason-lspconfig').setup_handlers {
     ['ltex'] = function()
         require 'lspconfig'.ltex.setup {
             on_attach = on_attach,
-            capabilities = cmp.default_capabilities(),
+            capabilities = make_capabilities(),
             cmd = { "ltex-ls" },
             filetypes = { "markdown", "text", "asciidoc" },
             flag = { debounce_text_changes = 300 },

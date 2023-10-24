@@ -1,40 +1,65 @@
+local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
+
+local codelldb_path = mason_path .. "bin/codelldb"
+local liblldb_path = mason_path .. "packages/codelldb/extension/lldb/lib/liblldb"
+local this_os = vim.loop.os_uname().sysname
+
+-- The path in windows is different
+if this_os:find "Windows" then
+    codelldb_path = mason_path .. "packages\\codelldb\\extension\\adapter\\codelldb.exe"
+    liblldb_path = mason_path .. "packages\\codelldb\\extension\\lldb\\bin\\liblldb.dll"
+else
+    -- The liblldb extension is .so for linux and .dylib for macOS
+    liblldb_path = liblldb_path .. (this_os == "Linux" and ".so" or ".dylib")
+end
+
 require 'rust-tools'.setup {
     tools = {
-        -- These apply to the default RustSetInlayHints command
+        executor = require("rust-tools/executors").termopen, -- can be quickfix or termopen
+        reload_workspace_from_cargo_toml = true,
         inlay_hints = {
-            -- automatically set inlay hints (type hints)
-            -- default: true
             auto = true,
-
-            -- Only show inlay hints for the current line
             only_current_line = false,
-
-            -- whether to show parameter hints with the inlay hints or not
-            -- default: true
-            show_parameter_hints = true,
-
-            -- prefix for parameter hints
-            -- default: "<-"
-            parameter_hints_prefix = "<- ",
-
-            -- prefix for all the other hints (type, chaining)
-            -- default: "=>"
-            other_hints_prefix = "=> ",
-
-            -- whether to align to the length of the longest line in the file
+            show_parameter_hints = false,
+            parameter_hints_prefix = "<-",
+            other_hints_prefix = "=>",
             max_len_align = false,
-
-            -- padding from the left if max_len_align is true
             max_len_align_padding = 1,
-
-            -- whether to align to the extreme right or not
             right_align = false,
-
-            -- padding from the right if right_align is true
             right_align_padding = 7,
-
-            -- The color of the hints
             highlight = "Comment",
         },
-    }
+        hover_actions = {
+            border = "rounded",
+        },
+        on_initialized = function()
+            vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
+                pattern = { "*.rs" },
+                callback = function()
+                    local _, _ = pcall(vim.lsp.codelens.refresh)
+                end,
+            })
+        end,
+    },
+    dap = {
+        -- adapter= codelldb_adapter,
+        adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+    },
+    server = {
+        on_attach = function(client, bufnr)
+            require('skwee357.lsp').common_on_attach(client, bufnr)
+        end,
+        capabilities = require('skwee357.lsp').common_capabilities(),
+        settings = {
+            ["rust-analyzer"] = {
+                lens = {
+                    enable = true,
+                },
+                checkOnSave = {
+                    enable = true,
+                    command = "clippy",
+                },
+            },
+        },
+    },
 }

@@ -20,7 +20,7 @@ nnoremap <C-u> <C-u>zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-nnoremap <silent> <leader>bb :FzfLua buffers<CR>
+nnoremap <silent> <C-b> :FzfLua buffers<CR>
 " nnoremap <silent> <leader>bb :Telescope buffers<CR>
 nnoremap <silent> <leader>bf :FzfLua lgrep_curbuf<CR>
 
@@ -108,6 +108,14 @@ nnoremap <silent> <leader>xt     :TodoTrouble<CR>
 " Obsidian
 nnoremap <silent> <leader>op     :ObsidianQuickSwitch<CR>
 nnoremap <silent> <leader>of     :ObsidianSearch<CR>
+
+" DAP
+nnoremap <silent> <leader>db     :lua require('dap').toggle_breakpoint()<CR>
+nnoremap <silent> <leader>dr     :lua require('dap').repl.open()<CR>
+nnoremap <silent> <C-]>          :lua require('dap').continue()<CR>
+nnoremap <silent> <C-8>          :lua require('dap').step_over()<CR>
+nnoremap <silent> <C-7>          :lua require('dap').step_into()<CR>
+nnoremap <silent> <C-9>          :lua require('dap').step_out()<CR>
 
 nnoremap <silent> <leader>zen    :Goyo<CR>
 
