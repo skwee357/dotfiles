@@ -156,6 +156,11 @@ if which lazygit > /dev/null 2>&1; then
     alias lg='lazygit'
 fi
 
+# LazyDocker
+if which lazydocker > /dev/null 2>&1; then
+    alias lzd='lazydocker'
+fi
+
 # colorize grep
 alias grep='grep --color=auto'
 
