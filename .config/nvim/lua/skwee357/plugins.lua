@@ -150,7 +150,7 @@ require('lazy').setup({
             }
         }
     },
-    { "numToStr/Comment.nvim" },
+    { "numToStr/Comment.nvim", lazy = false, opts = {} },
     { "machakann/vim-sandwich" },
     { "b0o/schemastore.nvim" },
     {

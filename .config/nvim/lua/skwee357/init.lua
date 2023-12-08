@@ -14,6 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 require('skwee357.set')
 require('skwee357.plugins')
 
+vim.cmd("colorscheme onedark")
+
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
