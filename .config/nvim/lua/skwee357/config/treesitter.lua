@@ -1,4 +1,4 @@
-local parser_config = require 'nvim-treesitter.parsers'.get_parser_configs()
+-- local parser_config = require 'nvim-treesitter.parsers'.get_parser_configs()
 -- parser_config.wgsl = {
     -- install_info = {
         -- url = "https://github.com/szebniok/tree-sitter-wgsl",
@@ -7,57 +7,7 @@ local parser_config = require 'nvim-treesitter.parsers'.get_parser_configs()
 -- }
 require 'nvim-treesitter.configs'.setup {
     -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-    ensure_installed = {
-        "arduino",
-        "astro",
-        "bash",
-        "c",
-        "cmake",
-        "comment",
-        "cpp",
-        "css",
-        "dart",
-        "diff",
-        "dockerfile",
-        "eex",
-        "elixir",
-        "gitignore",
-        "go",
-        "gomod",
-        "graphql",
-        "html",
-        "http",
-        "ini",
-        "java",
-        "javascript",
-        "jq",
-        "jsdoc",
-        "json",
-        "json5",
-        "jsonc",
-        "kotlin",
-        "latex",
-        "lua",
-        "make",
-        "markdown",
-        "markdown_inline",
-        "prisma",
-        "python",
-        "regex",
-        "ruby",
-        "rust",
-        "scss",
-        "sql",
-        "svelte",
-        "swift",
-        "terraform",
-        "todotxt",
-        "toml",
-        "typescript",
-        "tsx",
-        "vim",
-        "yaml"
-    },
+    ensure_installed = "all",
 
     -- Install languages synchronously (only applied to `ensure_installed`)
     sync_install = false,

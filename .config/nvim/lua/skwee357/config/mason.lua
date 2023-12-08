@@ -1,27 +1,4 @@
-require('mason').setup()
-require('mason-lspconfig').setup({
-    ensure_installed = {
-        "cssls",
-        "dockerls",
-        "eslint",
-        -- "gopls",
-        -- "graphql",
-        "html",
-        "jsonls",
-        "tsserver",
-        "lua_ls",
-        "prismals",
-        "pyright",
-        -- "solargraph",
-        "rust_analyzer",
-        "sqlls",
-        "taplo",
-        "tailwindcss",
-        "vimls",
-        "yamlls"
-    }
-})
-
+require("mason").setup();
 local root_pattern = require 'lspconfig'.util.root_pattern
 local lsp = require('skwee357.lsp')
 local on_attach = lsp.common_on_attach

@@ -1,4 +1,18 @@
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
+end
+vim.opt.rtp:prepend(lazypath)
+
 require('skwee357.set')
+require('skwee357.plugins')
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
@@ -73,33 +87,3 @@ autocmd('FileType', {
     pattern = "markdown",
     command = "call pencil#init({'wrap': 'soft'})"
 })
-
-require 'Comment'.setup {}
-require 'trouble'.setup {}
-require 'colorizer'.setup {
-    'css',
-}
-require 'fidget'.setup {}
-
-require 'crates'.setup {}
-require 'package-info'.setup {}
-
-require 'nvim-navic'.setup {
-    highlight = true
-}
-
--- require 'lspsaga'.setup({
---     lightbulb = {
---         enable = false,
---         sign = false,
---     },
---     symbol_in_winbar = {
---         enable = false
---     }
--- });
-
-require 'fzf-lua'.setup {
-    file_ignore_patterns = { "^node_modules/", "^.yarn/" }
-}
-
-require 'nvim-prose'.setup {}
