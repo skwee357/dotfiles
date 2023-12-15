@@ -35,9 +35,9 @@ vim.opt.spelllang = "en"
 vim.opt.showbreak = "↪\\"
 vim.opt.list = true
 vim.opt.listchars = { trail = "⋅", tab = "▸·", nbsp = "␣", extends = "›", precedes = "‹" }
-vim.opt.sessionoptions:remove { "blank" }
 vim.opt.formatoptions:remove { "t" }
 vim.opt.mouse = ""
+vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 -- Ignore files
 vim.opt.wildignore:append { "*.pyc", "*_build/*", "**/coverage/*", "**/node_modules/*", "**/android/*", "**/ios/*",

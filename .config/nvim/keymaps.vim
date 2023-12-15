@@ -1,24 +1,20 @@
 let mapleader = ' '
 
-silent! !git rev-parse --is-inside-work-tree
-if v:shell_error == 0
-  nnoremap <silent> <C-p>      :FzfLua git_files<CR>
-  " nnoremap <silent> <C-p>      :Telescope git_files<CR>
-  " nnoremap <silent> <leader>gs :FzfLua git_status<CR>
-  nnoremap <silent> <C-f>      :FzfLua files<CR>
-  " nnoremap <silent> <C-f>      :Telescope find_files<CR>
-else
-  nnoremap <silent> <C-p>      :FzfLua files<CR>
-  " nnoremap <silent> <C-p>      :Telescope find_files<CR>
-endif
+" silent! !git rev-parse --is-inside-work-tree
+" if v:shell_error == 0
+"   nnoremap <silent> <C-p>      :FzfLua git_files<CR>
+"   " nnoremap <silent> <C-p>      :Telescope git_files<CR>
+"   " nnoremap <silent> <leader>gs :FzfLua git_status<CR>
+"   nnoremap <silent> <C-f>      :FzfLua files<CR>
+"   " nnoremap <silent> <C-f>      :Telescope find_files<CR>
+" else
+"   nnoremap <silent> <C-p>      :FzfLua files<CR>
+"   " nnoremap <silent> <C-p>      :Telescope find_files<CR>
+" endif
 
-" Remap up and down to also center the screen
-nnoremap <C-d> <C-d>zz
-nnoremap <C-u> <C-u>zz
-
-" When searching next or previous, also center the screen
-nnoremap n nzzzv
-nnoremap N Nzzzv
+nnoremap <silent> <C-p>         :FzfLua files resume=true<CR>
+nnoremap <silent> <leader>gs    :FzfLua git_status<CR>
+nnoremap <silent> <leader>gp    :FzfLua git_files<CR>
 
 nnoremap <silent> <C-b> :FzfLua buffers<CR>
 " nnoremap <silent> <leader>bb :Telescope buffers<CR>
@@ -36,6 +32,15 @@ nnoremap <silent> <leader>so :SymbolsOutline<CR>
 
 " Paste without replacing buffer
 xnoremap <silent> <leader>p  "_dP
+
+" Remap up and down to also center the screen
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+" When searching next or previous, also center the screen
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
 
 " Buffers
 nnoremap <silent>    <C-c> :bp\|bd #<CR>
@@ -91,12 +96,12 @@ nnoremap <silent> ]d          :lua vim.diagnostic.goto_prev()<CR>
 inoremap <silent> <C-h>       <cmd>lua vim.lsp.buf.signature_help()<CR>
 
 " Test Runner
-nmap      <silent>  <leader>t     :lua require('neotest').run.run()<CR>
-nmap      <silent>  <leader>T     :lua require('neotest').run.run(vim.fn.expand("%"))<CR>
-nmap      <silent>  <leader>tx    :lua require('neotest').run.stop()<CR>
-nmap      <silent>  <leader>ta    :lua require('neotest').run.attach()<CR>
-nmap      <silent>  <leader>ts    :lua require('neotest').summary.toggle()<CR>
-nmap      <silent>  <leader>to    :lua require('neotest').output.open()<CR>
+" nmap      <silent>  <leader>t     :lua require('neotest').run.run()<CR>
+" nmap      <silent>  <leader>T     :lua require('neotest').run.run(vim.fn.expand("%"))<CR>
+" nmap      <silent>  <leader>tx    :lua require('neotest').run.stop()<CR>
+" nmap      <silent>  <leader>ta    :lua require('neotest').run.attach()<CR>
+" nmap      <silent>  <leader>ts    :lua require('neotest').summary.toggle()<CR>
+" nmap      <silent>  <leader>to    :lua require('neotest').output.open()<CR>
 
 " Trouble
 nnoremap <silent> <leader>xx     :TroubleToggle<CR>
@@ -105,17 +110,13 @@ nnoremap <silent> <leader>xw     :TroubleToggle workspace_diagnostics<CR>
 nnoremap <silent> <leader>xq     :TroubleToggle quickfix<CR>
 nnoremap <silent> <leader>xt     :TodoTrouble<CR>
 
-" Obsidian
-nnoremap <silent> <leader>op     :ObsidianQuickSwitch<CR>
-nnoremap <silent> <leader>of     :ObsidianSearch<CR>
-
 " DAP
-nnoremap <silent> <leader>db     :lua require('dap').toggle_breakpoint()<CR>
-nnoremap <silent> <leader>dr     :lua require('dap').repl.open()<CR>
-nnoremap <silent> <C-]>          :lua require('dap').continue()<CR>
-nnoremap <silent> <C-8>          :lua require('dap').step_over()<CR>
-nnoremap <silent> <C-7>          :lua require('dap').step_into()<CR>
-nnoremap <silent> <C-9>          :lua require('dap').step_out()<CR>
+" nnoremap <silent> <leader>db     :lua require('dap').toggle_breakpoint()<CR>
+" nnoremap <silent> <leader>dr     :lua require('dap').repl.open()<CR>
+" nnoremap <silent> <C-]>          :lua require('dap').continue()<CR>
+" nnoremap <silent> <C-8>          :lua require('dap').step_over()<CR>
+" nnoremap <silent> <C-7>          :lua require('dap').step_into()<CR>
+" nnoremap <silent> <C-9>          :lua require('dap').step_out()<CR>
 
 nnoremap <silent> <leader>zen    :Goyo<CR>
 
