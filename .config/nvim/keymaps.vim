@@ -12,7 +12,7 @@ let mapleader = ' '
 "   " nnoremap <silent> <C-p>      :Telescope find_files<CR>
 " endif
 
-nnoremap <silent> <C-p>         :FzfLua files resume=true<CR>
+nnoremap <silent> <C-p>         :FzfLua files<CR>
 nnoremap <silent> <leader>gs    :FzfLua git_status<CR>
 nnoremap <silent> <leader>gp    :FzfLua git_files<CR>
 
