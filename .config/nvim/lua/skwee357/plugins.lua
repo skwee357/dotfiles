@@ -335,5 +335,6 @@ require('lazy').setup({
             auto_session_use_git_branch = true,
             session_lens = nil,
         }
-    }
+    },
+    {"projectfluent/fluent.vim"}
 })
