@@ -27,7 +27,7 @@ dashboard.section.buttons.val = {
     dashboard.button("r", "  > Recent", ":FzfLua oldfiles<CR>"),
     dashboard.button("l", "󰁒  > Open last session", ":SessionManager load_last_session<CR>"),
     dashboard.button("o", "  > Open session", ":SessionManager load_session<CR>"),
-    dashboard.button("s", "  > Settings", ":e $HOME/.config/nvim | :cd %:p:h | split . | wincmd k | pwd<CR>"),
+    dashboard.button("s", "  > Settings", ":e $HOME/.config/nvim | :cd %:p:h | wincmd k | pwd<CR>"),
     --    dashboard.button( "q", "  > Quit NVIM", ":qa<CR>"),
 }
 

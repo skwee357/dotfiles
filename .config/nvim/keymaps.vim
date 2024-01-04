@@ -27,7 +27,7 @@ nnoremap <silent> <leader>F  :FzfLua grep_cword<CR>
 " nnoremap <silent> <leader>F  :Telescope grep_string<CR>
 
 nnoremap <silent> <leader>u  :UndotreeToggle<CR>
-nnoremap <silent> <leader>e  :Neotree toggle<CR>
+nnoremap <silent> <leader>e  :Neotree toggle left<CR>
 nnoremap <silent> <leader>so :SymbolsOutline<CR>
 
 " Paste without replacing buffer
