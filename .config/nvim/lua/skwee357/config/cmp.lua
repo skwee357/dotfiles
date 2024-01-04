@@ -24,17 +24,27 @@ local has_words_before = function()
 end
 
 cmp.setup({
-    view = {
-        entries = "custom"
+    -- view = {
+    --     entries = "custom"
+    -- },
+    preselect = 'none',
+    completion = {
+        keyword_length = 1,
+        completeopt = "menu,menuone,noinsert,noselect",
+    },
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
     },
     formatting = {
+        fields = { "abbr", "kind", "menu" },
         format = lspkind.cmp_format({
-            mode = 'symbol',
+            mode = 'symbol_text',
             maxwidth = 50,
             ellipsis_char = '...',
-            before = function(entry, vim_item)
-                return vim_item
-            end
+            -- before = function(entry, vim_item)
+            --     return vim_item
+            -- end
         })
     },
     sorting = {
@@ -73,7 +83,7 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
-                cmp.select_next_item()
+                cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
             elseif luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
             elseif has_words_before() then
@@ -84,7 +94,7 @@ cmp.setup({
         end, { 'i', 's' }),
         ['<S-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
-                cmp.select_prev_item()
+                cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
             elseif luasnip.jumpable(-1) then
                 luasnip.jump(-1)
             else
@@ -94,6 +104,7 @@ cmp.setup({
     },
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
+        { name = 'nvim_lua' },
         -- { name = 'vsnip' }, -- For vsnip users.
         { name = 'luasnip' }, -- For luasnip users.
         -- { name = 'ultisnips' }, -- For ultisnips users.

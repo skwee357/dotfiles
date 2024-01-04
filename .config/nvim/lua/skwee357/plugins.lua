@@ -55,25 +55,15 @@ require('lazy').setup({
         end
     },
     {
-        "nvim-tree/nvim-tree.lua",
-        version = "*",
-        lazy = false,
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
         dependencies = {
-            "nvim-tree/nvim-web-devicons",
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+            -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
         },
-        opts = {
-            actions = {
-                open_file = {
-                    quit_on_open = true
-                }
-            },
-            update_focused_file = {
-                enable = true
-            },
-            renderer = {
-                highlight_opened_files = "all"
-            }
-        },
+        opts = require('skwee357.config.neotree'),
     },
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -97,26 +87,7 @@ require('lazy').setup({
         "akinsho/bufferline.nvim",
         version = "*",
         dependencies = "nvim-tree/nvim-web-devicons",
-        opts = {
-
-            options = {
-                offsets = {
-                    {
-                        filetype = 'NvimTree',
-                        text = 'File Explorer',
-                        text_align = 'left',
-                        separator = true
-                    }
-                },
-                show_buffer_close_icons = false,
-                get_element_icon = function(element)
-                    local icon, hl = require("nvim-web-devicons").get_icon_by_filetype(element.filetype,
-                        { default = false })
-                    return icon, hl
-                end,
-                show_close_icon = false,
-            }
-        }
+        opts = require("skwee357.config.bufferline"),
     },
     { "neovim/nvim-lspconfig" },
     {
@@ -151,8 +122,11 @@ require('lazy').setup({
         }
     },
     { "numToStr/Comment.nvim", lazy = false, opts = {} },
-    { "machakann/vim-sandwich" },
     { "b0o/schemastore.nvim" },
+    {
+        "kylechui/nvim-surround",
+        event = "VimEnter",
+    },
     {
         "lewis6991/gitsigns.nvim",
         config = function()
@@ -177,7 +151,6 @@ require('lazy').setup({
             require("skwee357.config.rust")
         end
     },
-    { "windwp/nvim-ts-autotag" },
     {
         "saecki/crates.nvim",
         tag = "stable",
@@ -237,28 +210,27 @@ require('lazy').setup({
     { "sheerun/vim-polyglot" },
     {
         "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
+        event = { "BufReadPost", "BufNewFile" },
+        run = function()
+            require("nvim-treesitter.install").update({ with_sync = true })
+        end,
         config = function()
             require("skwee357.config.treesitter")
-        end
-    },
-    {
-        "nvim-treesitter/nvim-treesitter-textobjects",
+        end,
         dependencies = {
-            "nvim-treesitter/nvim-treesitter"
+            { "nvim-treesitter/nvim-treesitter-textobjects" },
+            {
+                "nvim-treesitter/nvim-treesitter-context",
+                config = function()
+                    require("treesitter-context").setup()
+                end,
+            },
+            { "windwp/nvim-ts-autotag" },
+            { "JoosepAlviste/nvim-ts-context-commentstring" },
         }
     },
     {
-        "nvim-treesitter/nvim-treesitter-context",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter"
-        }
-    },
-    {
-        "norcalli/nvim-colorizer.lua",
-        opts = {
-            "css"
-        }
+        "NvChad/nvim-colorizer.lua",
     },
     {
         "williamboman/mason.nvim",
@@ -298,23 +270,17 @@ require('lazy').setup({
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
-            "cmp-nvim-lsp",
-            "cmp_luasnip",
-            "cmp-buffer",
-            "cmp-path",
-            "cmp-cmdline",
-            "lspkind.nvim"
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "saadparwaiz1/cmp_luasnip" },
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-path" },
+            { "hrsh7th/cmp-cmdline" },
+            { "onsails/lspkind.nvim" },
         },
         config = function()
-            require("skwee357.config.lsp")
+            require("skwee357.config.cmp")
         end
     },
-    { "hrsh7th/cmp-nvim-lsp",     lazy = true },
-    { "saadparwaiz1/cmp_luasnip", lazy = true },
-    { "hrsh7th/cmp-buffer",       lazy = true },
-    { "hrsh7th/cmp-path",         lazy = true },
-    { "hrsh7th/cmp-cmdline",      lazy = true },
-    { "onsails/lspkind.nvim",     lazy = true },
     {
         {
             "L3MON4D3/LuaSnip",
@@ -323,18 +289,19 @@ require('lazy').setup({
         }
     },
     {
-        "rmagatti/auto-session",
-        opts = {
-            log_level = vim.log.levels.ERROR,
-            auto_session_enable_last_session = true,
-            auto_session_root_dir = vim.fn.stdpath("data") .. "/sessions/",
-            auto_session_enabled = true,
-            auto_save_enabled = true,
-            auto_restore_enabled = true,
-            auto_session_suppress_dirs = { "~/", "~/.config/" },
-            auto_session_use_git_branch = true,
-            session_lens = nil,
-        }
+        "Shatur/neovim-session-manager",
+        event = "VimEnter",
+        config = function()
+            require("session_manager").setup({
+                autosave_only_in_session = true,
+                autoload_mode = require("session_manager.config").AutoloadMode.Disabled,
+            })
+        end
     },
-    {"projectfluent/fluent.vim"}
+    { "projectfluent/fluent.vim" },
+    {
+        "stevearc/dressing.nvim",
+        event = "VeryLazy",
+        opts = require("skwee357.config.dressing"),
+    },
 })
