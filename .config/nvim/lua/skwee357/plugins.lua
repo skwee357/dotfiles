@@ -108,8 +108,25 @@ require('lazy').setup({
         ft = "qf",
         opts = {},
     },
-    { "simrat39/symbols-outline.nvim" },
     { "skwee357/nvim-prose" },
+    {
+        "stevearc/aerial.nvim",
+        opts = {
+            highlight_on_hover = true,
+            autojump = true,
+            highlight_on_jump = false,
+            manage_folds = true,
+            show_guides = true,
+            on_attach = function(bufnr)
+                vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+                vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+            end
+        },
+        dependencies = {
+            { "nvim-treesitter/nvim-treesitter" },
+            { "nvim-tree/nvim-web-devicons" }
+        }
+    },
     {
         'windwp/nvim-autopairs',
         dependencies = {

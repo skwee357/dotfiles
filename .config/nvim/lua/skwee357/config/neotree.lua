@@ -1,5 +1,13 @@
 local M = {
     close_if_last_window = true,
+    event_handlers = {
+        {
+            event = "file_opened",
+            handler = function(file_path)
+                vim.cmd("Neotree close")
+            end,
+        }
+    },
     window = {
         mappings = {
             ["C"] = "close_all_subnodes",
