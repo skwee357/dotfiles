@@ -38,12 +38,25 @@ require('lazy').setup({
             require('onedark').load {}
         end,
     },
+    -- {
+    --     "ibhagwan/fzf-lua",
+    --     dependencies = { "nvim-tree/nvim-web-devicons" },
+    --     opts = {
+    --         file_ignore_patterns = { "^node_modules/", "^.yarn/" }
+    --     }
+    -- },
     {
-        "ibhagwan/fzf-lua",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = {
-            file_ignore_patterns = { "^node_modules/", "^.yarn/" }
-        }
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+            {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build \
+                     build --config Release && cmake --install build --prefix build",
+            },
+        },
+        config = function()
+            require("skwee357.config.telescope")
+        end
     },
     { "christoomey/vim-tmux-navigator" },
     {
@@ -144,10 +157,7 @@ require('lazy').setup({
     },
     { "numToStr/Comment.nvim", lazy = false, opts = {} },
     { "b0o/schemastore.nvim" },
-    {
-        "kylechui/nvim-surround",
-        event = "VimEnter",
-    },
+    { "kylechui/nvim-surround" },
     {
         "lewis6991/gitsigns.nvim",
         config = function()

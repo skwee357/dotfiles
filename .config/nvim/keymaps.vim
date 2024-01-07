@@ -12,19 +12,24 @@ let mapleader = ' '
 "   " nnoremap <silent> <C-p>      :Telescope find_files<CR>
 " endif
 
-nnoremap <silent> <C-p>         :FzfLua files<CR>
-nnoremap <silent> <leader>gs    :FzfLua git_status<CR>
-nnoremap <silent> <leader>gp    :FzfLua git_files<CR>
+" nnoremap <silent> <C-p>         :FzfLua files<CR>
+" nnoremap <silent> <leader>gs    :FzfLua git_status<CR>
+" nnoremap <silent> <leader>gp    :FzfLua git_files<CR>
 
-nnoremap <silent> <C-b> :FzfLua buffers<CR>
-" nnoremap <silent> <leader>bb :Telescope buffers<CR>
-nnoremap <silent> <leader>bf :FzfLua lgrep_curbuf<CR>
+nnoremap <silent> <C-p>         :Telescope find_files<CR>
+nnoremap <silent> <leader>gs    :Telescope git_status<CR>
+nnoremap <silent> <leader>gp    :Telescope git_files<CR>
 
-nnoremap <silent> <leader>f  :FzfLua live_grep_resume<CR>
-" nnoremap <silent> <leader>f  :Telescope live_grep<CR>
+" nnoremap <silent> <C-b> :FzfLua buffers<CR>
+nnoremap <silent> <leader>bb :Telescope buffers<CR>
+" nnoremap <silent> <leader>bf :FzfLua lgrep_curbuf<CR>
+nnoremap <silent> <leader>bf :Telescope current_buffer_fuzzy_find<CR>
 
-nnoremap <silent> <leader>F  :FzfLua grep_cword<CR>
-" nnoremap <silent> <leader>F  :Telescope grep_string<CR>
+" nnoremap <silent> <leader>f  :FzfLua live_grep_resume<CR>
+nnoremap <silent> <leader>f  :Telescope live_grep<CR>
+
+" nnoremap <silent> <leader>F  :FzfLua grep_cword<CR>
+nnoremap <silent> <leader>F  :Telescope grep_string<CR>
 
 nnoremap <silent> <leader>u  :UndotreeToggle<CR>
 nnoremap <silent> <leader>e  :Neotree toggle left<CR>
@@ -61,33 +66,37 @@ nnoremap <silent> <leader>tb  :Gitsigns toggle_current_line_blame<CR>
 
 " LSP
 nnoremap <silent> gD          :lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> gd          :lua vim.lsp.buf.definition()<CR>
-" nnoremap <silent> gi          :lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> gi          :FzfLua lsp_implementations<CR>
-" nnoremap <silent> gr          :lua vim.lsp.buf.references()<CR>
-nnoremap <silent> gr          :FzfLua lsp_references<CR>
-" nnoremap <silent> gr          :Telescope lsp_references<CR>
 
-nnoremap <silent> <leader>sf  :FzfLua lsp_live_workspace_symbols<CR>
-" nnoremap <silent> <leader>sf  :Telescope lsp_dynamic_workspace_symbols<CR>
+nnoremap <silent> gd          :lua vim.lsp.buf.definition()<CR>
+
+" nnoremap <silent> gi          :lua vim.lsp.buf.implementation()<CR>
+" nnoremap <silent> gi          :FzfLua lsp_implementations<CR>
+nnoremap <silent> gi          :Telescope lsp_implementations<CR>
+
+" nnoremap <silent> gr          :lua vim.lsp.buf.references()<CR>
+" nnoremap <silent> gr          :FzfLua lsp_references<CR>
+nnoremap <silent> gr          :Telescope lsp_references<CR>
+
+" nnoremap <silent> <leader>sf  :FzfLua lsp_live_workspace_symbols<CR>
+nnoremap <silent> <leader>sf  :Telescope lsp_dynamic_workspace_symbols<CR>
 
 nnoremap <silent> K           :lua vim.lsp.buf.hover()<CR>
 " nnoremap <silent> K           :Lspsaga hover_doc<CR>
 nnoremap <silent> R           :lua vim.lsp.buf.rename()<CR>
 " nnoremap <silent> R           :Lspsaga rename<CR>
 
-" nnoremap <silent> <leader>ca  :lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> <leader>ca  :lua vim.lsp.buf.code_action()<CR>
 " nnoremap <silent> <leader>ca  :Lspsaga code_action<CR>
-nnoremap <silent> <leader>ca  :FzfLua lsp_code_actions<CR>
+" nnoremap <silent> <leader>ca  :FzfLua lsp_code_actions<CR>
 
 nnoremap <silent> <leader>lf  :lua vim.lsp.buf.format()<CR>
 nnoremap <silent> <leader>ll  :EslintFixAll<CR>
 
 nnoremap <silent> <leader>D   :lua vim.diagnostic.open_float()<CR>
-nnoremap <silent> <leader>dw  :FzfLua lsp_workspace_diagnostics<CR>
-" nnoremap <silent> <leader>dw  :Telescope diagnostics<CR>
-nnoremap <silent> <leader>dd  :FzfLua lsp_document_diagnostics<CR>
-" nnoremap <silent> <leader>dd  :Telescope diagnostics bufnr=0<CR>
+" nnoremap <silent> <leader>dw  :FzfLua lsp_workspace_diagnostics<CR>
+nnoremap <silent> <leader>dw  :Telescope diagnostics<CR>
+" nnoremap <silent> <leader>dd  :FzfLua lsp_document_diagnostics<CR>
+nnoremap <silent> <leader>dd  :Telescope diagnostics bufnr=0<CR>
 nnoremap <silent> [d          :lua vim.diagnostic.goto_next()<CR>
 " nnoremap <silent> [d          :Lspsaga diagnostic_jump_next<CR>
 nnoremap <silent> ]d          :lua vim.diagnostic.goto_prev()<CR>
