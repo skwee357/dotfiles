@@ -6,10 +6,14 @@ local make_capabilities = lsp.common_capabilities
 
 require('mason-lspconfig').setup_handlers {
     function(server_name)
-        require('lspconfig')[server_name].setup {
-            on_attach = on_attach,
-            capabilities = make_capabilities()
-        }
+        if server_name == "rust_analyzer" then
+            -- handled by a rust plugin
+        else
+            require('lspconfig')[server_name].setup {
+                on_attach = on_attach,
+                capabilities = make_capabilities()
+            }
+        end
     end,
     ['cssls'] = function()
         local capabilities = make_capabilities()

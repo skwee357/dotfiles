@@ -50,7 +50,7 @@ require('lazy').setup({
         dependencies = {
             {
                 "nvim-telescope/telescope-fzf-native.nvim",
-                run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build \
+                build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build \
                      build --config Release && cmake --install build --prefix build",
             },
         },
@@ -157,7 +157,16 @@ require('lazy').setup({
     },
     { "numToStr/Comment.nvim", lazy = false, opts = {} },
     { "b0o/schemastore.nvim" },
-    { "kylechui/nvim-surround" },
+    {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    },
     {
         "lewis6991/gitsigns.nvim",
         config = function()
@@ -173,14 +182,20 @@ require('lazy').setup({
     },
     { "rust-lang/rust.vim" },
     {
-        "simrat39/rust-tools.nvim",
+        'mrcjkb/rustaceanvim',
+        version = '^3', -- Recommended
+        ft = { 'rust' },
         dependencies = {
-            "neovim/nvim-lspconfig",
-            "nvim-lua/plenary.nvim"
+            "nvim-lua/plenary.nvim",
+            "mfussenegger/nvim-dap",
+            {
+                "lvimuser/lsp-inlayhints.nvim",
+                opts = {}
+            },
         },
         config = function()
             require("skwee357.config.rust")
-        end
+        end,
     },
     {
         "saecki/crates.nvim",
@@ -242,7 +257,7 @@ require('lazy').setup({
     {
         "nvim-treesitter/nvim-treesitter",
         event = { "BufReadPost", "BufNewFile" },
-        run = function()
+        build = function()
             require("nvim-treesitter.install").update({ with_sync = true })
         end,
         config = function()

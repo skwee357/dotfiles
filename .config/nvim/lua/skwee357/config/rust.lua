@@ -1,65 +1,61 @@
-local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
+-- local extension_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
+-- local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.10.0/'
+-- local codelldb_path = extension_path .. 'adapter/codelldb'
+-- local liblldb_path = extension_path .. 'lldb/lib/liblldb'
+-- local this_os = vim.uv.os_uname().sysname;
 
-local codelldb_path = mason_path .. "bin/codelldb"
-local liblldb_path = mason_path .. "packages/codelldb/extension/lldb/lib/liblldb"
-local this_os = vim.loop.os_uname().sysname
+-- The path is different on Windows
+-- if this_os:find "Windows" then
+--     codelldb_path = extension_path .. "adapter\\codelldb.exe"
+--     liblldb_path = extension_path .. "lldb\\bin\\liblldb.dll"
+-- else
+--     -- The liblldb extension is .so for Linux and .dylib for MacOS
+--     liblldb_path = liblldb_path .. (this_os == "Linux" and ".so" or ".dylib")
+-- end
 
--- The path in windows is different
-if this_os:find "Windows" then
-    codelldb_path = mason_path .. "packages\\codelldb\\extension\\adapter\\codelldb.exe"
-    liblldb_path = mason_path .. "packages\\codelldb\\extension\\lldb\\bin\\liblldb.dll"
-else
-    -- The liblldb extension is .so for linux and .dylib for macOS
-    liblldb_path = liblldb_path .. (this_os == "Linux" and ".so" or ".dylib")
-end
+-- local cfg = require('rustaceanvim.config')
 
-require 'rust-tools'.setup {
-    tools = {
-        executor = require("rust-tools/executors").termopen, -- can be quickfix or termopen
-        reload_workspace_from_cargo_toml = true,
-        inlay_hints = {
-            auto = true,
-            only_current_line = false,
-            show_parameter_hints = false,
-            parameter_hints_prefix = "<- ",
-            other_hints_prefix = "=> ",
-            max_len_align = false,
-            max_len_align_padding = 1,
-            right_align = false,
-            right_align_padding = 7,
-            highlight = "Comment",
-        },
-        hover_actions = {
-            border = "rounded",
-        },
-        on_initialized = function()
-            vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
-                pattern = { "*.rs" },
-                callback = function()
-                    local _, _ = pcall(vim.lsp.codelens.refresh)
-                end,
-            })
-        end,
+vim.g.rustaceanvim = {
+    inlay_hints = {
+        highlight = "NonText",
     },
-    dap = {
-        -- adapter= codelldb_adapter,
-        adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+    tools = {
+        executor = require('rustaceanvim.executors').termopen,
+        reload_workspace_from_cargo_toml = true,
+        hover_actions = {
+            auto_focus = true,
+        },
     },
     server = {
         on_attach = function(client, bufnr)
-            require('skwee357.lsp').common_on_attach(client, bufnr)
+            require("skwee357.lsp").common_on_attach(client, bufnr)
+            require('lsp-inlayhints').on_attach(client, bufnr)
+            require('lsp-inlayhints').show()
         end,
-        capabilities = require('skwee357.lsp').common_capabilities(),
+        capabilities = require("skwee357.lsp").common_capabilities(),
         settings = {
-            ["rust-analyzer"] = {
+            ['rust_analyzer'] = {
                 lens = {
-                    enable = true,
+                    enable = true
                 },
                 checkOnSave = {
                     enable = true,
-                    command = "clippy",
-                },
-            },
-        },
-    },
-}
+                    command = 'clippy'
+                }
+            }
+        }
+    }
+};
+
+-- require 'rust-tools'.setup {
+--     tools = {
+--         on_initialized = function()
+--             vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
+--                 pattern = { "*.rs" },
+--                 callback = function()
+--                     local _, _ = pcall(vim.lsp.codelens.refresh)
+--                 end,
+--             })
+--         end,
+--     },
+-- }
