@@ -30,7 +30,7 @@ history = 10000
 [window]
 dynamic_title = true
 opacity = 1
-option_as_alt = "Both"
+option_as_alt = "OnlyLeft"
 
 [window.dimensions]
 columns = 170
