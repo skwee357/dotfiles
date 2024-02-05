@@ -1,8 +1,36 @@
 require("mason").setup();
-local root_pattern = require 'lspconfig'.util.root_pattern
+local lspconfig = require("lspconfig")
+local root_pattern = lspconfig.util.root_pattern
+local configs = require("lspconfig.configs")
 local lsp = require('skwee357.lsp')
 local on_attach = lsp.common_on_attach
 local make_capabilities = lsp.common_capabilities
+
+if not configs.typespec then
+    configs.typespec = {
+        default_config = {
+            cmd = { "tsp-server", "--stdio" },
+            filetypes = {
+                "typespec",
+                "tsp",
+            },
+            root_dir = root_pattern({ "main.tsp" }),
+            single_file_support = true,
+            docs = {
+                description = [[
+  https://github.com/microsoft/typespec
+
+  TypeSpec is a language for describing cloud service APIs and generating other API description languages, client and service code, documentation, and other assets. TypeSpec provides highly extensible core language primitives that can describe API shapes common among REST, OpenAPI, GraphQL, gRPC, and other protocols.
+
+  Install:
+  npm install -g @typespec/compiler
+  ]],
+            }
+        }
+    }
+end
+
+lspconfig.typespec.setup {}
 
 require('mason-lspconfig').setup_handlers {
     function(server_name)

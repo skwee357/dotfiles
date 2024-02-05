@@ -331,7 +331,8 @@ require('lazy').setup({
         {
             "L3MON4D3/LuaSnip",
             version = "v2.*",
-            build = "make install_jsregexp"
+            build = "make install_jsregexp",
+            dependencies = { "rafamadriz/friendly-snippets" },
         }
     },
     {
@@ -349,5 +350,22 @@ require('lazy').setup({
         "stevearc/dressing.nvim",
         event = "VeryLazy",
         opts = require("skwee357.config.dressing"),
+    },
+    { "amadeus/vim-mjml" },
+    {
+        "nvim-neotest/neotest",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "rouge8/neotest-rust"
+        },
+        config = function()
+            require('neotest').setup({
+                adapters = {
+                    require("neotest-rust")
+                }
+            })
+        end
     },
 })

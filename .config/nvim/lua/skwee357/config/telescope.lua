@@ -12,4 +12,9 @@ telescope.setup({
 			-- n = { ["<c-t>"] = trouble.open_with_trouble },
 		},
 	},
+	pickers = {
+		find_files = {
+			find_command = { "fd", "--type", "file", "--hidden" }
+		}
+	}
 })

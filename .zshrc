@@ -177,7 +177,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_TMUX_OPTS="-p"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.p10k.zsh
 
 # if tmux exists on the system, we are in interactive shell and tmux doesn't try to run within itself, execute tmux and attach to session main

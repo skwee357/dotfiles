@@ -55,7 +55,8 @@ vim.opt.wildignore:append { "*.pyc", "*_build/*", "**/coverage/*", "**/node_modu
 
 -- code folding
 vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()";
 vim.opt.foldlevel = 50
 -- vim.opt.foldlevelstart = 50
 vim.opt.foldopen = "jump,block,hor,mark,percent,quickfix,search,tag,undo"
