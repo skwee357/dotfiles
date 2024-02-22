@@ -26,13 +26,14 @@ nnoremap <silent> <leader>bb :Telescope buffers<CR>
 nnoremap <silent> <leader>bf :Telescope current_buffer_fuzzy_find<CR>
 
 " nnoremap <silent> <leader>f  :FzfLua live_grep_resume<CR>
-nnoremap <silent> <leader>f  :Telescope live_grep<CR>
+" nnoremap <silent> <leader>f  :Telescope live_grep<CR>
+nnoremap <silent> <leader>f :lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>
 
 " nnoremap <silent> <leader>F  :FzfLua grep_cword<CR>
 nnoremap <silent> <leader>F  :Telescope grep_string<CR>
 
 nnoremap <silent> <leader>u  :UndotreeToggle<CR>
-nnoremap <silent> <leader>e  :Neotree toggle left<CR>
+nnoremap <silent> <leader>e  :Neotree reveal left<CR>
 nnoremap <silent> <leader>a  :AerialToggle!<CR>
 
 " Paste without replacing buffer
@@ -57,12 +58,6 @@ nnoremap <silent>    <A-s> :BufferLinePick<CR>
 
 " Git
 nnoremap <silent> <leader>gg  :LazyGit<CR>
-
-" Gitsigns
-nnoremap <silent> <leader>hs  :Gitsigns stage_hunk<CR>
-nnoremap <silent> <leader>hr  :Gitsigns reset_hunk<CR>
-nnoremap <silent> <leader>hu  :Gitsigns undo_stage_hunk<CR>
-nnoremap <silent> <leader>tb  :Gitsigns toggle_current_line_blame<CR>
 
 " LSP
 nnoremap <silent> gD          :lua vim.lsp.buf.declaration()<CR>
@@ -126,6 +121,12 @@ nnoremap <silent> <leader>xt     :TodoTrouble<CR>
 " nnoremap <silent> <C-8>          :lua require('dap').step_over()<CR>
 " nnoremap <silent> <C-7>          :lua require('dap').step_into()<CR>
 " nnoremap <silent> <C-9>          :lua require('dap').step_out()<CR>
+
+" Spectre
+nnoremap <silent> <leader>S     :lua require('spectre').toggle()<CR>
+nnoremap <silent> <leader>sw    :lua require('spectre').open_visual({select_word = true})<CR>
+vnoremap <silent> <leader>sw    :lua require('spectre').open_visual()<CR>
+nnoremap <silent> <leader>sp    :lua require('spectre').open_file_search({select_word = true})<CR>
 
 nnoremap <silent> <leader>zen    :Goyo<CR>
 

@@ -33,8 +33,8 @@ vim.g.rustaceanvim = {
             require('lsp-inlayhints').show()
         end,
         capabilities = require("skwee357.lsp").common_capabilities(),
-        settings = {
-            ['rust_analyzer'] = {
+        default_settings = {
+            ['rust-analyzer'] = {
                 lens = {
                     enable = true
                 },

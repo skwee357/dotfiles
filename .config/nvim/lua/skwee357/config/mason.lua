@@ -34,7 +34,7 @@ lspconfig.typespec.setup {}
 
 require('mason-lspconfig').setup_handlers {
     function(server_name)
-        if server_name == "rust_analyzer" then
+        if server_name == "rust_analyzer" or server_name == "rust-analyzer" then
             -- handled by a rust plugin
         else
             require('lspconfig')[server_name].setup {

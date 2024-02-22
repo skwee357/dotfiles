@@ -53,6 +53,12 @@ require('lazy').setup({
                 build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build \
                      build --config Release && cmake --install build --prefix build",
             },
+            {
+                "nvim-telescope/telescope-live-grep-args.nvim",
+                -- This will not install any breaking changes.
+                -- For major updates, this must be adjusted manually.
+                version = "^1.0.0",
+            },
         },
         config = function()
             require("skwee357.config.telescope")
@@ -368,4 +374,40 @@ require('lazy').setup({
             })
         end
     },
+    {
+        "johmsalas/text-case.nvim",
+        dependencies = { "nvim-telescope/telescope.nvim" },
+        config = function()
+            require("textcase").setup({})
+            require("telescope").load_extension("textcase")
+        end,
+        keys = {
+            "ga", -- Default invocation prefix
+            { "ga.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "v" }, desc = "Telescope" },
+        },
+    },
+    { 'kosayoda/nvim-lightbulb' },
+    {
+        "nvim-pack/nvim-spectre",
+        -- optional for floating window border decoration
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+    },
+    { 'lepture/vim-jinja' }
+    -- {
+    --     "jackMort/ChatGPT.nvim",
+    --     event = "VeryLazy",
+    --     config = function()
+    --         require("chatgpt").setup({
+    --                 api_key_cmd = "op read op://Personal/OpenAI/credential --no-newline"
+    --             })
+    --     end,
+    --     dependencies = {
+    --         "MunifTanjim/nui.nvim",
+    --         "nvim-lua/plenary.nvim",
+    --         "folke/trouble.nvim",
+    --         "nvim-telescope/telescope.nvim"
+    --     }
+    -- }
 })
