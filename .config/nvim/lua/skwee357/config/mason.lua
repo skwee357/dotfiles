@@ -144,10 +144,10 @@ require('mason-lspconfig').setup_handlers {
         require 'lspconfig'.tailwindcss.setup {
             on_attach = on_attach,
             capabilities = make_capabilities(),
-            root_dir = root_pattern('tailwind.config.js', 'tailwind.config.ts', 'tailwind.config.cjs'),
+            root_dir = root_pattern('tailwind.config.js', 'tailwind.config.cjs', 'tailwind.config.mjs', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.cjs', 'postcss.config.mjs', 'postcss.config.ts', 'package.json', 'node_modules', '.git'),
             settings = {
                 tailwindCSS = {
-                    classAttributes = { "class", "className", "classList", "ngClass" },
+                    classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
                     lint = {
                         cssConflict = "warning",
                         invalidApply = "error",

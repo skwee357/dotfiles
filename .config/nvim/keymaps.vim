@@ -49,6 +49,8 @@ nnoremap N Nzzzv
 
 
 " Buffers
+"" Go to previous position and close last buffer
+nnoremap <silent>    <C-x> <C-o> :bd #<CR>
 nnoremap <silent>    <C-c> :bp\|bd #<CR>
 nnoremap <silent>    <A-h> :bprevious<CR>
 nnoremap <silent>    <A-l> :bnext<CR>
