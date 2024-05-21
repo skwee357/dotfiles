@@ -32,6 +32,8 @@ end
 
 lspconfig.typespec.setup {}
 
+lspconfig.qmlls.setup {}
+
 require('mason-lspconfig').setup_handlers {
     function(server_name)
         if server_name == "rust_analyzer" or server_name == "rust-analyzer" then

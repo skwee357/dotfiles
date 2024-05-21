@@ -31,6 +31,9 @@ require 'nvim-treesitter.configs'.setup {
         -- Instead of true it can also be a list of languages
         additional_vim_regex_highlighting = false,
     },
+    ident = {
+        enable = true,
+    },
     rainbow = {
         enable = false,
         -- disable = { "jsx" }
@@ -46,8 +49,59 @@ require 'nvim-treesitter.configs'.setup {
             keymaps = {
                 ["af"] = "@function.outer",
                 ["if"] = "@function.inner",
+
                 ["ac"] = "@class.outer",
                 ["ic"] = "@class.inner",
+
+                ["a="] = "@assignment.outer",
+                ["i="] = "@assignment.inner",
+
+                ["l="] = "@assignment.lhs",
+                ["r="] = "@assignment.rhs",
+
+                ["aa"] = "@parameter.outer",
+                ["ia"] = "@parameter.inner",
+
+                ["ai"] = "@conditional.outer",
+                ["ii"] = "@conditional.inner",
+
+                ["al"] = "@loop.outer",
+                ["il"] = "@loop.inner",
+
+                ["am"] = "@call.outer",
+                ["im"] = "@call.inner",
+            }
+        },
+        move = {
+            enable = true,
+            set_jumps = true,
+            goto_next_start = {
+                ["]f"] = "@function.outer",
+                ["]c"] = "@calss.outer",
+                ["]i"] = "@conditional.outer",
+                ["]l"] = "@loop.outer",
+                ["]m"] = "@call.outer"
+            },
+            goto_next_end = {
+                ["]F"] = "@function.outer",
+                ["]C"] = "@calss.outer",
+                ["]I"] = "@conditional.outer",
+                ["]L"] = "@loop.outer",
+                ["]M"] = "@call.outer"
+            },
+            goto_previous_start = {
+                ["[f"] = "@function.outer",
+                ["[c"] = "@calss.outer",
+                ["[i"] = "@conditional.outer",
+                ["[l"] = "@loop.outer",
+                ["[m"] = "@call.outer"
+            },
+            goto_previous_end = {
+                ["[F"] = "@function.outer",
+                ["[C"] = "@calss.outer",
+                ["[I"] = "@conditional.outer",
+                ["[L"] = "@loop.outer",
+                ["[M"] = "@call.outer"
             }
         }
     }

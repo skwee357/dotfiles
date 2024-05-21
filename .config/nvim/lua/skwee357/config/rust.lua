@@ -16,9 +16,6 @@
 -- local cfg = require('rustaceanvim.config')
 
 vim.g.rustaceanvim = {
-    inlay_hints = {
-        highlight = "NonText",
-    },
     tools = {
         executor = require('rustaceanvim.executors').termopen,
         reload_workspace_from_cargo_toml = true,
@@ -29,8 +26,6 @@ vim.g.rustaceanvim = {
     server = {
         on_attach = function(client, bufnr)
             require("skwee357.lsp").common_on_attach(client, bufnr)
-            require('lsp-inlayhints').on_attach(client, bufnr)
-            require('lsp-inlayhints').show()
         end,
         capabilities = require("skwee357.lsp").common_capabilities(),
         default_settings = {

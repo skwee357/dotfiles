@@ -46,7 +46,13 @@ require 'lualine'.setup {
                 'filename',
                 path = 0,
                 symbols = { modified = ' ', readonly = ' ', unnamed = '[No Name]', newfile = '[New]' }
-            } },
+            },
+            {
+                'navic',
+                color_correction = nil,
+                navic_opts = nil
+            }
+        },
         lualine_x = { lsp, 'diagnostics', { 'filetype', colored = true, icon_only = false },
             { prose.word_count,   cond = prose.is_available },
             { prose.reading_time, cond = prose.is_available },
@@ -66,7 +72,9 @@ require 'lualine'.setup {
     winbar = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { { 'filename', path = 1 }, { navic.get_location, cond = navic.is_available }, },
+        lualine_c = {
+            { 'filename', path = 1 },
+        },
         lualine_x = {},
         lualine_y = {},
         lualine_z = {}
@@ -74,7 +82,9 @@ require 'lualine'.setup {
     inactive_winbar = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { { 'filename', path = 1 }, { navic.get_location, cond = navic.is_available }, },
+        lualine_c = {
+            { 'filename', path = 1 },
+        },
         lualine_x = {},
         lualine_y = {},
         lualine_z = {}

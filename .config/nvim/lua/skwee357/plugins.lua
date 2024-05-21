@@ -189,15 +189,11 @@ require('lazy').setup({
     { "rust-lang/rust.vim" },
     {
         'mrcjkb/rustaceanvim',
-        version = '^3', -- Recommended
+        version = '^4', -- Recommended
         ft = { 'rust' },
         dependencies = {
             "nvim-lua/plenary.nvim",
             "mfussenegger/nvim-dap",
-            {
-                "lvimuser/lsp-inlayhints.nvim",
-                opts = {}
-            },
         },
         config = function()
             require("skwee357.config.rust")
@@ -262,10 +258,11 @@ require('lazy').setup({
     { "sheerun/vim-polyglot" },
     {
         "nvim-treesitter/nvim-treesitter",
-        event = { "BufReadPost", "BufNewFile" },
-        build = function()
-            require("nvim-treesitter.install").update({ with_sync = true })
-        end,
+        event = { "BufReadPre", "BufNewFile" },
+        build = ":TSUpdate",
+        -- build = function()
+        --     require("nvim-treesitter.install").update({ with_sync = true })
+        -- end,
         config = function()
             require("skwee357.config.treesitter")
         end,
@@ -364,7 +361,8 @@ require('lazy').setup({
             "nvim-lua/plenary.nvim",
             "antoinemadec/FixCursorHold.nvim",
             "nvim-treesitter/nvim-treesitter",
-            "rouge8/neotest-rust"
+            "rouge8/neotest-rust",
+            "nvim-neotest/nvim-nio",
         },
         config = function()
             require('neotest').setup({
