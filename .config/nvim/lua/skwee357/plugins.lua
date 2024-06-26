@@ -392,7 +392,13 @@ require('lazy').setup({
             "nvim-lua/plenary.nvim",
         },
     },
-    { 'lepture/vim-jinja' }
+    { 'lepture/vim-jinja' },
+    {
+        "supermaven-inc/supermaven-nvim",
+        config = function()
+            require("supermaven-nvim").setup({})
+        end,
+    }
     -- {
     --     "jackMort/ChatGPT.nvim",
     --     event = "VeryLazy",

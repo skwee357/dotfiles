@@ -11,7 +11,6 @@ require 'gitsigns'.setup {
   linehl                       = false, -- Toggle with `:Gitsigns toggle_linehl`
   word_diff                    = false, -- Toggle with `:Gitsigns toggle_word_diff`
   watch_gitdir                 = {
-    interval = 1000,
     follow_files = true
   },
   attach_to_untracked          = true,
@@ -35,22 +34,19 @@ require 'gitsigns'.setup {
     row = 0,
     col = 1
   },
-  yadm                         = {
-    enable = true
-  },
   on_attach                    = function(bufnr)
     local gs = package.loaded.gitsigns
 
-    vim.keymap.set('n', ']h', function()
-      if vim.wo.diff then return ']h' end
+    vim.keymap.set('n', '[h', function()
+      if vim.wo.diff then return '[h' end
       vim.schedule(function()
         gs.next_hunk()
       end)
       return '<Ignore>'
     end, { buffer = bufnr, expr = true })
 
-    vim.keymap.set('n', '[h', function()
-      if vim.wo.diff then return '[h' end
+    vim.keymap.set('n', ']h', function()
+      if vim.wo.diff then return ']h' end
       vim.schedule(function()
         gs.prev_hunk()
       end)

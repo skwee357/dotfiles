@@ -42,6 +42,7 @@ cmp.setup({
             mode = 'symbol_text',
             maxwidth = 50,
             ellipsis_char = '...',
+            symbol_map = { Supermaven = "" }
             -- before = function(entry, vim_item)
             --     return vim_item
             -- end
@@ -103,6 +104,7 @@ cmp.setup({
         end, { 'i', 's' }),
     },
     sources = cmp.config.sources({
+        { name = "supermaven" },
         { name = 'nvim_lsp' },
         { name = 'nvim_lua' },
         -- { name = 'vsnip' }, -- For vsnip users.

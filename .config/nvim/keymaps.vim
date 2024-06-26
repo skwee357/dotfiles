@@ -102,7 +102,7 @@ nnoremap <silent> ]d          :lua vim.diagnostic.goto_prev()<CR>
 inoremap <silent> <C-h>       <cmd>lua vim.lsp.buf.signature_help()<CR>
 
 " Test Runner
-nmap      <silent>  <leader>tt    :lua require('neotest').run.run()<CR>
+nmap      <silent>  <leader>tr    :lua require('neotest').run.run()<CR>
 nmap      <silent>  <leader>T     :lua require('neotest').run.run(vim.fn.expand("%"))<CR>
 nmap      <silent>  <leader>tx    :lua require('neotest').run.stop()<CR>
 nmap      <silent>  <leader>ta    :lua require('neotest').run.attach()<CR>
@@ -110,11 +110,8 @@ nmap      <silent>  <leader>ts    :lua require('neotest').summary.toggle()<CR>
 nmap      <silent>  <leader>to    :lua require('neotest').output.open()<CR>
 
 " Trouble
-nnoremap <silent> <leader>xx     :TroubleToggle<CR>
-nnoremap <silent> <leader>xd     :TroubleToggle document_diagnostics<CR>
-nnoremap <silent> <leader>xw     :TroubleToggle workspace_diagnostics<CR>
-nnoremap <silent> <leader>xq     :TroubleToggle quickfix<CR>
-nnoremap <silent> <leader>xt     :TodoTrouble<CR>
+nnoremap <silent> <leader>xx     :Trouble diagnostics toggle<CR>
+nnoremap <silent> <leader>xX     :Trouble diagnostics toggle filter.buf=0<CR>
 
 " DAP
 " nnoremap <silent> <leader>db     :lua require('dap').toggle_breakpoint()<CR>
