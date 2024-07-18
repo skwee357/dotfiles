@@ -111,18 +111,16 @@ require('mason-lspconfig').setup_handlers {
         }
     end,
     ['jsonls'] = function()
+        local capabilities = make_capabilities()
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
+
         require 'lspconfig'.jsonls.setup {
             on_attach = on_attach,
-            capabilities = make_capabilities(),
+            capabilities = capabilities,
             settings = {
                 json = {
-                    schemas = require 'schemastore'.json.schemas {
-                        select = {
-                            '.eslintrc',
-                            'package.json',
-                            'tsconfig.json'
-                        }
-                    }
+                    schemas = require 'schemastore'.json.schemas(),
+                    validate = { enable = true }
                 }
             }
         }

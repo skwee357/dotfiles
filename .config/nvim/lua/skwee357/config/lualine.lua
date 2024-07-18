@@ -49,7 +49,7 @@ require 'lualine'.setup {
             },
             {
                 'navic',
-                color_correction = nil,
+                color_correction = 'static',
                 navic_opts = nil
             }
         },
@@ -89,6 +89,8 @@ require 'lualine'.setup {
         lualine_y = {},
         lualine_z = {}
     },
-    tabline = {},
+    tabline = {
+        lualine_a = { { "buffers", mode = 2 } }
+    },
     extensions = { 'fzf', 'nvim-tree', 'nvim-dap-ui' }
 }

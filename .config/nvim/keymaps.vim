@@ -33,7 +33,8 @@ nnoremap <silent> <leader>f :lua require("telescope").extensions.live_grep_args.
 nnoremap <silent> <leader>F  :Telescope grep_string<CR>
 
 nnoremap <silent> <leader>u  :UndotreeToggle<CR>
-nnoremap <silent> <leader>e  :Neotree reveal left<CR>
+" nnoremap <silent> <leader>e  :Neotree reveal left<CR>
+nnoremap <silent> <leader>e  :NvimTreeToggle<CR>
 nnoremap <silent> <leader>a  :AerialToggle!<CR>
 
 " Paste without replacing buffer
@@ -54,9 +55,9 @@ nnoremap <silent>    <C-x> <C-o> :bd #<CR>
 nnoremap <silent>    <C-c> :bp\|bd #<CR>
 nnoremap <silent>    <A-h> :bprevious<CR>
 nnoremap <silent>    <A-l> :bnext<CR>
-nnoremap <silent>    <A-p> :BufferLineTogglePin<CR>
+" nnoremap <silent>    <A-p> :BufferLineTogglePin<CR>
 nnoremap <silent>    <A-c> :bdelete<CR>
-nnoremap <silent>    <A-s> :BufferLinePick<CR>
+" nnoremap <silent>    <A-s> :BufferLinePick<CR>
 
 " Git
 nnoremap <silent> <leader>gg  :LazyGit<CR>

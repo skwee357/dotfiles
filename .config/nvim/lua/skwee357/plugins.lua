@@ -74,20 +74,40 @@ require('lazy').setup({
         end
     },
     {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v3.x",
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
         dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-            "MunifTanjim/nui.nvim",
-            -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+            "nvim-tree/nvim-web-devicons",
         },
-        opts = require('skwee357.config.neotree'),
-        -- keys = {
-        --     { "<Leader>e", ":Neotree toggle left<CR>", desc = "Neotree toggle left" },
-        -- },
-        -- cmd = { "Neotree" }
+        config = function()
+            require("nvim-tree").setup {
+                actions = {
+                    open_file = {
+                        quit_on_open = true
+                    }
+                },
+                update_focused_file = {
+                    enable = true,
+                },
+            }
+        end,
     },
+    -- {
+    --     "nvim-neo-tree/neo-tree.nvim",
+    --     branch = "v3.x",
+    --     dependencies = {
+    --         "nvim-lua/plenary.nvim",
+    --         "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+    --         "MunifTanjim/nui.nvim",
+    --         -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    --     },
+    --     opts = require('skwee357.config.neotree'),
+    --     -- keys = {
+    --     --     { "<Leader>e", ":Neotree toggle left<CR>", desc = "Neotree toggle left" },
+    --     -- },
+    --     -- cmd = { "Neotree" }
+    -- },
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
@@ -106,12 +126,12 @@ require('lazy').setup({
             -- refer to the configuration section below
         },
     },
-    {
-        "akinsho/bufferline.nvim",
-        version = "*",
-        dependencies = "nvim-tree/nvim-web-devicons",
-        opts = require("skwee357.config.bufferline"),
-    },
+    -- {
+    --     "akinsho/bufferline.nvim",
+    --     version = "*",
+    --     dependencies = "nvim-tree/nvim-web-devicons",
+    --     opts = require("skwee357.config.bufferline"),
+    -- },
     { "neovim/nvim-lspconfig" },
     {
         "SmiteshP/nvim-navic",
