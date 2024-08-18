@@ -126,12 +126,19 @@ require('lazy').setup({
             -- refer to the configuration section below
         },
     },
-    -- {
-    --     "akinsho/bufferline.nvim",
-    --     version = "*",
-    --     dependencies = "nvim-tree/nvim-web-devicons",
-    --     opts = require("skwee357.config.bufferline"),
-    -- },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {
+            signs = false
+        }
+    },
+    {
+        "akinsho/bufferline.nvim",
+        version = "*",
+        dependencies = "nvim-tree/nvim-web-devicons",
+        opts = require("skwee357.config.bufferline"),
+    },
     { "neovim/nvim-lspconfig" },
     {
         "SmiteshP/nvim-navic",
@@ -324,8 +331,8 @@ require('lazy').setup({
                 "jsonls",
                 "tsserver",
                 "lua_ls",
-                "prismals",
-                "pyright",
+                -- "prismals",
+                "pylsp",
                 -- "solargraph",
                 "rust_analyzer",
                 "sqlls",
@@ -416,7 +423,10 @@ require('lazy').setup({
     {
         "supermaven-inc/supermaven-nvim",
         config = function()
-            require("supermaven-nvim").setup({})
+            require("supermaven-nvim").setup({
+                log_level = "off"
+            })
+            require("supermaven-nvim.api").stop();
         end,
     }
     -- {

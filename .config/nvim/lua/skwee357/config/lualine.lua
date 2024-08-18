@@ -90,7 +90,7 @@ require 'lualine'.setup {
         lualine_z = {}
     },
     tabline = {
-        lualine_a = { { "buffers", mode = 2 } }
+        -- lualine_a = { { "buffers", mode = 2, max_length = vim.o.columns } }
     },
     extensions = { 'fzf', 'nvim-tree', 'nvim-dap-ui' }
 }

@@ -114,6 +114,9 @@ nmap      <silent>  <leader>to    :lua require('neotest').output.open()<CR>
 nnoremap <silent> <leader>xx     :Trouble diagnostics toggle<CR>
 nnoremap <silent> <leader>xX     :Trouble diagnostics toggle filter.buf=0<CR>
 
+nnoremap <silent> <leader>xt     :Trouble todo toggle<CR>
+nnoremap <silent> <leader>xT     :Trouble todo toggle filter.buf=0<CR>
+
 " DAP
 " nnoremap <silent> <leader>db     :lua require('dap').toggle_breakpoint()<CR>
 " nnoremap <silent> <leader>dr     :lua require('dap').repl.open()<CR>
