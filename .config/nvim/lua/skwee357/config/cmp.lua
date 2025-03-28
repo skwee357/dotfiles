@@ -42,7 +42,7 @@ cmp.setup({
             mode = 'symbol_text',
             maxwidth = 50,
             ellipsis_char = '...',
-            symbol_map = { Supermaven = "" }
+            symbol_map = { Supermaven = "" },
             -- before = function(entry, vim_item)
             --     return vim_item
             -- end
@@ -112,6 +112,12 @@ cmp.setup({
         -- { name = 'ultisnips' }, -- For ultisnips users.
         -- { name = 'snippy' }, -- For snippy users.
         { name = 'crates' },
+        {
+            name = "beancount",
+            options = {
+                account = "/Users/dmitry/Documents/finances/main.bea"
+            }
+        }
     }, {
         -- { name = 'buffer' },
     })

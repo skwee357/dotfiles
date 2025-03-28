@@ -1,7 +1,3 @@
-import = [
-    "~/.config/alacritty/one.toml",
-    "~/.config/alacritty/keybindings.toml"
-]
 
 [env]
 TERM = "alacritty"
@@ -39,3 +35,9 @@ lines = 50
 [window.padding]
 x = 2
 y = 2
+
+[general]
+import = [
+    "~/.config/alacritty/one.toml",
+    "~/.config/alacritty/keybindings.toml"
+]

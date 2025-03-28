@@ -1,5 +1,4 @@
 local c = require 'onedark.colors'
-local navic = require 'nvim-navic'
 local prose = require 'nvim-prose'
 
 local lsp = {
@@ -29,11 +28,11 @@ local lsp = {
 require 'lualine'.setup {
     options = {
         icons_enabled = true,
-        theme = 'onedark',
-        -- component_separators = { left = '', right = ''},
-        -- section_separators = { left = '', right = ''},
-        component_separators = '',
-        section_separators = '',
+        theme = 'auto',
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
+        -- component_separators = '',
+        -- section_separators = '',
         disabled_filetypes = { 'vim-plug', 'Outline' },
         always_divide_middle = true,
         globalstatus = true,
@@ -44,18 +43,16 @@ require 'lualine'.setup {
         lualine_c = {
             {
                 'filename',
-                path = 0,
+                path = 1,
                 symbols = { modified = ' ', readonly = ' ', unnamed = '[No Name]', newfile = '[New]' }
             },
-            {
-                'navic',
-                color_correction = 'static',
-                navic_opts = nil
-            }
         },
-        lualine_x = { lsp, 'diagnostics', { 'filetype', colored = true, icon_only = false },
+        lualine_x = {
+            { 'diagnostics',      always_visible = true },
+            lsp,
             { prose.word_count,   cond = prose.is_available },
             { prose.reading_time, cond = prose.is_available },
+            { 'filetype',         colored = true,           icon_only = false },
             'encoding',
             { 'fileformat', icons_enabled = false } },
         lualine_y = { 'progress' },
@@ -69,26 +66,32 @@ require 'lualine'.setup {
         lualine_y = {},
         lualine_z = {}
     },
-    winbar = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {
-            { 'filename', path = 1 },
-        },
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {}
-    },
-    inactive_winbar = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {
-            { 'filename', path = 1 },
-        },
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {}
-    },
+    -- winbar = {
+    --     lualine_a = {},
+    --     lualine_b = {},
+    --     lualine_c = {
+    --         -- { 'filename', path = 1, color = { bg = 'NONE' } },
+    --         -- {
+    --         --     'navic',
+    --         --     color_correction = 'static',
+    --         --     navic_opts = nil,
+    --         --     color = { bg = 'NONE' }
+    --         -- }
+    --     },
+    --     lualine_x = {},
+    --     lualine_y = {},
+    --     lualine_z = {}
+    -- },
+    -- inactive_winbar = {
+    --     lualine_a = {},
+    --     lualine_b = {},
+    --     lualine_c = {
+    --         { 'filename', path = 1 },
+    --     },
+    --     lualine_x = {},
+    --     lualine_y = {},
+    --     lualine_z = {}
+    -- },
     tabline = {
         -- lualine_a = { { "buffers", mode = 2, max_length = vim.o.columns } }
     },

@@ -18,6 +18,9 @@ telescope.setup({
 		},
 	},
 	pickers = {
+		buffers = {
+			sort_mru = true,
+		},
 		find_files = {
 			find_command = { "fd", "--type", "file", "--hidden" }
 		}

@@ -3,6 +3,8 @@ local cmp = require 'cmp_nvim_lsp'
 
 local M = {}
 
+vim.g.navic_silence = true
+
 M.common_on_attach = function(client, bufnr)
     require 'illuminate'.on_attach(client)
 

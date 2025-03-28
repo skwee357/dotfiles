@@ -34,3 +34,8 @@ mods = "Control"
 action = "DecreaseFontSize"
 key = "NumpadSubtract"
 mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u20AC"
+key = "Key3"
+mods = "Alt|Shift"

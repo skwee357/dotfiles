@@ -52,6 +52,7 @@ require('mason-lspconfig').setup_handlers {
         require 'lspconfig'.cssls.setup {
             on_attach = on_attach,
             capabilities = capabilities,
+            filetypes = { "hmtl" },
             settings = {
                 css = { validate = true },
                 less = { validate = true },
@@ -66,6 +67,7 @@ require('mason-lspconfig').setup_handlers {
                 on_attach(client, bufnr)
             end,
             capabilities = make_capabilities(),
+            filetypes = { "js", "ts" },
             settings = {
                 codeAction = {
                     disableRuleComment = {
@@ -99,14 +101,15 @@ require('mason-lspconfig').setup_handlers {
         require 'lspconfig'.html.setup {
             on_attach = on_attach,
             capabilities = make_capabilities(),
-            filetypes = { "html", "gohtmltmpl", "htmldjango" },
+            filetypes = { "html", "gohtmltmpl", "htmldjango", "jinja", "html.handlebars", "eruby" },
             init_options = {
                 configurationSection = { "html", "css", "javascript" },
                 embeddedLanguages = {
                     css = true,
                     javascript = true
                 },
-                provideFormatter = true
+                provideFormatter = false,
+                single_file_support = true
             }
         }
     end,
@@ -144,10 +147,10 @@ require('mason-lspconfig').setup_handlers {
         require 'lspconfig'.tailwindcss.setup {
             on_attach = on_attach,
             capabilities = make_capabilities(),
-            root_dir = root_pattern('tailwind.config.js', 'tailwind.config.cjs', 'tailwind.config.mjs', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.cjs', 'postcss.config.mjs', 'postcss.config.ts', 'package.json', 'node_modules', '.git'),
             settings = {
                 tailwindCSS = {
                     classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
+                    includeLanguages = { eruby = "erb" },
                     lint = {
                         cssConflict = "warning",
                         invalidApply = "error",
@@ -195,6 +198,23 @@ require('mason-lspconfig').setup_handlers {
                         motherTongue = "ru-RU"
                     }
                 }
+            }
+        }
+    end,
+    ['beancount'] = function()
+        require 'lspconfig'.beancount.setup {
+            init_options = {
+                journal_file = "/Users/dmitry/Documents/my_finances/main.bean"
+            }
+        }
+    end,
+    ['ruby_lsp'] = function()
+        require 'lspconfig'.ruby_lsp.setup {
+            on_attach = on_attach,
+            capabilities = make_capabilities(),
+            init_options = {
+                formatter = 'standard',
+                linters = { 'standard' }
             }
         }
     end

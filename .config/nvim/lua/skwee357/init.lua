@@ -14,8 +14,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.diagnostic.config({
+    virtual_lines = false,
+    virtual_text = true
+})
+
 require('skwee357.set')
 require('skwee357.plugins')
 require('skwee357.autocommands')
-
-vim.cmd("colorscheme onedark")

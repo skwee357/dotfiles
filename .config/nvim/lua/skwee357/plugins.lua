@@ -2,7 +2,6 @@ require('lazy').setup({
     { "nvim-tree/nvim-web-devicons", lazy = true },
     { "nvim-lua/plenary.nvim",       lazy = true },
     { "MunifTanjim/nui.nvim",        lazy = true },
-
     {
         "nvim-lualine/lualine.nvim",
         dependencies = {
@@ -24,7 +23,7 @@ require('lazy').setup({
     },
     {
         "navarasu/onedark.nvim",
-        lazy = true,
+        lazy = false,
         priority = 1000,
         config = function()
             require('onedark').setup {
@@ -36,6 +35,8 @@ require('lazy').setup({
             }
 
             require('onedark').load {}
+
+            -- vim.cmd("color onedark")
         end,
     },
     -- {
@@ -140,13 +141,13 @@ require('lazy').setup({
         opts = require("skwee357.config.bufferline"),
     },
     { "neovim/nvim-lspconfig" },
-    {
-        "SmiteshP/nvim-navic",
-        dependencies = { "neovim/nvim-lspconfig" },
-        opts = {
-            highlight = true
-        }
-    },
+    -- {
+    --     "SmiteshP/nvim-navic",
+    --     dependencies = { "neovim/nvim-lspconfig" },
+    --     opts = {
+    --         highlight = true
+    --     }
+    -- },
     { "j-hui/fidget.nvim" },
     { "RRethy/vim-illuminate" },
     {
@@ -246,6 +247,31 @@ require('lazy').setup({
             require("skwee357.config.nullls")
         end
     },
+    {
+        "stevearc/conform.nvim",
+        config = function()
+            require("conform").setup({
+                formatters_by_ft = {
+                    jinja = { "djlint" },
+                    handlebars = { "prettierd" },
+                    html = { "prettierd" },
+                    mjml = { "prettier" },
+                    svelte = { "prettier" },
+                    astro = { "prettier" },
+                    typescript = { "prettier" },
+                    typescriptreact = { "prettier" },
+                    javascript = { "prettier" },
+                    eruby = { "erb_format" },
+                    ["eruby.turbo_stream"] = { "erb_format" },
+                    typst = { "typstyle" }
+                },
+                format_on_save = {
+                    timeout_ms = 800,
+                    lsp_format = "fallback"
+                }
+            });
+        end
+    },
     { "wuelnerdotexe/vim-astro" },
     { "dhruvasagar/vim-table-mode" },
     { "godlygeek/tabular",         lazy = true },
@@ -283,6 +309,7 @@ require('lazy').setup({
     },
     { "preservim/vim-pencil" },
     { "sheerun/vim-polyglot" },
+    { "windwp/nvim-ts-autotag" },
     {
         "nvim-treesitter/nvim-treesitter",
         event = { "BufReadPre", "BufNewFile" },
@@ -324,12 +351,12 @@ require('lazy').setup({
             ensure_installed = {
                 "cssls",
                 "dockerls",
-                "eslint",
+                -- "eslint",
                 -- "gopls",
                 -- "graphql",
                 "html",
                 "jsonls",
-                "tsserver",
+                "ts_ls",
                 "lua_ls",
                 -- "prismals",
                 "pylsp",
@@ -366,14 +393,18 @@ require('lazy').setup({
         }
     },
     {
-        "Shatur/neovim-session-manager",
-        event = "VimEnter",
-        config = function()
-            require("session_manager").setup({
-                autosave_only_in_session = true,
-                autoload_mode = require("session_manager.config").AutoloadMode.Disabled,
-            })
-        end
+        'rmagatti/auto-session',
+        lazy = false,
+
+        ---enables autocomplete for opts
+        ---@module "auto-session"
+        ---@type AutoSession.Config
+        opts = {
+            auto_save = true,
+            auto_restore = true,
+            suppressed_dirs = { "~/", "~/Documents", "~/Downloads", "/" },
+            bypass_save_filetypes = { "alpha", "netrw" }
+        }
     },
     { "projectfluent/fluent.vim" },
     {
@@ -420,15 +451,72 @@ require('lazy').setup({
         },
     },
     { 'lepture/vim-jinja' },
+    -- {
+    --     "supermaven-inc/supermaven-nvim",
+    --     config = function()
+    --         require("supermaven-nvim").setup({
+    --             log_level = "off",
+    --             condition = function()
+    --                 return true
+    --                 -- return string.match(vim.fn.expand("%:t"), ".env")
+    --             end
+    --         })
+    --         require("supermaven-nvim.api").stop();
+    --     end,
+    -- },
+    { "polarmutex/beancount.nvim" },
+    { "crispgm/cmp-beancount" },
+    { 'echasnovski/mini.nvim',    version = false },
+    { "tpope/vim-rails" },
+    -- {
+    --     "olimorris/codecompanion.nvim",
+    --     dependencies = {
+    --         "nvim-lua/plenary.nvim",
+    --         "nvim-treesitter/nvim-treesitter",
+    --     },
+    --     config = function()
+    --         require("skwee357.config.codecompanion")
+    --     end
+    -- },
+    -- {
+    --     'milanglacier/minuet-ai.nvim',
+    --     config = function()
+    --         require("skwee357.config.minuet")
+    --     end,
+    -- },
     {
-        "supermaven-inc/supermaven-nvim",
-        config = function()
-            require("supermaven-nvim").setup({
-                log_level = "off"
-            })
-            require("supermaven-nvim.api").stop();
+        'ggml-org/llama.vim',
+        init = function()
+            vim.g.llama_config = {
+                show_info = false,
+                keymap_trigger = "<C-F>",
+                keymap_accept_line = "<A-a>",
+                keymap_accept_full = "<A-A>",
+                keymap_accept_word = "<A-j>"
+            }
         end,
-    }
+    },
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {},
+    },
+
+    -- {
+    --     "someone-stole-my-name/yaml-companion.nvim",
+    --     dependencies = {
+    --         "neovim/nvim-lspconfig",
+    --         "nvim-lua/plenary.nvim",
+    --         "nvim-telescope/telescope.nvim"
+    --     },
+    --     config = function()
+    --         require("telescope").load_extension("yaml_schema")
+    --     end
+    -- }
     -- {
     --     "jackMort/ChatGPT.nvim",
     --     event = "VeryLazy",
@@ -442,6 +530,37 @@ require('lazy').setup({
     --         "nvim-lua/plenary.nvim",
     --         "folke/trouble.nvim",
     --         "nvim-telescope/telescope.nvim"
+    --     }
+    -- }
+    { 'Bekaboo/dropbar.nvim' },
+    -- {
+    --     "luckasRanarison/tailwind-tools.nvim",
+    --     name = "tailwind-tools",
+    --     build = ":UpdateRemotePlugins",
+    --     dependencies = {
+    --         "nvim-treesitter/nvim-treesitter",
+    --         "nvim-telescope/telescope.nvim", -- optional
+    --         "neovim/nvim-lspconfig",         -- optional
+    --     },
+    --     --- @type TailwindTools.Option
+    --     opts = {
+    --         server = {
+    --             override = true,
+    --             settings = {
+    --                 classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
+    --                 includeLanguages = { eruby = "erb" },
+    --                 lint = {
+    --                     cssConflict = "warning",
+    --                     invalidApply = "error",
+    --                     invalidConfigPath = "error",
+    --                     invalidScreen = "error",
+    --                     invalidTailwindDirective = "error",
+    --                     invalidVariant = "error",
+    --                     recommendedVariantOrder = "warning"
+    --                 },
+    --                 validate = true
+    --             },
+    --         }
     --     }
     -- }
 })

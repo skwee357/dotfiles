@@ -136,3 +136,7 @@ nnoremap <silent> <leader>zen    :Goyo<CR>
 " Remove all trailing whitespaces
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
+" Code companion
+nnoremap <silent> <leader>Ca    :CodeCompanionActions<CR>
+nnoremap <silent> <leader>ct    :CodeCompanionChat Toggle<CR>
+vnoremap <silent> <leader>ga    :CodeCompanionChat Add<CR>

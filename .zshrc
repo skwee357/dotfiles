@@ -11,6 +11,11 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -84,6 +89,7 @@ plugins=(
     zsh-syntax-highlighting
     git
     rbenv
+    pyenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -142,8 +148,8 @@ else
 fi
 
 # change ls to exa if exists
-if which exa > /dev/null 2>&1; then
-    alias ls='exa --color=always --group-directories-first'
+if which eza > /dev/null 2>&1; then
+    alias ls='eza --color=always --group-directories-first'
     alias la='ls -a'
 fi
 
@@ -195,6 +201,10 @@ source ~/.p10k.zsh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-export PATH="/opt/homebrew/lib/ruby/gems/3.2.0/bin:$PATH"
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
+
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"

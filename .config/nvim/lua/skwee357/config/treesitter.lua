@@ -39,9 +39,9 @@ require 'nvim-treesitter.configs'.setup {
         -- disable = { "jsx" }
         extended_mode = true
     },
-    autotag = {
-        enable = true
-    },
+    -- autotag = {
+    --     enable = false
+    -- },
     textobjects = {
         select = {
             enable = true,
@@ -103,6 +103,15 @@ require 'nvim-treesitter.configs'.setup {
                 ["[L"] = "@loop.outer",
                 ["[M"] = "@call.outer"
             }
+        },
+        swap = {
+            enable = true,
+            swap_next = {
+                ["sa"] = "@parameter.inner"
+            },
+            swap_previous = {
+                ["sA"] = "@parameter.inner"
+            }
         }
     }
 }
@@ -110,3 +119,19 @@ require 'nvim-treesitter.configs'.setup {
 require("ts_context_commentstring").setup({
     enable_autocmd = false,
 })
+
+require("nvim-ts-autotag").setup({
+    enable = true,
+    filetypes = {
+        "html",
+        "html.handlebars",
+    },
+    opts = {
+        -- Defaults
+        enable_close = true,          -- Auto close tags
+        enable_rename = true,         -- Auto rename pairs of tags
+        enable_close_on_slash = false -- Auto close on trailing </
+    },
+})
+
+vim.treesitter.language.register("css", "html.handlebars")
