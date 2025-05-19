@@ -1,0 +1,1 @@
+return { "polarmutex/beancount.nvim" }
