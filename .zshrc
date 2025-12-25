@@ -11,11 +11,6 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -84,13 +79,28 @@ eval "$(pyenv init --path)"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     colored-man-pages
-    sublime
+    # sublime
     zsh-autosuggestions
     zsh-syntax-highlighting
     git
-    rbenv
-    pyenv
+    mise
+    direnv
+    # rbenv
+    # pyenv
+    # nvm
+    rust
+    poetry
+    poetry-env
 )
+
+# pyenv
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init --path)"
+
+# nvm
+# NVM_HOMEBREW=$(brew --prefix nvm)
+# zstyle ':omz:plugins:nvm' autoload yes
 
 source $ZSH/oh-my-zsh.sh
 
@@ -129,13 +139,6 @@ bindkey '^[[1;9D'   beginning-of-line
 bindkey '^[[1;9C'   end-of-line
 bindkey '^[[3;3~'   kill-word
 
-# Forter
-if [ -f ~/.forterrc ]; then
-    source ~/.forterrc
-    export FORTER_DEV_CLI_FEATURE_PR_SQUASH_COMMITS=0
-    export FORTER_DEV_CLI_FEATURE_PR_SLACK=0
-fi
-
 # NeoVim
 if which nvim > /dev/null 2>&1; then
     alias vim=nvim
@@ -171,9 +174,9 @@ fi
 # colorize grep
 alias grep='grep --color=auto'
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 
@@ -199,15 +202,15 @@ source ~/.p10k.zsh
 # export BUN_INSTALL="$HOME/.bun"
 # export PATH="$BUN_INSTALL/bin:$PATH"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
-  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
-  export PATH=`gem environment gemdir`/bin:$PATH
-fi
+# if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+#   export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+#   export PATH=`gem environment gemdir`/bin:$PATH
+# fi
 
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+# export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 # pnpm
 export PNPM_HOME="/Users/dmitry/Library/pnpm"
@@ -216,3 +219,10 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# libpq (postgres)
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# homebrew
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_ANALYTICS=1

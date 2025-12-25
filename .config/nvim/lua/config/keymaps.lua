@@ -1,7 +1,10 @@
 local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 
-map("n", "<leader>e", ":NvimTreeToggle<CR>")
+-- map("n", "<leader>e", ":NvimTreeToggle<CR>")
+map("n", "<leader>e", ":Neotree toggle<CR>")
+
+map("n", "<leader>o", ":AerialToggle!<CR>")
 
 -- Paste without replacing buffer
 map("x", "<leader>P", "\"_dP", opts)
@@ -23,7 +26,7 @@ map("n", "<A-l>", ":bnext<CR>", opts)
 map("n", "<A-c>", ":bdelete<CR>", opts)
 
 -- lsp
-map("n", "K", ":lua vim.lsp.buf.hover()<CR>", { desc = "LSP Hover" })
+-- map("n", "K", ":lua vim.lsp.buf.hover()<CR>", { desc = "LSP Hover" })
 map("n", "R", ":lua vim.lsp.buf.rename()<CR>", { desc = "LSP Rename" })
 map("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<CR>", { desc = "LSP Code Actions" })
 map("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", { desc = "LSP Format Buffer" })
@@ -41,8 +44,8 @@ map("i", "<C-h>", ":lua vim.lsp.buf.signature_help()<CR>", { desc = "LSP Signatu
 -- nmap      <silent>  <leader>to    :lua require('neotest').output.open()<CR>
 
 -- Trouble
-map("n", "<leader>xx", ":Trouble diagnostic toggle<CR>", opts)
-map("n", "<leader>xX", ":Trouble diagnostic toggle filter.buf=0<CR>", opts)
+map("n", "<leader>xx", ":Trouble diagnostics toggle<CR>", opts)
+map("n", "<leader>xX", ":Trouble diagnostics toggle filter.buf=0<CR>", opts)
 map("n", "<leader>xt", ":Trouble todo toggle<CR>", opts)
 map("n", "<leader>xT", ":Trouble todo toggle filter.buf=0<CR>", opts)
 

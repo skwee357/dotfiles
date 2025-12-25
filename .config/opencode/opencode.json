@@ -1,0 +1,33 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "kanagawa",
+  "permission": {
+    "edit": "allow",
+    "bash": {
+      "git add*": "deny",
+      "git push*": "deny",
+      "git commit*": "deny",
+      "git pull*": "ask",
+      "git merge*": "ask",
+      "git rebase*": "ask",
+      "git reset*": "ask",
+      "git checkout*": "ask",
+      "git status": "allow",
+      "git log": "allow",
+      "git diff": "allow",
+      "git branch": "allow",
+      "*": "ask"
+    },
+    "webfetch": "deny",
+    "doom_loop": "ask",
+    "external_directory": "ask"
+  },
+  "agent": {
+    "plan": {
+      "tools": {
+        "todowrite": true,
+        "todoread": true
+      }
+    }
+  }
+}

@@ -10,7 +10,8 @@ return {
                 LspSignatureActiveParameter = { fg = "$yellow" },
                 WinBar = { fg = "$fg", bg = "NONE" },
                 WinBarNC = { fg = "$fg", bg = "NONE" },
-                LualineLspIcon = { fg = "$yellow", bg = "$bg1" }
+                LualineLspIcon = { fg = "$yellow", bg = "$bg1" },
+                ColorColumn = { bg = "$bg1" },
             }
         })
 

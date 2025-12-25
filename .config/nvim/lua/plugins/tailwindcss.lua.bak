@@ -1,0 +1,78 @@
+return {
+    "luckasRanarison/tailwind-tools.nvim",
+    name = "tailwind-tools",
+    build = ":UpdateRemotePlugins",
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {
+        server = {
+            override = true,
+            settings = {
+                validate = true,
+                lint = {
+                    cssConflict = 'warning',
+                    invalidApply = 'error',
+                    invalidScreen = 'error',
+                    invalidVariant = 'error',
+                    invalidConfigPath = 'error',
+                    invalidTailwindDirective = 'error',
+                    recommendedVariantOrder = 'warning',
+                },
+                classAttributes = {
+                    'class',
+                    'className',
+                    'class:list',
+                    'classList',
+                    'ngClass',
+                },
+                classFunctions = { "cva", "cx" },
+                includeLanguages = {
+                    eelixir = 'html-eex',
+                    elixir = 'phoenix-heex',
+                    eruby = 'erb',
+                    heex = 'phoenix-heex',
+                    htmlangular = 'html',
+                    templ = 'html',
+                    astro = 'html',
+                    -- handlebars = 'html',
+                },
+            }
+        },
+        root_dir = function(bufnr, on_dir)
+            local util = require 'lspconfig.util'
+
+            local root_files = {
+                -- Generic
+                'tailwind.config.js',
+                'tailwind.config.cjs',
+                'tailwind.config.mjs',
+                'tailwind.config.ts',
+                'postcss.config.js',
+                'postcss.config.cjs',
+                'postcss.config.mjs',
+                'postcss.config.ts',
+                -- Phoenix
+                'assets/tailwind.config.js',
+                'assets/tailwind.config.cjs',
+                'assets/tailwind.config.mjs',
+                'assets/tailwind.config.ts',
+                -- Django
+                'theme/static_src/tailwind.config.js',
+                'theme/static_src/tailwind.config.cjs',
+                'theme/static_src/tailwind.config.mjs',
+                'theme/static_src/tailwind.config.ts',
+                -- Rails
+                'app/assets/stylesheets/application.tailwind.css',
+                'app/assets/tailwind/application.css',
+                -- Custom
+                'assets/tailwind/application.css',
+                'assets/stylesheets/application.tailwind.css'
+            }
+            local fname = vim.api.nvim_buf_get_name(bufnr)
+            root_files = util.insert_package_json(root_files, 'tailwindcss', fname)
+            root_files = util.root_markers_with_field(root_files, { 'mix.lock' }, 'tailwind', fname)
+            on_dir(vim.fs.dirname(vim.fs.find(root_files, { path = fname, upward = true })[1]))
+        end
+    } -- your configuration
+}

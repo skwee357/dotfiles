@@ -1,0 +1,152 @@
+return {
+    "olimorris/codecompanion.nvim",
+    opts = {},
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
+        "ravitemer/codecompanion-history.nvim"
+    },
+    config = function()
+        require("codecompanion").setup({
+            strategies = {
+                chat = {
+                    adapter = "gemini",
+                    slash_commands = {
+                        ["file"] = {
+                            opts = {
+                                provider = "snacks", -- Can be "default", "telescope", "fzf_lua", "mini_pick" or "snacks"
+                                contains_code = true,
+                            },
+                        },
+                        ["buffer"] = {
+                            opts = {
+                                provider = "snacks", -- Can be "default", "telescope", "fzf_lua", "mini_pick" or "snacks"
+                                contains_code = true,
+                            },
+                        }
+                    }
+                },
+                inline = {
+                    adapter = "gemini",
+                },
+            },
+            adapters = {
+                http = {
+                    opts = {
+                        show_defaults = false,
+                        show_model_choices = false,
+                    },
+                    gemini = function()
+                        return require("codecompanion.adapters").extend("gemini", {
+                            env = {
+                                api_key = "cmd:op read op://personal/Gemini/credential --no-newline"
+                            },
+                            schema = {
+                                model = {
+                                    -- default = "gemini-2.5-pro-preview-05-06"
+                                    default = "gemini-2.5-flash-preview-05-20"
+                                }
+                            }
+                        })
+                    end,
+                    gemini_rttr = function()
+                        return require("codecompanion.adapters").extend("gemini", {
+                            env = {
+                                api_key = "cmd:op read op://personal/GeminiRTTR/credential --no-newline"
+                            },
+                            schema = {
+                                model = {
+                                    default = "gemini-2.5-pro"
+                                }
+                            }
+                        })
+                    end
+                },
+            },
+            display = {
+                action_palette = {
+                    provider = "snacks",
+                },
+                chat = {
+                    window = {
+                        layout = "vertical",
+                        position = "right",
+                        border = "single",
+                        height = 0.8,
+                        width = 0.45
+                    }
+                },
+                diff = {
+                    enabled = true,
+                    layout = "vertical",
+                    provider = "mini_diff"
+                }
+            },
+            extensions = {
+                history = {
+                    enabled = true,
+                    opts = {
+                        keymap = "gh",
+                        save_chat_keymap = "sc",
+                        auto_save = false,
+                        expiration_days = 0,
+                        picker = "snacks",
+                        auto_generate_title = true,
+                        title_generation_opts = {
+                            adapter = nil, -- "copilot"
+                            model = nil,   -- "gpt-4o"
+                        },
+                        continue_last_chat = true,
+                        delete_on_clearing_chat = true,
+                        dir_to_save = vim.fn.stdpath("data") .. "/codecompanion-history",
+                        enable_logging = false,
+                    }
+                }
+            }
+        });
+
+        local set = vim.keymap.set;
+
+        set({ "n", "v" }, "<leader>ac", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+        set({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>",
+            { noremap = true, silent = true })
+        set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+
+        local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+        local group = vim.api.nvim_create_augroup("CodeCompanionFidgetHooks", { clear = true })
+        vim.api.nvim_create_autocmd({ "User" }, {
+            pattern = "CodeCompanionRequest*",
+            group = group,
+            callback = function(request)
+                local msg
+
+                if request.match == "CodeCompanionRequestStarted" then
+                    msg = "[CodeCompanion] starting..."
+                elseif request.match == "CodeCompanionRequestStreaming" then
+                    msg = "[CodeCompanion] streaming..."
+                else
+                    msg = "[CodeCompanion] finished"
+                end
+
+                local parts = {}
+                table.insert(parts, request.data.adapter.formatted_name)
+                if request.data.adapter.model and request.data.adapter.model ~= "" then
+                    table.insert(parts, "(" .. request.data.adapter.model .. ")")
+                end
+
+                msg = msg .. "\n\n" .. table.concat(parts, " ")
+
+                vim.notify(msg, vim.log.levels.INFO, {
+                    id = "code_companion_status",
+                    title = "Code Companion Status",
+                    timeout = 3000,
+                    opts = function(notif)
+                        notif.icon = request.match == "CodeCompanionRequestFinished" and " "
+                            ---@diagnostic disable-next-line: undefined-field
+                            or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+                    end,
+                })
+            end,
+        })
+    end
+}

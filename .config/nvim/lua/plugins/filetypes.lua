@@ -4,6 +4,4 @@ return {
     { "amadeus/vim-mjml" },
     { 'lepture/vim-jinja' },
     { "tpope/vim-rails" },
-
-    { "sheerun/vim-polyglot" },
 }

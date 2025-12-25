@@ -32,6 +32,7 @@ return {
         { "<C-p>",      function() Snacks.picker.files() end,                 desc = "Find Files" },
         { "<leader>,",  function() Snacks.picker.buffers() end,               desc = "Buffers" },
         { "<leader>/",  function() Snacks.picker.grep() end,                  desc = "Grep" },
+        { "<leader>n",  function() Snacks.picker.notifications() end,         desc = "Notification History" },
         -- { "<leader>e",  function() Snacks.explorer() end,                     desc = "Explorer" },
 
         -- git

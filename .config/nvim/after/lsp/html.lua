@@ -1,5 +1,6 @@
+--- @type vim.lsp.Config
 return {
-    filetypes = { "html", "gohtmltmpl", "htmldjango", "jinja", "html.handlebars", "mjml.handlebars", "eruby" },
+    filetypes = { "html", "gohtmltmpl", "htmldjango", "jinja", "handlebars", "mjml.handlebars", "eruby" },
     init_options = {
         configurationSection = { "html", "css", "javascript" },
         embeddedLanguages = {

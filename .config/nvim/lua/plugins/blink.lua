@@ -14,9 +14,9 @@ return {
         'saghen/blink.cmp',
         dependencies = {
             -- optional: provides snippets for the snippet source
-            { 'rafamadriz/friendly-snippets' },
+            { "rafamadriz/friendly-snippets" },
             { "crispgm/cmp-beancount" },
-            { "onsails/lspkind.nvim" }
+            { "onsails/lspkind.nvim" },
         },
 
         -- use a release tag to download pre-built binaries
@@ -52,10 +52,11 @@ return {
             -- (Default) Only show the documentation popup when manually triggered
             completion = {
                 documentation = { auto_show = false },
+                trigger = { prefetch_on_insert = false },
                 list = {
                     max_items = 100,
                     selection = {
-                        preselect = true
+                        preselect = false
                     }
                 },
                 menu = {
@@ -126,9 +127,9 @@ return {
                         module = 'blink.compat.source',
                         score_offset = -3,
                         opts = {
-                            account = "/Users/dmitry/Documents/my_finances/main.bean"
+                            account = "/Users/dmitry/Documents/my_finances/personal.bean"
                         }
-                    }
+                    },
                 },
             },
 

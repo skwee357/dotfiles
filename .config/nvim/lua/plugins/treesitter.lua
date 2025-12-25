@@ -1,131 +1,179 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        event = { "BufReadPre", "BufNewFile" },
+        lazy = false,
         build = ":TSUpdate",
-        config = function()
-            require("nvim-treesitter.configs").setup({
-                -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-                ensure_installed = "all",
+        branch = "main",
+        event = "BufRead",
+        ---@class TSConfig
+        opts = {
+            ensure_installed = {
+                "astro",
+                "bash",
+                "c",
+                "css",
+                "diff",
+                "go",
+                "gomod",
+                "gowork",
+                "gosum",
+                "graphql",
+                "html",
+                "javascript",
+                "jsdoc",
+                "json",
+                "jsonc",
+                "json5",
+                "lua",
+                "luadoc",
+                "luap",
+                "markdown",
+                "markdown_inline",
+                "python",
+                "query",
+                "regex",
+                "toml",
+                "tsx",
+                "typescript",
+                "vim",
+                "vimdoc",
+                "yaml",
+                "ruby",
+                "rust",
+                "beancount"
+            },
+        },
+        config = function(_, opts)
+            ts_install = function(buf, parser)
+                vim.treesitter.start(buf, parser)
+                vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            end
 
-                -- Install languages synchronously (only applied to `ensure_installed`)
-                sync_install = false,
+            -- install parsers from custom opts.ensure_installed
+            if opts.ensure_installed and #opts.ensure_installed > 0 then
+                require("nvim-treesitter").install(opts.ensure_installed)
+                -- register and start parsers for filetypes
+                for _, parser in ipairs(opts.ensure_installed) do
+                    local filetypes = parser -- In this case, parser is the filetype/language name
+                    vim.treesitter.language.register(parser, filetypes)
 
-                -- List of parsers to ignore installing
-                ignore_install = {},
+                    vim.api.nvim_create_autocmd({ "FileType" }, {
+                        pattern = filetypes,
+                        callback = function(event)
+                            ts_install(event.buf, parser)
+                        end,
+                    })
+                end
+            end
 
-                highlight = {
-                    -- `false` will disable the whole extension
-                    enable = true,
+            -- Auto-install and start parsers for any buffer
+            vim.api.nvim_create_autocmd({ "BufRead" }, {
+                callback = function(event)
+                    local bufnr = event.buf
+                    local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
 
-                    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is the name of the parser)
-                    -- list of language that will be disabled
-                    disable = {
-                        "html"
-                    },
+                    -- Skip if no filetype
+                    if filetype == "" then
+                        return
+                    end
 
-                    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-                    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-                    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-                    -- Instead of true it can also be a list of languages
-                    additional_vim_regex_highlighting = false,
-                },
-                ident = {
-                    enable = true,
-                },
-                rainbow = {
-                    enable = false,
-                    -- disable = { "jsx" }
-                    extended_mode = true
-                },
-                -- autotag = {
-                --     enable = false
-                -- },
-                textobjects = {
-                    select = {
-                        enable = true,
-                        lookahead = true,
-                        keymaps = {
-                            ["af"] = "@function.outer",
-                            ["if"] = "@function.inner",
+                    -- Check if this filetype is already handled by explicit opts.ensure_installed config
+                    for _, filetypes in pairs(opts.ensure_installed) do
+                        local ft_table = type(filetypes) == "table" and filetypes or { filetypes }
+                        if vim.tbl_contains(ft_table, filetype) then
+                            return -- Already handled above
+                        end
+                    end
 
-                            ["ac"] = "@class.outer",
-                            ["ic"] = "@class.inner",
+                    -- Get parser name based on filetype
+                    local parser_name = vim.treesitter.language.get_lang(filetype) -- might return filetype (not helpful)
+                    if not parser_name then
+                        return
+                    end
+                    -- Try to get existing parser (helpful check if filetype was returned above)
+                    local parser_configs = require("nvim-treesitter.parsers")
+                    if not parser_configs[parser_name] then
+                        return -- Parser not available, skip silently
+                    end
 
-                            ["a="] = "@assignment.outer",
-                            ["i="] = "@assignment.inner",
+                    local parser_installed = pcall(vim.treesitter.get_parser, bufnr, parser_name)
 
-                            ["l="] = "@assignment.lhs",
-                            ["r="] = "@assignment.rhs",
+                    if not parser_installed then
+                        -- If not installed, install parser synchronously
+                        require("nvim-treesitter").install({ parser_name }):wait(30000)
+                    end
 
-                            ["aa"] = "@parameter.outer",
-                            ["ia"] = "@parameter.inner",
+                    -- let's check again
+                    parser_installed = pcall(vim.treesitter.get_parser, bufnr, parser_name)
 
-                            ["ai"] = "@conditional.outer",
-                            ["ii"] = "@conditional.inner",
-
-                            ["al"] = "@loop.outer",
-                            ["il"] = "@loop.inner",
-
-                            ["am"] = "@call.outer",
-                            ["im"] = "@call.inner",
-                        }
-                    },
-                    move = {
-                        enable = true,
-                        set_jumps = true,
-                        goto_next_start = {
-                            ["]f"] = "@function.outer",
-                            ["]c"] = "@calss.outer",
-                            ["]i"] = "@conditional.outer",
-                            ["]l"] = "@loop.outer",
-                            ["]m"] = "@call.outer"
-                        },
-                        goto_next_end = {
-                            ["]F"] = "@function.outer",
-                            ["]C"] = "@calss.outer",
-                            ["]I"] = "@conditional.outer",
-                            ["]L"] = "@loop.outer",
-                            ["]M"] = "@call.outer"
-                        },
-                        goto_previous_start = {
-                            ["[f"] = "@function.outer",
-                            ["[c"] = "@calss.outer",
-                            ["[i"] = "@conditional.outer",
-                            ["[l"] = "@loop.outer",
-                            ["[m"] = "@call.outer"
-                        },
-                        goto_previous_end = {
-                            ["[F"] = "@function.outer",
-                            ["[C"] = "@calss.outer",
-                            ["[I"] = "@conditional.outer",
-                            ["[L"] = "@loop.outer",
-                            ["[M"] = "@call.outer"
-                        }
-                    },
-                    swap = {
-                        enable = true,
-                        swap_next = {
-                            ["sa"] = "@parameter.inner"
-                        },
-                        swap_previous = {
-                            ["sA"] = "@parameter.inner"
-                        }
-                    }
-                }
+                    if parser_installed then
+                        -- Start treesitter for this buffer
+                        ts_install(bufnr, parser_name)
+                    end
+                end,
             })
-        end,
-        dependencies = {
-            { "nvim-treesitter/nvim-treesitter-textobjects" },
-        }
+        end
+    },
+    {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        branch = "main",
+        keys = {
+            {
+                "af",
+                function()
+                    require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects")
+                end,
+                desc = "Select outer function",
+                mode = { "x", "o" },
+            },
+            {
+                "if",
+                function()
+                    require("nvim-treesitter-textobjects.select").select_textobject("@function.inner", "textobjects")
+                end,
+                desc = "Select inner function",
+                mode = { "x", "o" },
+            },
+            {
+                "ac",
+                function()
+                    require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects")
+                end,
+                desc = "Select outer class",
+                mode = { "x", "o" },
+            },
+            {
+                "ic",
+                function()
+                    require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
+                end,
+                desc = "Select inner class",
+                mode = { "x", "o" },
+            },
+            {
+                "as",
+                function()
+                    require("nvim-treesitter-textobjects.select").select_textobject("@local.scope", "locals")
+                end,
+                desc = "Select local scope",
+                mode = { "x", "o" },
+            },
+        },
+        ---@module "nvim-treesitter-textobjects"
+        opts = { multiwindow = true },
     },
     {
         "nvim-treesitter/nvim-treesitter-context",
-        config = function()
-            require("treesitter-context").setup()
-        end,
+        event = "BufRead",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            event = "BufRead",
+        },
+        opts = {
+            multiwindow = true,
+        },
     },
-
     {
         "windwp/nvim-ts-autotag",
         config = function()
@@ -133,7 +181,7 @@ return {
                 enable = true,
                 filetypes = {
                     "html",
-                    "html.handlebars",
+                    "handlebars",
                     "jinja",
                 },
                 opts = {
@@ -145,12 +193,28 @@ return {
             })
         end
     },
-    {
-        "JoosepAlviste/nvim-ts-context-commentstring",
-        config = function()
-            require("ts_context_commentstring").setup({
-                enable_autocmd = false,
-            })
-        end
-    },
+    -- {
+    --     "JoosepAlviste/nvim-ts-context-commentstring",
+    --     init = function()
+    --         -- HACK: add workaround for native comments: https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/109
+    --         vim.schedule(function()
+    --             local get_option = vim.filetype.get_option
+    --             local context_commentstring
+    --             vim.filetype.get_option = function(filetype, option)
+    --                 if option ~= "commentstring" then return get_option(filetype, option) end
+    --                 if context_commentstring == nil then
+    --                     local ts_context_avail, ts_context = pcall(require, "ts_context_commentstring.internal")
+    --                     context_commentstring = ts_context_avail and ts_context
+    --                 end
+    --                 return context_commentstring and context_commentstring.calculate_commentstring() or
+    --                 get_option(filetype, option)
+    --             end
+    --         end)
+    --     end,
+    --     config = function()
+    --         require("ts_context_commentstring").setup({
+    --             enable_autocmd = false,
+    --         })
+    --     end
+    -- },
 }

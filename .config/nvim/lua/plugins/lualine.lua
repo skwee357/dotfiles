@@ -5,7 +5,8 @@ return {
         "nvim-prose"
     },
     config = function()
-        local c = require("onedark.colors")
+        -- local c = require("onedark.colors")
+        -- local c = require("tokyonight.colors").setup()
         local prose = require("nvim-prose")
         local lsp = {
             function()
@@ -28,7 +29,7 @@ return {
                 return table.concat(active_clients, ",")
             end,
             icon = " ",
-            color = "LualineLspIcon"
+            -- color = "LualineLspIcon"
         }
 
         require("lualine").setup({
@@ -45,7 +46,8 @@ return {
             },
             sections = {
                 lualine_a = { 'mode' },
-                lualine_b = { { 'branch', icon = '', color = { fg = c.cyan } }, 'diff' },
+                -- lualine_b = { { 'branch', icon = '', color = { fg = c.cyan } }, 'diff' },
+                lualine_b = { { 'branch', icon = '', }, 'diff' },
                 lualine_c = {
                     {
                         'filename',

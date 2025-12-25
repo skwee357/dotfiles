@@ -1,0 +1,12 @@
+font-family = Hack Nerd Font
+font-size = 12.5
+
+theme = Kanagawa Wave
+
+shell-integration = zsh
+shell-integration-features = true
+
+title = ""
+window-subtitle = false
+
+macos-option-as-alt = left

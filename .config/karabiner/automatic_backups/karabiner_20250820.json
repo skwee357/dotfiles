@@ -5,85 +5,13 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Change caps lock to hyper key",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_shift",
-                                        "modifiers": ["left_command", "left_control", "left_option"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change double tap right ⇧ key to caps lock",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "right_shift pressed",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "right_shift",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "key_code": "caps_lock" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "right_shift",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "right_shift pressed",
-                                            "value": 1
-                                        }
-                                    },
-                                    { "key_code": "right_shift" }
-                                ],
-                                "to_delayed_action": {
-                                    "to_if_canceled": [
-                                        {
-                                            "set_variable": {
-                                                "name": "right_shift pressed",
-                                                "value": 0
-                                            }
-                                        }
-                                    ],
-                                    "to_if_invoked": [
-                                        {
-                                            "set_variable": {
-                                                "name": "right_shift pressed",
-                                                "value": 0
-                                            }
-                                        }
-                                    ]
-                                },
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Like my DZ60 with QMK",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
-                                        "mandatory": ["left_command", "left_option", "left_control", "left_shift"],
+                                        "mandatory": ["fn"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -94,7 +22,7 @@
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
-                                        "mandatory": ["left_command", "left_option", "left_control", "left_shift"],
+                                        "mandatory": ["fn"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -105,7 +33,7 @@
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
-                                        "mandatory": ["left_command", "left_option", "left_control", "left_shift"],
+                                        "mandatory": ["fn"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -116,7 +44,7 @@
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
-                                        "mandatory": ["left_command", "left_option", "left_control", "left_shift"],
+                                        "mandatory": ["fn"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -127,7 +55,7 @@
                                 "from": {
                                     "key_code": "u",
                                     "modifiers": {
-                                        "mandatory": ["left_command", "left_option", "left_control", "left_shift"],
+                                        "mandatory": ["fn"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -138,7 +66,7 @@
                                 "from": {
                                     "key_code": "d",
                                     "modifiers": {
-                                        "mandatory": ["left_command", "left_option", "left_control", "left_shift"],
+                                        "mandatory": ["fn"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -149,7 +77,7 @@
                                 "from": {
                                     "key_code": "o",
                                     "modifiers": {
-                                        "mandatory": ["left_command", "left_option", "left_control", "left_shift"],
+                                        "mandatory": ["fn"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -160,7 +88,7 @@
                                 "from": {
                                     "key_code": "n",
                                     "modifiers": {
-                                        "mandatory": ["left_command", "left_option", "left_control", "left_shift"],
+                                        "mandatory": ["fn"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -171,7 +99,7 @@
                                 "from": {
                                     "key_code": "escape",
                                     "modifiers": {
-                                        "mandatory": ["left_command", "left_option", "left_control", "left_shift"],
+                                        "mandatory": ["fn"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -182,7 +110,7 @@
                                 "from": {
                                     "key_code": "escape",
                                     "modifiers": {
-                                        "mandatory": ["left_command", "left_option", "left_control", "left_shift"],
+                                        "mandatory": ["shift"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -198,7 +126,7 @@
                                 "from": {
                                     "key_code": "delete_or_backspace",
                                     "modifiers": {
-                                        "mandatory": ["left_command", "left_option", "left_control", "left_shift"],
+                                        "mandatory": ["fn"],
                                         "optional": ["any"]
                                     }
                                 },
@@ -233,6 +161,15 @@
                         "product_id": 591,
                         "vendor_id": 1452
                     },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "caps_lock" },
+                            "to": [{ "apple_vendor_top_case_key_code": "keyboard_fn" }]
+                        }
+                    ]
+                },
+                {
+                    "identifiers": { "is_keyboard": true },
                     "simple_modifications": [
                         {
                             "from": { "key_code": "caps_lock" },

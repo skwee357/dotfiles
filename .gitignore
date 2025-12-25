@@ -1,0 +1,12 @@
+*
+
+!.gitignore
+
+!.config/alacritty/
+!.config/ghostty/
+!.config/karabiner/
+!.config/nvim/
+!.config/opencode/
+!.config/tmux/
+
+!.zshrc

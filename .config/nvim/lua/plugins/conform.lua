@@ -3,19 +3,21 @@ return {
     config = function()
         require("conform").setup({
             formatters_by_ft = {
-                jinja = { "djlint" },
-                -- handlebars = { "prettier" },
+                -- jinja = { "djlint" },
+                handlebars = { "prettierd" },
                 html = { "htmlbeautifier" },
-                mjml = { "prettier" },
-                svelte = { "prettier" },
-                astro = { "prettier" },
-                typescript = { "prettier" },
-                typescriptreact = { "prettier" },
-                javascript = { "prettier" },
+                mjml = { "prettierd" },
+                svelte = { "prettierd" },
+                json = { "prettierd" },
+                -- astro = { "prettierd" },
+                typescript = { "prettierd" },
+                typescriptreact = { "prettierd" },
+                javascript = { "prettierd" },
                 eruby = { "erb_format" },
                 ["eruby.turbo_stream"] = { "erb_format" },
                 typst = { "typstyle" },
-                sql = { "sql_formatter" }
+                sql = { "sql_formatter" },
+                yaml = { "yamlfmt" }
             },
             format_on_save = {
                 timeout_ms = 800,

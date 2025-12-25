@@ -29,7 +29,7 @@ vim.opt.showmode = false
 vim.opt.textwidth = 120
 vim.opt.breakindent = true
 vim.opt.breakindentopt = "shift:2,min:40,sbr"
-vim.opt.colorcolumn = ""
+vim.opt.colorcolumn = "100"
 vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undodir"
 vim.opt.undofile = true
@@ -50,7 +50,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.spelllang = "en"
 vim.opt.showbreak = "↪\\"
 vim.opt.list = true
-vim.opt.listchars = { trail = "⋅", tab = "▸·", nbsp = "␣", extends = "›", precedes = "‹" }
+vim.opt.listchars = { trail = "⋅", tab = "▸ ", nbsp = "␣", extends = "›", precedes = "‹" }
 vim.opt.formatoptions:remove { "t" }
 vim.opt.mouse = ""
 vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
