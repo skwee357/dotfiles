@@ -16,18 +16,11 @@
       "git log": "allow",
       "git diff": "allow",
       "git branch": "allow",
+      "ls *": "allow",
       "*": "ask"
     },
     "webfetch": "deny",
     "doom_loop": "ask",
     "external_directory": "ask"
-  },
-  "agent": {
-    "plan": {
-      "tools": {
-        "todowrite": true,
-        "todoread": true
-      }
-    }
   }
 }

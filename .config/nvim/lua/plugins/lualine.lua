@@ -2,12 +2,11 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = {
         "nvim-tree/nvim-web-devicons",
-        "nvim-prose"
+        "skwee357/nvim-prose"
     },
     config = function()
         -- local c = require("onedark.colors")
         -- local c = require("tokyonight.colors").setup()
-        local prose = require("nvim-prose")
         local lsp = {
             function()
                 local msg = 'No Active Lsp'
@@ -56,11 +55,11 @@ return {
                     },
                 },
                 lualine_x = {
-                    { 'diagnostics',      always_visible = true },
+                    { 'diagnostics',       always_visible = true },
                     lsp,
-                    { prose.word_count,   cond = prose.is_available },
-                    { prose.reading_time, cond = prose.is_available },
-                    { 'filetype',         colored = true,           icon_only = false },
+                    { "prose_word_count" },
+                    { "prose_reading_time" },
+                    { 'filetype',          colored = true,       icon_only = false },
                     'encoding',
                     { 'fileformat', icons_enabled = false } },
                 lualine_y = { 'progress' },
@@ -103,7 +102,7 @@ return {
             tabline = {
                 -- lualine_a = { { "buffers", mode = 2, max_length = vim.o.columns } }
             },
-            extensions = { 'fzf', 'nvim-tree', 'nvim-dap-ui' }
+            extensions = { 'fzf', 'neo-tree', 'nvim-dap-ui', 'trouble' }
         })
     end
 }

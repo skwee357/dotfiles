@@ -7,6 +7,7 @@ return {
                 handlebars = { "prettierd" },
                 html = { "htmlbeautifier" },
                 mjml = { "prettierd" },
+                ['mjml.handlebars'] = { "prettierd" },
                 svelte = { "prettierd" },
                 json = { "prettierd" },
                 -- astro = { "prettierd" },
@@ -17,7 +18,8 @@ return {
                 ["eruby.turbo_stream"] = { "erb_format" },
                 typst = { "typstyle" },
                 sql = { "sql_formatter" },
-                yaml = { "yamlfmt" }
+                yaml = { "yamlfmt" },
+                sh = { "shfmt" }
             },
             format_on_save = {
                 timeout_ms = 800,

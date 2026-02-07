@@ -2,18 +2,21 @@
 return {
     settings = {
         Lua = {
+            runtime = {
+                version = "LuaJIT",
+            },
             diagnostics = {
                 enable = true,
-                globals = { "vim" }
             },
             workspace = {
+                checkThirdParty = false,
                 library = {
                     vim.env.VIMRUNTIME,
-                }
+                },
             },
             telemetry = {
-                enable = false
-            }
+                enable = false,
+            },
         }
     }
 }

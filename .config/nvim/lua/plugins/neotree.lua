@@ -32,11 +32,18 @@ return {
                 filesystem = {
                     filtered_items = {
                         always_show = {
-                            ".gitignore"
+                            ".gitignore",
+                            ".dockerignore",
+                            ".nvmrc",
+                            ".prettierrc",
+                            ".prettierignore",
+                            ".changeset",
+                            ".github",
+                            ".kamal",
                         },
                         always_show_by_pattern = {
                             ".env*",
-                            "PLAN.md"
+                            ".gitlab*"
                         }
                     },
                     follow_current_file = {

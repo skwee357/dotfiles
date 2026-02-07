@@ -1,4 +1,10 @@
 return {
+    init_options = {
+        preferences = {
+            importModuleSpecifier = "relative",
+            importModuleSpecifierPreference = "relative",
+        }
+    },
     settings = {
         typescript = {
             format = {

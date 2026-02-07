@@ -17,6 +17,7 @@ return {
             { "rafamadriz/friendly-snippets" },
             { "crispgm/cmp-beancount" },
             { "onsails/lspkind.nvim" },
+            { "folke/lazydev.nvim" }
         },
 
         -- use a release tag to download pre-built binaries
@@ -115,13 +116,18 @@ return {
             -- Default list of enabled providers defined so that you can extend it
             -- elsewhere in your config, without redefining it, due to `opts_extend`
             sources = {
-                default = { 'lsp', 'path', 'snippets', 'buffer' },
+                default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
 
                 per_filetype = {
                     beancount = { "beancount" }
                 },
 
                 providers = {
+                    lazydev = {
+                        name = "LazyDev",
+                        module = "lazydev.integrations.blink",
+                        score_offset = 100,
+                    },
                     beancount = {
                         name = "beancount",
                         module = 'blink.compat.source',
